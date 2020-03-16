@@ -1,0 +1,22 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+        ["styled-components", { "ssr": true }],
+        ["import", { "libraryName": "antd", "style": true }],
+        [
+            "module-resolver",
+            {
+                "root": ["./"],
+                "alias": {
+                    "@components": "./src/components",
+                    "@constants": "./src/constants",
+                    "@containers": "./src/containers",
+                    "@contexts": "./src/contexts",
+                    "@helpers": "./src/helpersc",
+                    "@hooks": "./src/hooks",
+                    "@screens": "./src/screens"
+                }
+            })
+        ]
+    ]
+}
