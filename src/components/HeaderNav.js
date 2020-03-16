@@ -9,7 +9,7 @@ export default function HeaderNav() {
 
     return (
         <Layout.Header>
-            <Row justify="center" align="middle">
+            <Row align="middle">
                 <Col flex="auto">
                     <Menu
                         theme="dark"

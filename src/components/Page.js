@@ -2,6 +2,7 @@ import Head from "next/head";
 import Router from "next/router";
 import nProgress from "nprogress";
 import { Layout } from "antd";
+import styled from "styled-components";
 
 import HeaderNav from "./HeaderNav";
 
@@ -37,8 +38,13 @@ export default function Page({ title, children }) {
             </Head>
             <Layout>
                 <HeaderNav />
-                {children}
+                <Container>{children}</Container>
             </Layout>
         </>
     );
 }
+
+const Container = styled(Layout.Content)`
+    min-height: calc(100vh - 64px);
+    padding: 15px;
+`;
