@@ -16,7 +16,7 @@
                     "@hooks": "./src/hooks",
                     "@screens": "./src/screens"
                 }
-            })
+            }
         ]
     ]
 }
