@@ -1,10 +1,10 @@
 import { Col, Checkbox, Row, Typography } from "antd";
 
-export default function useCheckbox(title, options, defaultcheckedList) {
+export default function useCheckbox(title, options) {
     const [state, setState] = React.useState({
-        checkedList: defaultcheckedList,
-        indeterminate: defaultcheckedList.length,
-        checkAll: false
+        checkedList: options,
+        indeterminate: false,
+        checkAll: true
     });
 
     const onChange = React.useCallback(checkedList => {
@@ -48,5 +48,5 @@ export default function useCheckbox(title, options, defaultcheckedList) {
         </Col>
     );
 
-    return [Component, state.checkedList];
+    return [Component, state.checkedList, state.checkAll];
 }
