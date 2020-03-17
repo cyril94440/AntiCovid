@@ -30,12 +30,13 @@ const Plan = () => {
         select({filterByFormula: `AND()`})
         */
         AirtableBase("Dispositifs")
-            .select()
+            .select({ view: "Grid view" })
             .firstPage((err, records) => {
                 if (err) console.error(err);
                 else {
-                    setPlans(records);
-                    console.log(records);
+                    const data = records.map(record => record.fields);
+                    setPlans(data);
+                    console.log(data);
                 }
             });
     };
