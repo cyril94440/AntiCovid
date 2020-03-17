@@ -17,17 +17,11 @@ export default function HeaderNav() {
                         defaultSelectedKeys={[router.pathname]}
                     >
                         {NAVLINKS.map(({ href, label }) => (
-                            <Menu.Item
-                                key={href}
-                                onClick={() => router.push(href)}
-                            >
+                            <Menu.Item key={href} onClick={() => router.push(href)}>
                                 {label}
                             </Menu.Item>
                         ))}
                     </Menu>
-                </Col>
-                <Col flex="20px">
-                    <Avatar icon={<UserAddOutlined />} />
                 </Col>
             </Row>
         </Layout.Header>
