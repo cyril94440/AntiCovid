@@ -7,7 +7,7 @@ import aidStore from "@models/aids/aidStore";
 
 import Page from "@components/Page";
 
-const PlanDetail = () => {
+const PlanDetail = ({ recordId }) => {
     const router = useRouter();
 
     return (
@@ -15,7 +15,7 @@ const PlanDetail = () => {
             <Block>
                 <Observer>
                     {() => {
-                        const data = aidStore.getRecordById(router.query.planId);
+                        const data = aidStore.getRecordById(recordId);
 
                         if (!data) return <h1>Attendre</h1>;
 
