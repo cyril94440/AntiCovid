@@ -5,6 +5,14 @@ const withLess = require("@zeit/next-less");
 const lessToJS = require("less-vars-to-js");
 const withPlugins = require("next-compose-plugins");
 
+const nextConfig = {
+    env: {
+        AIRTABLE_API_KEY: process.env.AIRTABLE_API_KEY,
+        AIRTABLE_BASE: process.env.AIRTABLE_BASE,
+        AIRTABLE_ENDPOINT: process.env.AIRTABLE_ENDPOINT
+    }
+};
+
 const themeVariables = lessToJS(
     fs.readFileSync(
         path.resolve(__dirname, "./src/assets/antd-custom.less"),
@@ -42,4 +50,4 @@ const lessWithAntdConfig = {
     }
 };
 
-module.exports = withPlugins([[withLess, lessWithAntdConfig]]);
+module.exports = withPlugins([[withLess, lessWithAntdConfig]], nextConfig);
