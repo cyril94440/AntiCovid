@@ -48,5 +48,5 @@ export default function useCheckbox(title, options) {
         </Col>
     );
 
-    return [Component, state.checkedList, state.checkAll];
+    return [Component, state];
 }

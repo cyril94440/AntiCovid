@@ -10,32 +10,48 @@ import { companiesOptions, regionsOptions } from "./config";
 
 const Plan = () => {
     const [plans, setPlans] = React.useState([]);
-    const [CompaniesOptions, companiesValues, isAllCompanies] = useCheckbox(
+    const [CompaniesOptions, companiesState] = useCheckbox(
         "Type d'entreprise",
         companiesOptions
     );
-    const [RegionsOprions, regionsValues, isAllRegions] = useCheckbox(
+    const [RegionsOprions, regionsState] = useCheckbox(
         "Région",
         regionsOptions
     );
 
     React.useEffect(() => {
-        fetchData();
-    }, [companiesValues, regionsValues]);
+        fetchData(regionsState);
+    }, [regionsState.checkAll]);
 
-    const fetchData = React.useCallback(() => {
-        AirtableBase("Dispositifs")
-            .select({
-                view: "Grid view"
-            })
-            .firstPage((err, records) => {
-                if (err) console.error(err);
-                else {
-                    const data = records.map(record => record.fields);
-                    setPlans(data);
-                }
-            });
-    }, []);
+    const fetchData = React.useCallback(
+        regionsState => {
+            AirtableBase("Dispositifs")
+                .select({
+                    view: "Grid view"
+                })
+                .firstPage((err, records) => {
+                    if (err) console.error(err);
+                    else {
+                        const data = records
+                            .map(record => record.fields)
+                            .filter(record =>
+                                regionsState.checkAll
+                                    ? true
+                                    : !regionsState.indeterminate
+                                    ? false
+                                    : record["Région"]
+                                    ? regionsState.checkedList.includes(
+                                          record["Région"][0]
+                                      )
+                                    : true
+                            );
+                        console.log(data);
+                        setPlans(data);
+                    }
+                });
+        },
+        [regionsState]
+    );
 
     return (
         <Page title="Mes aides">
@@ -44,7 +60,15 @@ const Plan = () => {
                 <RegionsOprions />
                 {plans.map(plan => (
                     <Col span={24} key={plan.ID}>
-                        <Card title={plan["Nom du dispositif"]}>
+                        <Card>
+                            <Row>
+                                <Col span={12}>
+                                    <Typography.Title level={4}>
+                                        {plan["Nom du dispositif"]}
+                                    </Typography.Title>
+                                </Col>
+                                <Col span={12}>Logo</Col>
+                            </Row>
                             <Typography.Paragraph>
                                 Description: {plan.Description}
                             </Typography.Paragraph>
@@ -74,6 +98,18 @@ const Plan = () => {
                                             {plan["Lien d'information"]}
                                         </a>
                                     }
+                                </Typography.Paragraph>
+                            )}
+                            {plan["Action à réaliser"] && (
+                                <Typography.Paragraph>
+                                    Action à réaliser:{" "}
+                                    {plan["Action à réaliser"]}
+                                </Typography.Paragraph>
+                            )}
+                            {plan["Action à réaliser"] && (
+                                <Typography.Paragraph>
+                                    Action à réaliser:{" "}
+                                    {plan["Action à réaliser"]}
                                 </Typography.Paragraph>
                             )}
                         </Card>

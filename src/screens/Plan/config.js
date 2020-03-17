@@ -17,5 +17,6 @@ export const regionsOptions = [
     "DOM",
     "Moriban",
     "Moselle",
-    "Grand Est"
+    "Grand Est",
+    "Bourgogne Franche Comté"
 ];
