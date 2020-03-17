@@ -1,4 +1,4 @@
-import { Row, Col, Typography, Card, Tag } from "antd";
+import { Row, Col, Typography, Card, Tag, Button } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 import { useRouter } from "next/router";
@@ -28,7 +28,7 @@ const PlanDetail = () => {
                 </Observer>
             </Block>
 
-            <Typography.Title level={3}>MES AIDES</Typography.Title>
+            <Button type="link">MES AIDES</Button>
         </Page>
     );
 };

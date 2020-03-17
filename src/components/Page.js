@@ -1,10 +1,27 @@
 import Head from "next/head";
 import { Layout } from "antd";
 import styled from "styled-components";
+import Router from "next/router";
+import NProgress from "nprogress";
 
 import HeaderNav from "./HeaderNav";
 
 export default function Page({ title, children }) {
+    React.useEffect(() => {
+        Router.onRouteChangeStart = () => {
+            NProgress.start();
+        };
+
+        Router.onRouteChangeComplete = () => {
+            NProgress.done();
+        };
+
+        Router.onRouteChangeError = () => {
+            console.error("Erreur lors du changement de page");
+            NProgress.done();
+        };
+    }, []);
+
     return (
         <>
             <Head>
