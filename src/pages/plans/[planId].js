@@ -1,7 +1,3 @@
-import PlanDetail from "@components/PlanDetail";
+import PlanDetail from "@screens/PlanDetail";
 
-const PlanPage = props => <PlanDetail {...props} />;
-
-PlanPage.getInitialProps = async ({ query }) => {
-    return { query };
-};
+export default () => <PlanDetail />;
