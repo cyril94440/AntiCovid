@@ -12,7 +12,7 @@
                     "@constants": "./src/constants",
                     "@containers": "./src/containers",
                     "@contexts": "./src/contexts",
-                    "@helpers": "./src/helpersc",
+                    "@helpers": "./src/helpers",
                     "@hooks": "./src/hooks",
                     "@screens": "./src/screens"
                 }
