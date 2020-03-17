@@ -19,7 +19,9 @@ class AidStore {
     });
 
     getRecordById = computedFn(function getRecord(recordId) {
-        const result = this.aids.find(record => record.ID === recordId);
+        const result = this.aids.find(record => {
+            return record.ID == recordId
+        });
 
         return result;
     });
