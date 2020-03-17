@@ -4,10 +4,7 @@ import { computedFn } from "mobx-utils";
 import { doesPropertyContain } from "../../helpers/airtable";
 
 class AidStore {
-    constructor() {
-        this.loadAids();
-    }
-
+    
     @observable aids = [];
 
     filteredAids = computedFn(function getFilteredAids(companyTypesArray, regionArray) {
@@ -42,4 +39,8 @@ class AidStore {
     }
 }
 
-export default new AidStore();
+
+const store = new AidStore()
+store.loadAids()
+
+export default store;

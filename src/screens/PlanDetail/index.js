@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 import { useRouter } from "next/router";
 
-import aidStore from "../../models/aids/aidStore";
+import aidStore from "@models/aids/aidStore";
 
 import Page from "@components/Page";
 
