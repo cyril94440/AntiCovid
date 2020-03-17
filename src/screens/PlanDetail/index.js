@@ -15,10 +15,15 @@ const PlanDetail = () => {
             <Block>
                 <Observer>
                     {() => {
-                        const data = aidStore.aids;
-                        console.log(data);
+                        const data = aidStore.getRecordById(router.query.planId);
 
-                        return <Typography.Title level={4}>Yes</Typography.Title>;
+                        if (!data) return <h1>Attendre</h1>;
+
+                        return (
+                            <Typography.Title level={4}>
+                                {data["Nom du dispositif"]}
+                            </Typography.Title>
+                        );
                     }}
                 </Observer>
             </Block>
