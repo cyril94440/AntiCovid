@@ -28,7 +28,7 @@ const Plan = () => {
                 <CompaniesOptions />
                 <RegionsOprions />
                 <Observer>
-                {() => aidStore.aids.map(plan => (
+                {() => aidStore.filteredAids(["freelance",""],["Hauts de France","Toutes",""]).map(plan => (
                     <Col span={24} key={plan.ID}>
                         <Card title={plan["Nom du dispositif"]}>
                             <Typography.Paragraph>
