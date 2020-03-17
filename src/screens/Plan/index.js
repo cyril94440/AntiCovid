@@ -10,23 +10,33 @@ import { companiesOptions, regionsOptions } from "./config";
 
 const Plan = () => {
     const [plans, setPlans] = React.useState([]);
-    const [CompaniesOptions] = useCheckbox(
+    const [CompaniesOptions, companiesValues] = useCheckbox(
         "Type d'entreprise",
         companiesOptions,
         []
     );
-    const [RegionsOprions] = useCheckbox("Région", regionsOptions, []);
+    const [RegionsOprions, regionsValues] = useCheckbox(
+        "Région",
+        regionsOptions,
+        []
+    );
 
     React.useEffect(() => {
         fetchData();
-    }, []);
+    }, [companiesValues, regionsValues]);
 
     const fetchData = () => {
+        /*
+        select({filterByFormula: `AND()`})
+        */
         AirtableBase("Dispositifs")
             .select()
             .firstPage((err, records) => {
                 if (err) console.error(err);
-                else console.log(records);
+                else {
+                    setPlans(records);
+                    console.log(records);
+                }
             });
     };
 
