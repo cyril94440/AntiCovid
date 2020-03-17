@@ -1,4 +1,4 @@
-import { Row, Col, Typography } from "antd";
+import { Row, Col, Typography, Card, Tag } from "antd";
 
 import AirtableBase from "@helpers/airtable";
 
@@ -46,6 +46,43 @@ const Plan = () => {
             <Row gutter={[25, 25]}>
                 <CompaniesOptions />
                 <RegionsOprions />
+                {plans.map(plan => (
+                    <Col span={24} key={plan.ID}>
+                        <Card title={plan["Nom du dispositif"]}>
+                            <Typography.Paragraph>
+                                Description: {plan.Description}
+                            </Typography.Paragraph>
+                            <Typography.Paragraph>
+                                Région: {plan["Région"] || "Toutes"}
+                            </Typography.Paragraph>
+                            <Typography.Paragraph>
+                                Entreprises:{" "}
+                                {plan["Type entreprise"] ? (
+                                    plan["Type entreprise"].map(company => (
+                                        <Tag key={company} color="volcano">
+                                            {company}
+                                        </Tag>
+                                    ))
+                                ) : (
+                                    <Tag color="geekblue">Toutes</Tag>
+                                )}
+                            </Typography.Paragraph>
+                            {plan["Lien d'information"] && (
+                                <Typography.Paragraph>
+                                    Lien:{" "}
+                                    {
+                                        <a
+                                            href={plan["Lien d'information"]}
+                                            target="_blank"
+                                        >
+                                            {plan["Lien d'information"]}
+                                        </a>
+                                    }
+                                </Typography.Paragraph>
+                            )}
+                        </Card>
+                    </Col>
+                ))}
             </Row>
         </Page>
     );
