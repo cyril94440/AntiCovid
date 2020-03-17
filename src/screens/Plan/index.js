@@ -8,6 +8,9 @@ import Page from "@components/Page";
 
 import { companiesOptions, regionsOptions } from "./config";
 
+import aidStore from "../../models/aids/aidStore"
+import {Observer} from "mobx-react-lite"
+
 const Plan = () => {
     const [plans, setPlans] = React.useState([]);
     const [CompaniesOptions, companiesValues, isAllCompanies] = useCheckbox(
@@ -19,30 +22,13 @@ const Plan = () => {
         regionsOptions
     );
 
-    React.useEffect(() => {
-        fetchData();
-    }, [companiesValues, regionsValues]);
-
-    const fetchData = React.useCallback(() => {
-        AirtableBase("Dispositifs")
-            .select({
-                view: "Grid view"
-            })
-            .firstPage((err, records) => {
-                if (err) console.error(err);
-                else {
-                    const data = records.map(record => record.fields);
-                    setPlans(data);
-                }
-            });
-    }, []);
-
     return (
         <Page title="Mes aides">
             <Row gutter={[25, 25]}>
                 <CompaniesOptions />
                 <RegionsOprions />
-                {plans.map(plan => (
+                <Observer>
+                {() => aidStore.aids.map(plan => (
                     <Col span={24} key={plan.ID}>
                         <Card title={plan["Nom du dispositif"]}>
                             <Typography.Paragraph>
@@ -79,6 +65,7 @@ const Plan = () => {
                         </Card>
                     </Col>
                 ))}
+                </Observer>
             </Row>
         </Page>
     );
