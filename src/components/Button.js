@@ -8,8 +8,7 @@ const Button = styled.button`
     background-color: ${PRIMARY};
     border-radius: 18px;
     font-size: 16px;
-    height: 35px;
-    line-height: 35px;
+    height: 32px;
     border: none;
     text-align: center;
     outline: none;
@@ -35,6 +34,14 @@ const Button = styled.button`
 
     &.form {
         width: 400px;
+    }
+
+    &.planCard {
+        background-color: #3C8476;
+        font-weight:700;
+        font-size:14px;
+        line-height:14px;
+        padding: 0 70px;
     }
 `;
 
