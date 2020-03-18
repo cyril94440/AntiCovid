@@ -1,20 +1,19 @@
+import styled from "styled-components";
+import { SECONDARY } from "../constants/style";
 
-
-export default function Logo() {
-
-    return (<div>
+const Logo = () => (
+    <Wrapper>
         AntiCovid<span id="point">.</span>
-        <style jsx>{`
-            div{
-                color:#233C44;
-                font-family:"Montserrat";
-                font-weight:900;
-                font-size:65px;
-            }
-            
-            #point{
-                color:#ed9d5d;
-            }
-        `}</style>
-    </div>)
-}
+    </Wrapper>
+);
+
+const Wrapper = styled.div`
+    font-weight: 900;
+    font-size: 65px;
+
+    #point {
+        color: ${SECONDARY};
+    }
+`;
+
+export default Logo;

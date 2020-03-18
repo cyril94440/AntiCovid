@@ -1,29 +1,26 @@
-import { Row, Col, Card, Form, Input, Button, Upload } from "antd";
+import { Row, Col } from "antd";
 
 import Page from "@components/Page";
+import Button from "@components/Button";
+import ContactForm from "./Form";
 
-const Contact = props => (
+const Contact = () => (
     <Page title="Contact">
-        <Row>
+        <Row justify="center">
             <Col span={12}>
-                <Card>
-                    <Form name="contact-form">
-                        <Form.Item name="email">
-                            <Input placeholder="Votre email" />
-                        </Form.Item>
-                        <Form.Item name="message">
-                            <Input.TextArea placeholder="Votre message" />
-                        </Form.Item>
-                        <Form.Item name="upload" valuePropName="fileList">
-                            <Upload name="logo" action="/upload.do" listType="picture">
-                                <Button>Pièce jointe</Button>
-                            </Upload>
-                        </Form.Item>
-                        <Form.Item>
-                            <Button htmlType="submit">Envoyer</Button>
-                        </Form.Item>
-                    </Form>
-                </Card>
+                <Row>
+                    <Col span={24}>
+                        <h2>Contact</h2>
+                    </Col>
+                    <Col span={24}>
+                        <ContactForm />
+                    </Col>
+                    <Col span={24}>
+                        <Button className="orange plan">
+                            Soumetttre un dispositif non référencé
+                        </Button>
+                    </Col>
+                </Row>
             </Col>
         </Row>
     </Page>

@@ -18,9 +18,23 @@ const Button = styled.button`
         outline: none;
     }
 
-    &.contact {
+    &.orange {
         background-color: ${SECONDARY};
-        padding: 0 50px;
+    }
+
+    &.contact {
+        padding: 0 30px;
+    }
+
+    &.plan {
+        padding: 10px 100px;
+        width: 400px;
+        height: auto;
+        line-height: 20px;
+    }
+
+    &.form {
+        width: 400px;
     }
 `;
 

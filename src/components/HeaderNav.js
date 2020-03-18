@@ -1,19 +1,25 @@
-import { Row, Col } from "antd";
+import { Layout, Row, Col } from "antd";
 
 import { useRouter } from "next/router";
 
 import { NAVLINKS } from "@constants/routes";
 import Logo from "./Logo";
 import Button from "./Button";
+import { CONTACT } from "../constants/routes";
 
 export default function HeaderNav() {
     const router = useRouter();
 
     return (
-        <div>
+        <header>
             <Row align="middle">
                 <Col flex="1" style={{ textAlign: "center" }}>
-                    <Button className="contact">Contact</Button>
+                    <Button
+                        className="orange contact"
+                        onClick={() => router.push(CONTACT)}
+                    >
+                        Contact
+                    </Button>
                 </Col>
                 <Col flex="1" style={{ textAlign: "center" }}>
                     <Logo />
@@ -37,24 +43,6 @@ export default function HeaderNav() {
                     cursor: pointer;
                 }
             `}</style>
-        </div>
-
-        // <Layout.Header>
-        //     <Row align="middle">
-        //         <Col flex="auto">
-        //             <Menu
-        //                 theme="dark"
-        //                 mode="horizontal"
-        //                 defaultSelectedKeys={[router.pathname]}
-        //             >
-        //                 {NAVLINKS.map(({ href, label }) => (
-        //                     <Menu.Item key={href} onClick={() => router.push(href)}>
-        //                         {label}
-        //                     </Menu.Item>
-        //                 ))}
-        //             </Menu>
-        //         </Col>
-        //     </Row>
-        // </Layout.Header>
+        </header>
     );
 }

@@ -26,8 +26,14 @@ export default function Page({ title, children }) {
         <>
             <Head>
                 <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap" rel="stylesheet"/>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap"
+                    rel="stylesheet"
+                />
                 <title>{title}</title>
             </Head>
             <Layout>
