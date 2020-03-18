@@ -5,8 +5,8 @@ export const BLOG = "/blog";
 export const CONTACT = "/contact";
 
 export const NAVLINKS = [
-    { href: HOME, label: "Accueil" },
-    { href: PLANS, label: "Mes aides" },
-    { href: BLOG, label: "Blog" },
-    { href: CONTACT, label: "Contact" }
+    { href: HOME, label: "ACCUEIL" },
+    { href: PLANS, label: "MES AIDES" },
+    { href: BLOG, label: "BLOG" }
+    // { href: CONTACT, label: "Contact" }
 ];

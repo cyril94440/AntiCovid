@@ -3,6 +3,13 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Montserrat', sans-serif;
+        color:#233C44;
+    }
+    a {
+        color:#233C44;
+    }
+    a:hover{
+        color:#ed9d5d;
     }
 
     /* NProgress */
