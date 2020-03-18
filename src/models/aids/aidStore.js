@@ -24,7 +24,7 @@ class AidStore {
     });
 
     @action loadAids() {
-        AirtableBase("Dispositifs")
+        AirtableBase("Dispositif_VF")
             .select({
                 view: "Grid view"
             })
