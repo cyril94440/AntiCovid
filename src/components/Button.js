@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { PRIMARY, SECONDARY } from "../constants/style";
+import { BLUE, ORANGE } from "../constants/style";
 
 const Button = styled.button`
     color: white;
     cursor: pointer;
     font-weight: 500;
-    background-color: ${PRIMARY};
+    background-color: ${BLUE};
     border-radius: 18px;
     font-size: 16px;
     height: 32px;
@@ -18,7 +18,7 @@ const Button = styled.button`
     }
 
     &.orange {
-        background-color: ${SECONDARY};
+        background-color: ${ORANGE};
     }
 
     &.contact {
@@ -37,10 +37,10 @@ const Button = styled.button`
     }
 
     &.planCard {
-        background-color: #3C8476;
-        font-weight:700;
-        font-size:14px;
-        line-height:14px;
+        background-color: #3c8476;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 14px;
         padding: 0 70px;
     }
 `;

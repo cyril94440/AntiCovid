@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SECONDARY } from "../constants/style";
+import { ORANGE } from "../constants/style";
 
 const Logo = () => (
     <Wrapper>
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     font-size: 65px;
 
     #point {
-        color: ${SECONDARY};
+        color: ${ORANGE};
     }
 `;
 

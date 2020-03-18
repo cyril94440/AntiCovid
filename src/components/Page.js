@@ -5,6 +5,7 @@ import Router from "next/router";
 import NProgress from "nprogress";
 
 import HeaderNav from "./HeaderNav";
+import { BLUE } from "../constants/style";
 
 export default function Page({ title, children }) {
     React.useEffect(() => {
@@ -47,4 +48,5 @@ export default function Page({ title, children }) {
 const Container = styled(Layout.Content)`
     min-height: calc(100vh - 64px);
     padding: 15px;
+    color: ${BLUE};
 `;

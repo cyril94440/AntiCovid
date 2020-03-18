@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Card, Form, Input, Upload } from "antd";
 
-import { PRIMARY } from "@constants/style";
+import { BLUE } from "@constants/style";
 
 import Button from "@components/Button";
 
@@ -44,7 +44,7 @@ const Block = styled(Card)`
 `;
 
 const StyledInput = styled(Input)`
-    color: ${PRIMARY};
+    color: ${BLUE};
 `;
 
 const ButtonsContainer = styled.div`
