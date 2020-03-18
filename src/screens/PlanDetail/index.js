@@ -8,16 +8,10 @@ import aidStore from "@models/aids/aidStore";
 import Page from "@components/Page";
 
 import Disqus from 'disqus-react';
+import { disqusShortname, getDisqusConfig } from "../../helpers/disqus";
 
 const PlanDetail = ({ recordId }) => {
     const router = useRouter();
-
-    const disqusShortname = 'AntiCovid';
-    const disqusConfig = {
-        url: `http://AntiCovid/plans/${recordId}`,
-        identifier: recordId,
-        title: recordId
-    };
 
     return (
         <Page title="detail">
@@ -36,7 +30,7 @@ const PlanDetail = ({ recordId }) => {
                     }}
                 </Observer>
                 
-                <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+                <Disqus.DiscussionEmbed shortname={disqusShortname} config={getDisqusConfig(recordId)} />
 
             </Block>
 

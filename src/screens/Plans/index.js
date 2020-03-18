@@ -6,6 +6,7 @@ import aidStore from "@models/aids/aidStore";
 import { Observer } from "mobx-react-lite";
 import { useRouter } from "next/router";
 import { PLAN_HREF, PLANS } from "@constants/routes";
+import PlanCard from "../../components/PlanCard";
 
 const accordionData = [
     { title: "Forme de société" },
@@ -44,22 +45,7 @@ const Plans = () => {
                     {() =>
                         aidStore.filteredAids([""], ["Toutes", ""]).map(plan => (
                             <Col span={24} key={plan.ID}>
-                                <Card>
-                                    <Typography.Title level={4}>
-                                        {plan["Nom du dispositif"]}
-                                    </Typography.Title>
-                                    <Rate defaultValue={plan["Score"] || 0} />
-                                    <Typography.Paragraph>
-                                        Description: {plan.Description}
-                                    </Typography.Paragraph>
-                                    <Button
-                                        onClick={() => {
-                                            router.push(PLAN_HREF, PLANS + "/" + plan.ID);
-                                        }}
-                                    >
-                                        En savoir plus
-                                    </Button>
-                                </Card>
+                                <PlanCard name={plan["Nom du dispositif"]} description={plan.Description} planId={plan.ID} />
                             </Col>
                         ))
                     }
