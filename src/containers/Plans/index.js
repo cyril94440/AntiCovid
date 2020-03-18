@@ -1,6 +1,6 @@
 import AirtableBase from "@helpers/airtable";
 
-import useCheckbox from "@hooks/useCheckBox";
+import useCheckbox from "@hooks/useCheckbox";
 
 import { companiesOptions, regionsOptions } from "./config";
 
