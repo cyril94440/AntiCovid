@@ -6,16 +6,16 @@ import ContactForm from "./Form";
 
 const Contact = () => (
     <Page title="Contact">
-        <Row justify="center">
-            <Col span={12}>
-                <Row>
+        <Row justify="center" align="middle">
+            <Col sm={24} md={18} lg={12}>
+                <Row gutter={[25, 25]}>
                     <Col span={24}>
-                        <h2>Contact</h2>
+                        <h3>Contact</h3>
                     </Col>
                     <Col span={24}>
                         <ContactForm />
                     </Col>
-                    <Col span={24}>
+                    <Col span={24} style={{ textAlign: "center" }}>
                         <Button className="orange plan">
                             Soumetttre un dispositif non référencé
                         </Button>

@@ -1,48 +1,58 @@
-import { Layout, Row, Col } from "antd";
-
+import styled from "styled-components";
+import { Row, Col } from "antd";
 import { useRouter } from "next/router";
 
-import { NAVLINKS } from "@constants/routes";
+import { NAVLINKS, CONTACT } from "@constants/routes";
+
 import Logo from "./Logo";
 import Button from "./Button";
-import { CONTACT } from "../constants/routes";
 
 export default function HeaderNav() {
     const router = useRouter();
 
     return (
-        <header>
-            <Row align="middle">
-                <Col flex="1" style={{ textAlign: "center" }}>
-                    <Button
-                        className="orange contact"
-                        onClick={() => router.push(CONTACT)}
-                    >
-                        Contact
-                    </Button>
-                </Col>
-                <Col flex="1" style={{ textAlign: "center" }}>
+        <Container>
+            <Row justify="space-between" align="middle">
+                <Col md={12} sm={24}>
                     <Logo />
                 </Col>
-                <Col flex="1" style={{ textAlign: "center" }}>
-                    <Row align="middle">
+                <Col>
+                    <Row justify="end" align="middle">
                         {NAVLINKS.map(({ href, label }) => (
-                            <Col>
-                                <a key={href} onClick={() => router.push(href)}>
+                            <Col key={href} span={6}>
+                                <Link key={href} onClick={() => router.push(href)}>
                                     {label}
-                                </a>
+                                </Link>
                             </Col>
                         ))}
-                        <Col flex="auto"></Col>
+                        <Col span={6}>
+                            <Button
+                                className="orange contact"
+                                onClick={() => router.push(CONTACT)}
+                            >
+                                Contact
+                            </Button>
+                        </Col>
                     </Row>
                 </Col>
             </Row>
-            <style jsx>{`
-                a {
-                    font-size: 16px;
-                    cursor: pointer;
-                }
-            `}</style>
-        </header>
+        </Container>
     );
 }
+
+const Container = styled.header`
+    padding: 0 50px;
+
+    @media only screen and (max-width: 820px) {
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 576px) {
+        /* display: none; */
+    }
+`;
+
+const Link = styled.a`
+    font-size: 16px;
+    cursor: pointer;
+`;

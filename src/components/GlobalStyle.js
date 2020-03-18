@@ -5,10 +5,34 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: ${FONT_FAMILY};
         color:${BLUE};
+      
+
     }
+
+    h1 {
+        font-size: 45px;
+        line-height: 27px;
+    }
+
+    h2 {
+        font-size: 30px;
+        line-height: 27px;
+    }
+
+    h3 {
+        font-size: 23px;
+        line-height: 27px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 27px;
+    }
+
     a {
         color:${BLUE};
     }
+
     a:hover{
         color:${ORANGE};
     }

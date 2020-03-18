@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Form, Input, Upload } from "antd";
+import { Card, Form, Input, Upload, Row, Col } from "antd";
 
 import { BLUE } from "@constants/style";
 
@@ -10,27 +10,34 @@ export default function ContactForm() {
         <Block>
             <Form>
                 <Form.Item name="email">
-                    <StyledInput placeholder="Votre email" />
+                    <Input placeholder="Votre email" style={inputStyle} />
                 </Form.Item>
                 <Form.Item name="message">
-                    <StyledInput.TextArea placeholder="Votre message" />
+                    <Input.TextArea
+                        style={inputStyle}
+                        autoSize={{ minRows: 6 }}
+                        placeholder="Votre message"
+                    />
                 </Form.Item>
-                <ButtonsContainer>
-                    <Form.Item name="upload">
-                        <Upload
-                            name="logo"
-                            action="/upload.do"
-                            listType="picture"
-                        >
-                            <Button className="form" valuePropName="fileList">
-                                Pièce jointe
+
+                <Row gutter={[15, 15]} align="middle">
+                    <Col xs={24} sm={24} md={12}>
+                        <Form.Item name="upload">
+                            <Upload name="logo" action="/upload.do" listType="picture">
+                                <Button className="form upload" valuePropName="fileList">
+                                    Pièce jointe
+                                </Button>
+                            </Upload>
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24} sm={24} md={12}>
+                        <Form.Item>
+                            <Button type="submit" className="form">
+                                Envoyer
                             </Button>
-                        </Upload>
-                    </Form.Item>
-                    <Form.Item>
-                        <Button className="form">Envoyer</Button>
-                    </Form.Item>
-                </ButtonsContainer>
+                        </Form.Item>
+                    </Col>
+                </Row>
             </Form>
         </Block>
     );
@@ -39,15 +46,12 @@ export default function ContactForm() {
 const Block = styled(Card)`
     border-radius: 25px;
     .ant-card-body {
-        padding: 25px 45px;
+        padding: 35px 45px 5px 45px;
     }
 `;
 
-const StyledInput = styled(Input)`
-    color: ${BLUE};
-`;
-
-const ButtonsContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-`;
+const inputStyle = {
+    color: `${BLUE}`,
+    backgroundColor: "#f0f2f5",
+    border: "none"
+};
