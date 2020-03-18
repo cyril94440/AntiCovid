@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Typography } from "antd";
+
 import Button from "./Button";
 import { ORANGE } from "../constants/style";
 import { PLAN_HREF, PLANS } from "../constants/routes";
@@ -54,8 +56,12 @@ export default function PlanCard({ name, description, planId }) {
         <StyledPlanCard>
             <Header>{name}</Header>
             <Container>
-                {description}
-                <DotSeparator>. . .</DotSeparator>
+                <Typography.Paragraph
+                    style={{ minHeight: 141 }}
+                    ellipsis={{ rows: 6 }}
+                >
+                    {description}
+                </Typography.Paragraph>
                 <CommentDiv>
                     <img src="/commentBubble.png" />
                     <Disqus.CommentCount
