@@ -1,15 +1,16 @@
 import { createGlobalStyle } from "styled-components";
+import { PRIMARY, SECONDARY, FONT_FAMILY } from "../constants/style";
 
 const GlobalStyle = createGlobalStyle`
     body {
-        font-family: 'Montserrat', sans-serif;
-        color:#233C44;
+        font-family: ${FONT_FAMILY};
+        color:${PRIMARY};
     }
     a {
-        color:#233C44;
+        color:${PRIMARY};
     }
     a:hover{
-        color:#ed9d5d;
+        color:${SECONDARY};
     }
 
     /* NProgress */
@@ -18,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
         pointer-events: none;
 
         .bar {
-            background: blue;
+            background: ${PRIMARY};
             position: fixed;
             z-index: 1031;
             top: 0;
@@ -33,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
             right: 0;
             width: 100px;
             height: 100%;
-            box-shadow: 0 0 10px blue, 0 0 5px blue;
+            box-shadow: 0 0 10px ${PRIMARY}, 0 0 5px ${PRIMARY};
             opacity: 1;
             -webkit-transform: rotate(3deg) translate(0px, -4px);
             -ms-transform: rotate(3deg) translate(0px, -4px);
@@ -53,8 +54,8 @@ const GlobalStyle = createGlobalStyle`
             height: 18px;
             box-sizing: border-box;
             border: solid 2px transparent;
-            border-top-color: blue;
-            border-left-color: blue;
+            border-top-color: ${PRIMARY};
+            border-left-color: ${PRIMARY};
             border-radius: 50%;
             -webkit-animation: nprogress-spinner 400ms linear infinite;
             animation: nprogress-spinner 400ms linear infinite;

@@ -1,36 +1,42 @@
-import { Layout, Row, Col, Menu, Avatar } from "antd";
-import { UserAddOutlined } from "@ant-design/icons";
+import { Row, Col } from "antd";
+
 import { useRouter } from "next/router";
 
 import { NAVLINKS } from "@constants/routes";
 import Logo from "./Logo";
-import OrangeButton from "./OrangeButton";
+import Button from "./Button";
 
 export default function HeaderNav() {
     const router = useRouter();
 
     return (
-
         <div>
             <Row align="middle">
-                <Col flex="1" style={{textAlign:"center"}}><OrangeButton /></Col>
-                <Col flex="1" style={{textAlign:"center"}}><Logo /></Col>
-                <Col flex="1" style={{textAlign:"center"}}>
+                <Col flex="1" style={{ textAlign: "center" }}>
+                    <Button className="contact">Contact</Button>
+                </Col>
+                <Col flex="1" style={{ textAlign: "center" }}>
+                    <Logo />
+                </Col>
+                <Col flex="1" style={{ textAlign: "center" }}>
                     <Row align="middle">
-                    {NAVLINKS.map(({ href, label }) => (
+                        {NAVLINKS.map(({ href, label }) => (
                             <Col>
-                                <a key={href} onClick={() => router.push(href)}>{label}</a>
+                                <a key={href} onClick={() => router.push(href)}>
+                                    {label}
+                                </a>
                             </Col>
                         ))}
-                    <Col flex="auto"></Col>
+                        <Col flex="auto"></Col>
                     </Row>
                 </Col>
             </Row>
             <style jsx>{`
-           a{
-               font-size:16px;
-           }
-        `}</style>
+                a {
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            `}</style>
         </div>
 
         // <Layout.Header>
