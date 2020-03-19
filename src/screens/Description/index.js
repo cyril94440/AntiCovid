@@ -1,12 +1,8 @@
-import { Row, Col, Typography, Card, Tag, Spin } from "antd";
-import styled from "styled-components";
-import { Observer } from "mobx-react-lite";
-import { useRouter } from "next/router";
 import { Row, Col } from "antd";
 
 import Page from "@components/Page";
 
-import DescriptionCard from "./DescriptionCard";
+import DescriptionCard from "./Card";
 
 const Description = props => (
     <Page title="Description">
