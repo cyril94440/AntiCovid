@@ -1,3 +1,3 @@
-import PlansContainer from "@containers/Plans";
+import Plans from "@screens/Plans";
 
-export default () => <PlansContainer />;
+export default () => <Plans />;
