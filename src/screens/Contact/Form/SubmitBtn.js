@@ -1,13 +1,13 @@
 import { Form, Col } from "antd";
 
-import Button from "@components/Button";
+import BaseButton from "@components/Button";
 
 const ContactSubmitBtn = () => (
     <Col span={24}>
         <Form.Item>
-            <Button type="submit" className="form">
+            <BaseButton type="submit" className="form bg-green">
                 Envoyer
-            </Button>
+            </BaseButton>
         </Form.Item>
     </Col>
 );

@@ -2,27 +2,32 @@ import { Form, Input } from "antd";
 
 import { BLUE } from "@constants/style";
 
+const inputs = [
+    {
+        name: "email",
+        rules: [
+            { required: true, message: "Ce champ est requis !" },
+            { type: "email", message: "Ce champ n'est pas valide !" }
+        ],
+        placeholder: "Votre email",
+        Component: Input
+    },
+    {
+        name: "message",
+        rules: [{ required: true, message: "Ce champ est requis !" }],
+        placeholder: "Votre message",
+        Component: Input.TextArea,
+        autoSize: { minRows: 6 }
+    }
+];
+
 const ContactInputs = () => (
     <>
-        <Form.Item
-            name="email"
-            rules={[
-                { required: true, message: "Ce champ est requis !" },
-                { type: "email", message: "Ce champ n'est pas valide !" }
-            ]}
-        >
-            <Input placeholder="Votre email" style={inputStyle} />
-        </Form.Item>
-        <Form.Item
-            name="message"
-            rules={[{ required: true, message: "Ce champ est requis !" }]}
-        >
-            <Input.TextArea
-                style={inputStyle}
-                autoSize={{ minRows: 6 }}
-                placeholder="Votre message"
-            />
-        </Form.Item>
+        {inputs.map(({ name, rules, Component, placeholder, ...inputProps }) => (
+            <Form.Item key={name} name={name} rules={rules}>
+                <Component placeholder={placeholder} style={inputStyle} {...inputProps} />
+            </Form.Item>
+        ))}
     </>
 );
 

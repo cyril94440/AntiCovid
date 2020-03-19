@@ -1,8 +1,9 @@
 import { Row, Col } from "antd";
 
 import Page from "@components/Page";
-import Button from "@components/Button";
+
 import ContactForm from "./Form";
+import NewPlanButton from "@components/NewPlanButton";
 
 const Contact = () => (
     <Page title="Contact">
@@ -10,15 +11,13 @@ const Contact = () => (
             <Col sm={24} md={18} lg={12}>
                 <Row gutter={[25, 25]}>
                     <Col span={24}>
-                        <h3>Contact</h3>
+                        <h3 style={{ color: "white" }}>Contact</h3>
                     </Col>
                     <Col span={24}>
                         <ContactForm />
                     </Col>
-                    <Col span={24} style={{ textAlign: "center" }}>
-                        <Button className="orange plan">
-                            Soumetttre un dispositif non référencé
-                        </Button>
+                    <Col span={24} className="text-center">
+                        <NewPlanButton />
                     </Col>
                 </Row>
             </Col>

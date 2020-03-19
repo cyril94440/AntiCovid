@@ -5,11 +5,11 @@ import { GREEN } from "@constants/style";
 const BaseButton = styled.button`
     color: white;
     cursor: pointer;
-    font-weight: medium;
+    font-weight: 700;
     border-radius: 18px;
-    font-size: 13px;
-    height: 26px;
-    line-height: 15px;
+    font-size: 17px;
+    height: 29px;
+    line-height: 19px;
     border: none;
     text-align: center;
     outline: none;
@@ -18,25 +18,8 @@ const BaseButton = styled.button`
         outline: none;
     }
 
-    &.plan {
-        padding: 10px 100px;
-        width: 425px;
-        height: auto;
-        line-height: 20px;
-        font-weight: 700;
-    }
-
     &.form {
         width: 100%;
-    }
-
-    &.upload {
-        background-color: ${GREEN};
-        position: absolute;
-
-        @media only screen and (min-width: 768px) {
-            margin-top: -20px;
-        }
     }
 
     &.planCard {

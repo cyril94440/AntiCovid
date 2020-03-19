@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Card, Form, Upload, Row, Col } from "antd";
+import { Form, Row } from "antd";
 
-import Button from "@components/Button";
+import BaseCard from "@components/Card";
 
 import ContactInputs from "./Inputs";
 import ContactSubmitBtn from "./SubmitBtn";
@@ -25,9 +25,6 @@ export default function ContactForm() {
     );
 }
 
-const Block = styled(Card)`
-    border-radius: 25px;
-    .ant-card-body {
-        padding: 35px 45px 5px 45px;
-    }
+const Block = styled(BaseCard)`
+    padding: 35px 45px 5px 45px;
 `;

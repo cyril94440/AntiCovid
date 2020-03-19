@@ -1,6 +1,7 @@
 import { Form, Upload, Col } from "antd";
+import styled from "styled-components";
 
-import Button from "@components/Button";
+import BaseButton from "@components/Button";
 
 const ContactUploadBtn = () => {
     const normFile = e => {
@@ -17,13 +18,21 @@ const ContactUploadBtn = () => {
         <Col span={24}>
             <Form.Item name="upload" valuePropName="fileList" getValueFromEvent={normFile}>
                 <Upload name="files" action="/api/upload" method="post">
-                    <Button type="button" className="form upload">
+                    <Wrapper type="button" className="form bg-blue">
                         Pièce jointe
-                    </Button>
+                    </Wrapper>
                 </Upload>
             </Form.Item>
         </Col>
     );
 };
+
+const Wrapper = styled(BaseButton)`
+    position: absolute;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: -20px;
+    }
+`;
 
 export default ContactUploadBtn;
