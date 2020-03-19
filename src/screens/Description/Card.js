@@ -19,8 +19,6 @@ const DescriptionCard = ({ recordId }) => (
 
                 if (!data) return <Spin />;
 
-                console.log(data["Documents à télécharger"][0]);
-
                 return (
                     <Block>
                         <Header>{data["Nom du dispositif"]}</Header>

@@ -16,6 +16,7 @@ export function doesPropertyContain(propertyArray,allowedValuesArray){
         }
         return false
     }
+    return true
     return allowedValuesArray.indexOf("") !== -1
 }
 
