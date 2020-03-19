@@ -11,7 +11,13 @@ import { BLUE, GREEN } from "@constants/style";
 
 import Button from "@components/Button";
 
-const DescriptionCard = ({ recordId }) => (
+import useWindowSize from "@hooks/useWindowSize"
+
+const DescriptionCard = ({ recordId }) => {
+
+    const size = useWindowSize();
+
+      return (
     <Col span={24}>
         <Observer>
             {() => {
@@ -20,7 +26,7 @@ const DescriptionCard = ({ recordId }) => (
                 if (!data) return <Spin />;
 
                 return (
-                    <Block>
+                    <Block style={{height:size.height-150}}>
                         <Header>{data["Nom du dispositif"]}</Header>
                         <Container>
                             <p>{data["Description"]}</p>
@@ -95,14 +101,21 @@ const DescriptionCard = ({ recordId }) => (
             }}
         </Observer>
     </Col>
-);
+    )
+        };
 
 const Block = styled(Card)`
     border-radius: 10px !important;
+    border:0;
+    overflow:scroll;
 
     .ant-card-body {
         padding: 0;
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+      }
 `;
 
 const Header = styled.div`
