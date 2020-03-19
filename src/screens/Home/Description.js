@@ -2,11 +2,12 @@ import { Row, Col, Card } from "antd";
 import styled from "styled-components";
 
 import { BLUE } from "@constants/style";
-import BaseCard from "../../components/Card";
+import BaseCard from "@components/Card";
 
 const data = [
-    { text: "Un Blog pour rester informé(e) et faire les bons choix", icon: "/blogImg.png" },
     { text: "Un accompagnement pour trouver les aides adéquates", icon: "/community.png" }
+    { text: "Un Blog pour rester informé(e) et faire les bons choix", icon: "/blogImg.png" },
+    
 ];
 
 const HomeDescription = () => (
