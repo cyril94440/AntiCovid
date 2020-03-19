@@ -12,8 +12,6 @@ const accordionData = [
         key: "localization",
         Icon: EnvironmentFilled,
         data: [
-            "France",
-            "France Métropolitaine",
             "DOM",
             "Auvergne - Rhônes - Alpes",
             "Hauts de France",
