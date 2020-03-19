@@ -9,7 +9,7 @@ import { PLAN_HREF, PLANS } from "../constants/routes";
 import { disqusShortname, getDisqusConfig } from "../helpers/disqus";
 
 const StyledPlanCard = styled.div`
-    border-radius: 10px;
+    border-radius: 18px;
     overflow: hidden;
     background-color: white;
 `;
@@ -64,7 +64,7 @@ export default function PlanCard({ name, description, planId }) {
                 </CommentDiv>
                 <div className="text-center">
                     <PlanButton
-                        className="bg-blue"
+                        className="bg-green"
                         onClick={() => {
                             router.push(PLAN_HREF, PLANS + "/" + planId);
                         }}

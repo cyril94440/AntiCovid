@@ -1,6 +1,9 @@
-import { Col, Typography, Card, Collapse, Radio } from "antd";
+import { Col, Typography, Collapse, Radio } from "antd";
 import { EnvironmentFilled } from "@ant-design/icons";
 import styled from "styled-components";
+
+import BaseCard from "@components/Card";
+import NewPlanButton from "@components/NewPlanButton";
 
 const accordionData = [
     /*{ title: "Forme de société" },
@@ -55,15 +58,15 @@ const PlansFilters = ({ filters, setFilters }) => (
                 ))}
             </Collapse>
         </Block>
+        <div className="text-center">
+            <NewPlanButton />
+        </div>
     </Col>
 );
 
-const Block = styled(Card)`
-    border-radius: 15px;
-
-    .ant-card-body {
-        padding: 30px;
-    }
+const Block = styled(BaseCard)`
+    padding: 30px;
+    margin-bottom: 30px;
 `;
 
 const Wrapper = styled(Collapse.Panel)`
