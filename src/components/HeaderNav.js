@@ -12,27 +12,39 @@ export default function HeaderNav() {
 
     return (
         <Container>
-            <Row justify="space-between" align="middle">
-                <Col md={12} sm={24}>
+            <Row align="middle">
+                <Col
+                    xs={{ span: 6, order: 3 }}
+                    sm={{ span: 6, order: 3 }}
+                    lg={{ span: 6, order: 1 }}
+                    style={{ textAlign: "center" }}
+                >
+                    <Button className="orange contact" onClick={() => router.push(CONTACT)}>
+                        Contact
+                    </Button>
+                </Col>
+                <Col
+                    xs={{ span: 24, order: 1 }}
+                    sm={{ span: 24, order: 1 }}
+                    lg={{ order: 2, span: 12 }}
+                    style={{ textAlign: "center" }}
+                >
                     <Logo />
                 </Col>
-                <Col>
-                    <Row justify="end" align="middle">
+                <Col
+                    xs={{ span: 18, order: 2 }}
+                    sm={{ span: 18, order: 2 }}
+                    lg={{ span: 6, order: 3 }}
+                    style={{ textAlign: "center" }}
+                >
+                    <Row>
                         {NAVLINKS.map(({ href, label }) => (
-                            <Col key={href} span={6}>
+                            <Col key={href}>
                                 <Link key={href} onClick={() => router.push(href)}>
                                     {label}
                                 </Link>
                             </Col>
                         ))}
-                        <Col span={6}>
-                            <Button
-                                className="orange contact"
-                                onClick={() => router.push(CONTACT)}
-                            >
-                                Contact
-                            </Button>
-                        </Col>
                     </Row>
                 </Col>
             </Row>
@@ -41,15 +53,7 @@ export default function HeaderNav() {
 }
 
 const Container = styled.header`
-    padding: 0 50px;
-
-    @media only screen and (max-width: 820px) {
-        text-align: center;
-    }
-
-    @media only screen and (max-width: 576px) {
-        /* display: none; */
-    }
+    padding: 10px 15px;
 `;
 
 const Link = styled.a`
