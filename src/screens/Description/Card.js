@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 import Disqus from "disqus-react";
 
-import aidStore from "@models/aids/aidStore";
+import aidStore from "../../stores/aids/aidStore";
 
 import { disqusShortname, getDisqusConfig } from "@helpers/disqus";
 

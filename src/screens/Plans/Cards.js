@@ -2,7 +2,7 @@ import { Row, Col } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 
-import aidStore from "@models/aids/aidStore";
+import aidStore from "../../stores/aids/aidStore";
 
 import { BLUE } from "@constants/style";
 
