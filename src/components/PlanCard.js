@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Typography } from "antd";
-
-import Button from "./Button";
-import { ORANGE } from "../constants/style";
-import { PLAN_HREF, PLANS } from "../constants/routes";
 import { useRouter } from "next/router";
 import Disqus from "disqus-react";
+
+import BaseButton from "./Button";
+import { PLAN_HREF, PLANS } from "../constants/routes";
+
 import { disqusShortname, getDisqusConfig } from "../helpers/disqus";
 
 const StyledPlanCard = styled.div`
@@ -15,12 +15,10 @@ const StyledPlanCard = styled.div`
 `;
 
 const Header = styled.div`
-    background-color: #233c44;
     color: white;
     font-weight: 700;
     height: 40px;
     line-height: 40px;
-    text-align: center;
 `;
 
 const Container = styled.div`
@@ -32,7 +30,6 @@ const Container = styled.div`
 
 const CommentDiv = styled.div`
     margin-bottom: 10px;
-    color: ${ORANGE};
     font-size: 16px;
 
     img {
@@ -41,17 +38,22 @@ const CommentDiv = styled.div`
     }
 `;
 
+const PlanButton = styled(BaseButton)`
+    padding: 0 70px;
+    margin: auto;
+`;
+
 export default function PlanCard({ name, description, planId }) {
     const router = useRouter();
 
     return (
         <StyledPlanCard>
-            <Header>{name}</Header>
+            <Header className="bg-blue text-center">{name}</Header>
             <Container>
                 <Typography.Paragraph style={{ minHeight: 141 }} ellipsis={{ rows: 6 }}>
                     {description}
                 </Typography.Paragraph>
-                <CommentDiv>
+                <CommentDiv className="text-orange">
                     <img src="/commentBubble.png" />
                     <Disqus.CommentCount
                         shortname={disqusShortname}
@@ -60,16 +62,15 @@ export default function PlanCard({ name, description, planId }) {
                         ...
                     </Disqus.CommentCount>
                 </CommentDiv>
-                <div style={{ textAlign: "center" }}>
-                    <Button
-                        className="planCard"
-                        style={{ margin: "auto" }}
+                <div className="text-center">
+                    <PlanButton
+                        className="bg-blue"
                         onClick={() => {
                             router.push(PLAN_HREF, PLANS + "/" + planId);
                         }}
                     >
                         En savoir plus
-                    </Button>
+                    </PlanButton>
                 </div>
             </Container>
         </StyledPlanCard>

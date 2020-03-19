@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { GREEN } from "@constants/style";
-
 const BaseButton = styled.button`
     color: white;
     cursor: pointer;
@@ -13,6 +11,7 @@ const BaseButton = styled.button`
     border: none;
     text-align: center;
     outline: none;
+    margin: auto;
 
     &:active {
         outline: none;
@@ -20,14 +19,6 @@ const BaseButton = styled.button`
 
     &.form {
         width: 100%;
-    }
-
-    &.planCard {
-        background-color: ${GREEN};
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 14px;
-        padding: 0 70px;
     }
 `;
 
