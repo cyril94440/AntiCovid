@@ -30,14 +30,6 @@ const Container = styled.div`
     line-height: 14px;
 `;
 
-const DotSeparator = styled.div`
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    font-weight: 900;
-    font-size: 16px;
-`;
-
 const CommentDiv = styled.div`
     margin-bottom: 10px;
     color: ${ORANGE};
@@ -56,10 +48,7 @@ export default function PlanCard({ name, description, planId }) {
         <StyledPlanCard>
             <Header>{name}</Header>
             <Container>
-                <Typography.Paragraph
-                    style={{ minHeight: 141 }}
-                    ellipsis={{ rows: 6 }}
-                >
+                <Typography.Paragraph style={{ minHeight: 141 }} ellipsis={{ rows: 6 }}>
                     {description}
                 </Typography.Paragraph>
                 <CommentDiv>
