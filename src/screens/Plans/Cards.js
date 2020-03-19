@@ -16,7 +16,7 @@ const PlansCards = ({ filters }) => (
                 <Observer>
                     {() =>
                         aidStore.filteredAids([filters.localization]).map(plan => (
-                            <Col span={12} key={plan.ID}>
+                            <Col xs={24} md={24} lg={12} key={plan.ID}>
                                 <PlanCard
                                     name={plan["Nom du dispositif"]}
                                     description={plan.Description}
@@ -32,9 +32,9 @@ const PlansCards = ({ filters }) => (
 );
 
 const Container = styled.div`
-    max-height: calc(100vh - 150px);
     overflow: scroll;
     padding: 0 15px;
+    height: calc(100vh - 150px);
 
     &::-webkit-scrollbar {
         width: 7px;
