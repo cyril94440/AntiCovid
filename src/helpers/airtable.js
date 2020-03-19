@@ -1,8 +1,8 @@
 const Airtable = require("airtable");
 
 const AirtableBase = new Airtable({
-    apiKey: `${process.env.AIRTABLE_DISPOSITIF_VF_API_KEY}`
-}).base(`${process.env.AIRTABLE_DISPOSITIF_VF_BASE}`);
+    apiKey: `keyjwkLQP9bny6W38`
+}).base(`appa5E38MXXODf7uE`);
 
 export function doesPropertyContain(propertyArray, allowedValuesArray) {
     if (propertyArray) {
