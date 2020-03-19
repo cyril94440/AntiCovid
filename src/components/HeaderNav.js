@@ -6,6 +6,7 @@ import { NAVLINKS, CONTACT } from "@constants/routes";
 
 import Logo from "./Logo";
 import Button from "./Button";
+import { HOME } from "../constants/routes";
 
 export default function HeaderNav() {
     const router = useRouter();
@@ -29,7 +30,7 @@ export default function HeaderNav() {
                     lg={{ order: 2, span: 12 }}
                     style={{ textAlign: "center" }}
                 >
-                    <Logo />
+                    <div onClick={() => router.push(HOME)} style={{cursor:"pointer"}}><Logo /></div>
                 </Col>
                 <Col
                     xs={{ span: 18, order: 2 }}

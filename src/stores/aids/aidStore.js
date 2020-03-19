@@ -7,6 +7,7 @@ class AidStore {
     @observable aids = [];
 
     filteredAids = computedFn(function getFilteredAids(regionArray) {
+        if(regionArray[0]===undefined)return this.aids
         const results = this.aids.filter(a =>
             doesPropertyContain(a["Localisation géographique"], regionArray)
         );

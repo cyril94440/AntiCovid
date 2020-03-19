@@ -20,7 +20,22 @@ const GlobalStyle = createGlobalStyle`
         font-family: ${FONT_FAMILY};
         color:${BLUE};
       
+        background-color: white;
+        background-image: url('/backgroundWave.png');
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: left top;
 
+        height:100%;
+        overflow:hidden;
+    }
+
+    .ant-layout{
+        background:none;
+    }
+
+    .ant-layout-content{
+        padding:0;
     }
 
     h1 {

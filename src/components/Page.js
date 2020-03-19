@@ -84,5 +84,7 @@ const Body = styled(Layout)`
 const Container = styled(Layout.Content)`
     min-height: calc(100vh - 102px);
     padding: 15px;
+    overflow:scroll;
+    height:10px; //TODO: .....
     color: ${BLUE};
 `;

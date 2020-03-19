@@ -9,9 +9,6 @@ const Description = props => (
         <Row justify="center">
             <Col xs={24} sm={24} md={18} lg={12}>
                 <Row>
-                    <Col span={24}>
-                        <h3>Description</h3>
-                    </Col>
                     <DescriptionCard {...props} />
                 </Row>
             </Col>
