@@ -4,7 +4,7 @@ export const disqusShortname = 'AntiCovid';
 
 export function getDisqusConfig(planId){
     return {
-        url: `http://AntiCovid/plans/${planId}`,
+        url: `https://www.anticovid.fr/plans/${planId}`,
         identifier: planId,
         title: planId
     }
