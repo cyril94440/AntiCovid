@@ -6,7 +6,7 @@ import PlansFilters from "./Filters";
 import PlansCards from "./Cards";
 
 const Plans = () => {
-    const [filters, setFilters] = React.useState({ localization: "France" });
+    const [filters, setFilters] = React.useState({});
 
     return (
         <Page title="Mes aides">
