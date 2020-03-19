@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { Row, Col, Card } from "antd";
+import { Row, Col } from "antd";
 
-import { BLUE } from "@constants/style";
+import BaseCard from "@components/Card";
 
 const HomeImage = () => (
     <ImgContainer justify="center" align="bottom">
         <Col sm={24} md={20} lg={14}>
-            <DescriptionCard>
+            <DescriptionCard className="text-center">
                 <p className="description">
                     AntiCovid est une plateforme solidaire pour aider les entrepreneurs à
                     surmonter la crise du Covid 19.
@@ -27,15 +27,10 @@ const ImgContainer = styled(Row)`
     margin-bottom: 20px;
 `;
 
-const DescriptionCard = styled(Card)`
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    color: ${BLUE};
-    text-align: center;
-
-    .ant-card-body {
-        padding: 30px 100px 15px 100px;
-    }
+const DescriptionCard = styled(BaseCard)`
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 30px 100px 15px 100px;
 
     .description {
         font-size: 17px;

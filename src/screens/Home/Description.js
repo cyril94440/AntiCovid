@@ -2,6 +2,7 @@ import { Row, Col, Card } from "antd";
 import styled from "styled-components";
 
 import { BLUE } from "@constants/style";
+import BaseCard from "../../components/Card";
 
 const data = [
     { text: "Un Blog pour rester informé(e) et faire les bons choix", icon: "/blogImg.png" },
@@ -9,8 +10,8 @@ const data = [
 ];
 
 const HomeDescription = () => (
-    <Row justify="center" gutter={[25, 25]}>
-        <Col span={24} style={{ textAlign: "center" }} order={1}>
+    <Row justify="center" gutter={[25, 25]} className="text-center">
+        <Col span={24} order={1}>
             <Title>AntiCovid c'est :</Title>
         </Col>
 
@@ -40,7 +41,9 @@ const Title = styled.h2`
     font-weight: 900;
 `;
 
-const AboutContainer = styled(Card)`
+const AboutContainer = styled(BaseCard)`
+    padding: 30px 60px;
+
     .question {
         font-size: 23px;
         font-weight: bold;
@@ -51,13 +54,9 @@ const AboutContainer = styled(Card)`
     }
 `;
 
-const StyledCard = styled(Card)`
-    text-align: center;
+const StyledCard = styled(BaseCard)`
     border-radius: 25px;
-
-    .ant-card-body {
-        padding: 30px 60px;
-    }
+    padding: 30px 60px;
 `;
 
 const Img = styled.img`
@@ -67,7 +66,6 @@ const Img = styled.img`
 `;
 
 const TextCard = styled.p`
-    color: ${BLUE};
     font-size: 20px !important;
     font-weight: 900;
 `;
