@@ -8,16 +8,12 @@ const withPlugins = require("next-compose-plugins");
 const nextConfig = {
     env: {
         AIRTABLE_API_KEY: process.env.AIRTABLE_API_KEY,
-        AIRTABLE_BASE: process.env.AIRTABLE_BASE,
-        AIRTABLE_ENDPOINT: process.env.AIRTABLE_ENDPOINT
+        AIRTABLE_BASE: process.env.AIRTABLE_BASE
     }
 };
 
 const themeVariables = lessToJS(
-    fs.readFileSync(
-        path.resolve(__dirname, "./src/assets/antd-custom.less"),
-        "utf8"
-    )
+    fs.readFileSync(path.resolve(__dirname, "./src/assets/antd-custom.less"), "utf8")
 );
 
 const lessWithAntdConfig = {
