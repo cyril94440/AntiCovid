@@ -6,11 +6,13 @@ import PlansFilters from "./Filters";
 import PlansCards from "./Cards";
 
 const Plans = () => {
+    const [filters, setFilters] = React.useState({ localization: "France" });
+
     return (
         <Page title="Mes aides">
             <Row align="middle" gutter={[25, 25]}>
-                <PlansFilters />
-                <PlansCards />
+                <PlansFilters filters={filters} setFilters={setFilters} />
+                <PlansCards filters={filters} />
             </Row>
         </Page>
     );

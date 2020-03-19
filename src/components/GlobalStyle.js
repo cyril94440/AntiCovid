@@ -2,6 +2,20 @@ import { createGlobalStyle } from "styled-components";
 import { BLUE, ORANGE, FONT_FAMILY } from "../constants/style";
 
 const GlobalStyle = createGlobalStyle`
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: ${BLUE};
+        outline: 1px solid ${BLUE};
+    }
+
     body {
         font-family: ${FONT_FAMILY};
         color:${BLUE};

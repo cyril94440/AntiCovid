@@ -4,20 +4,19 @@ import { computedFn } from "mobx-utils";
 import { doesPropertyContain } from "../../helpers/airtable";
 
 class AidStore {
-    
     @observable aids = [];
 
-    filteredAids = computedFn(function getFilteredAids(companyTypesArray, regionArray) {
-        var results = this.aids.filter(a =>
-            doesPropertyContain(a["Type entreprise"], companyTypesArray)
+    filteredAids = computedFn(function getFilteredAids(regionArray) {
+        const results = this.aids.filter(a =>
+            doesPropertyContain(a["Localisation géographique"], regionArray)
         );
-        results = results.filter(a => doesPropertyContain(a["Région"], regionArray));
+
         return results;
     });
 
     getRecordById = computedFn(function getRecord(recordId) {
         const result = this.aids.find(record => {
-            return record.ID == recordId
+            return record.ID == recordId;
         });
 
         return result;
@@ -39,8 +38,7 @@ class AidStore {
     }
 }
 
-
-const store = new AidStore()
-store.loadAids()
+const store = new AidStore();
+store.loadAids();
 
 export default store;
