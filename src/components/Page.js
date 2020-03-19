@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Router from "next/router";
 import NProgress from "nprogress";
 
-import HeaderNav from "./HeaderNav";
+import Header from "./Header";
 import { BLUE, ORANGE, FONT_FAMILY } from "../constants/style";
 
 export default function Page({ title, children }) {
@@ -35,7 +35,7 @@ export default function Page({ title, children }) {
                 <title>{title}</title>
             </Head>
             <Body>
-                <HeaderNav />
+                <Header />
                 <Container>{children}</Container>
             </Body>
         </>
@@ -84,7 +84,7 @@ const Body = styled(Layout)`
 const Container = styled(Layout.Content)`
     min-height: calc(100vh - 102px);
     padding: 15px;
-    overflow:scroll;
-    height:10px; //TODO: .....
+    overflow: scroll;
+    height: 10px; //TODO: .....
     color: ${BLUE};
 `;

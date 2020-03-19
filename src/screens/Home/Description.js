@@ -40,7 +40,7 @@ const Title = styled.h2`
     font-weight: 900;
 `;
 
-const AboutContainer = styled.div`
+const AboutContainer = styled(Card)`
     .question {
         font-size: 23px;
         font-weight: bold;

@@ -1,39 +1,21 @@
 import styled from "styled-components";
-import { BLUE, ORANGE, GREEN } from "@constants/style";
 
-const Button = styled.button`
+import { GREEN } from "@constants/style";
+
+const BaseButton = styled.button`
     color: white;
     cursor: pointer;
-    font-weight: 500;
-    background-color: ${BLUE};
+    font-weight: medium;
     border-radius: 18px;
-    font-size: 16px;
-    height: 32px;
+    font-size: 13px;
+    height: 26px;
+    line-height: 15px;
     border: none;
     text-align: center;
     outline: none;
 
     &:active {
         outline: none;
-    }
-
-    &.orange {
-        background-color: ${ORANGE};
-    }
-
-    &.green {
-        background-color: ${GREEN};
-    }
-
-    &.contact {
-        padding: 0 30px;
-        transition: all 0.5s;
-
-        &:hover {
-            color: ${ORANGE};
-            border: 1px solid ${ORANGE};
-            background-color: white;
-        }
     }
 
     &.plan {
@@ -66,4 +48,4 @@ const Button = styled.button`
     }
 `;
 
-export default Button;
+export default BaseButton;

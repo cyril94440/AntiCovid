@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { BLUE, ORANGE, FONT_FAMILY } from "../constants/style";
+
+import { BLUE, ORANGE, GREEN, YELLOW, FONT_FAMILY } from "@constants/style";
 
 const GlobalStyle = createGlobalStyle`
     &::-webkit-scrollbar {
@@ -65,6 +66,53 @@ const GlobalStyle = createGlobalStyle`
     a:hover{
         color:${ORANGE};
     }
+
+    .text-uppercase {
+        text-transform: uppercase;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    /* Theme */
+
+    .bg-blue {
+        background-color: ${BLUE};
+    }
+    
+    .text-blue {
+        color: ${BLUE};
+    }
+
+    .bg-orange {
+        background-color: ${ORANGE};
+    }
+    
+    .text-orange {
+        color: ${ORANGE};
+    }
+
+    .bg-green {
+        background-color: ${GREEN};
+    }
+    
+    .text-green {
+        color: ${GREEN};
+    }
+
+    .bg-yellow {
+        background-color: ${YELLOW};
+    }
+    
+    .text-yellow {
+        color: ${YELLOW};
+    }
+
 
     /* NProgress */
 
