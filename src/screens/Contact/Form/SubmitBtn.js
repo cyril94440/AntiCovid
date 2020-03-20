@@ -5,7 +5,7 @@ import BaseButton from "@components/Button";
 const ContactSubmitBtn = () => (
     <Col span={24}>
         <Form.Item>
-            <BaseButton type="submit" className="form bg-green">
+            <BaseButton type="submit" className="form bg-blue">
                 Envoyer
             </BaseButton>
         </Form.Item>

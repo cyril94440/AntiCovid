@@ -62,6 +62,10 @@ export default function Header() {
 
 const Container = styled.header`
     padding: 10px 15px;
+
+    @media screen and (max-width: 576px) {
+        display: none;
+    }
 `;
 
 const ContactButton = styled(BaseButton)`

@@ -17,21 +17,34 @@ const ContactUploadBtn = () => {
     return (
         <Col span={24}>
             <Form.Item name="upload" valuePropName="fileList" getValueFromEvent={normFile}>
-                <Upload name="files" action="/api/upload" method="post">
-                    <Wrapper type="button" className="form bg-blue">
+                <WrapperUpload name="files" action="/api/upload" method="post">
+                    <WrapperBtn type="button" className="form bg-green">
                         Pièce jointe
-                    </Wrapper>
-                </Upload>
+                    </WrapperBtn>
+                </WrapperUpload>
             </Form.Item>
         </Col>
     );
 };
 
-const Wrapper = styled(BaseButton)`
-    position: absolute;
+const WrapperUpload = styled(Upload)`
+    position: relative;
+    width: 100%;
 
-    @media only screen and (min-width: 768px) {
-        margin-top: -20px;
+    .ant-upload,
+    .ant-upload-select .ant-upload-select-text {
+        width: 100%;
+    }
+`;
+
+const WrapperBtn = styled(BaseButton)`
+    @media only screen and (max-width: 576px) {
+        background: rgb(66, 151, 140);
+        background: linear-gradient(
+            90deg,
+            rgba(66, 151, 140, 1) 0%,
+            rgba(248, 222, 121, 1) 100%
+        );
     }
 `;
 
