@@ -10,15 +10,24 @@ import PlanCard from "@components/PlanCard";
 import { ORANGE } from "../../constants/style";
 
 const Badge = styled.span`
-    color:${ORANGE};
-    position:relative;
-    left:10px;
- `
+    color: ${ORANGE};
+    position: relative;
+    left: 10px;
+`;
 
 const PlansCards = ({ filters }) => (
     <Col span={16}>
-        
-<h3>Mes aides <Badge> <Observer>{() => {return aidStore.filteredAids([filters.localization]).length}}</Observer></Badge></h3>
+        <h3>
+            Mes aides{" "}
+            <Badge>
+                {" "}
+                <Observer>
+                    {() => {
+                        return aidStore.filteredAids([filters.localization]).length;
+                    }}
+                </Observer>
+            </Badge>
+        </h3>
         <Container>
             <Row gutter={[35, 35]}>
                 <Observer>
@@ -27,7 +36,7 @@ const PlansCards = ({ filters }) => (
                             <Col xs={24} md={24} lg={12} key={plan.ID}>
                                 <PlanCard
                                     name={plan["Nom du dispositif"]}
-                                    description={plan.Description}
+                                    description={plan["Résumé"]}
                                     planId={plan.ID}
                                 />
                             </Col>

@@ -11,18 +11,13 @@ import { BLUE, GREEN } from "@constants/style";
 
 import BaseButton from "@components/Button";
 
+import DescriptionInfos from "./Infos";
+import DescriptionButtons from "./Buttons";
+import DescriptionsStatus from "./Statuts";
+
 import useWindowSize from "@hooks/useWindowSize";
 
-const buttons = [
-    { key: "Formulaire en ligne", label: "Formulaire en ligne", url: "key", bg: "blue" },
-    {
-        key: "Documents à télécharger",
-        label: "Document à télécharger",
-        url: "upload",
-        bg: "orange"
-    },
-    { key: "Site web", label: "Aller sur le site", url: "key", bg: "green" }
-];
+const components = [DescriptionInfos, DescriptionsStatus, DescriptionButtons];
 
 const DescriptionCard = ({ recordId }) => {
     const size = useWindowSize();
@@ -35,40 +30,16 @@ const DescriptionCard = ({ recordId }) => {
 
                     if (!data) return <Spin />;
 
+                    console.log(data["Updated"]);
+
                     return (
                         <Block style={{ height: size.height - 150 }}>
                             <Header>{data["Nom du dispositif"]}</Header>
+                            <Time>{data["Updated"]}</Time>
                             <Container>
                                 <p>{data["Description"]}</p>
-                                {buttons.map(button => (
-                                    <React.Fragment key={button.key}>
-                                        {data[button.key] ? (
-                                            <div
-                                                className="text-center"
-                                                style={{
-                                                    marginBottom: 35
-                                                }}
-                                            >
-                                                <LinkButton className={`bg-${button.bg}`}>
-                                                    <a
-                                                        href={
-                                                            button.url === "key"
-                                                                ? data[button.key]
-                                                                : data[button.key][0].url
-                                                        }
-                                                        target="_blank"
-                                                        style={{
-                                                            color: "white",
-                                                            margin: "auto"
-                                                        }}
-                                                        download={button.url === "upload"}
-                                                    >
-                                                        {button.label}
-                                                    </a>
-                                                </LinkButton>
-                                            </div>
-                                        ) : null}
-                                    </React.Fragment>
+                                {components.map((Component, index) => (
+                                    <Component key={index} data={data} />
                                 ))}
 
                                 <Disqus.DiscussionEmbed
@@ -107,16 +78,24 @@ const Header = styled.div`
     text-align: center;
 `;
 
+const Time = styled.div`
+    background-color: ${GREEN};
+    height: 25px;
+    text-align: center;
+    color: white;
+    width: 110px;
+    border-radius: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+`;
+
 const Container = styled.div`
     padding: 20px 60px;
     font-size: 12px;
     text-align: justify;
     line-height: 14px;
-`;
-
-const LinkButton = styled(BaseButton)`
-    padding: 10px auto;
-    width: 425px;
 `;
 
 export default DescriptionCard;
