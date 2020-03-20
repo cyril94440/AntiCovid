@@ -16,7 +16,7 @@ const ContactUploadBtn = () => {
 
     return (
         <Col span={24}>
-            <Form.Item name="upload" valuePropName="fileList" getValueFromEvent={normFile}>
+            <Form.Item name="fichiers" valuePropName="fileList" getValueFromEvent={normFile}>
                 <WrapperUpload name="files" action="/api/upload" method="post">
                     <WrapperBtn type="button" className="form bg-green">
                         Pièce jointe

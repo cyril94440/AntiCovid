@@ -25,7 +25,12 @@ const ContactInputs = () => (
     <>
         {inputs.map(({ name, rules, Component, placeholder, ...inputProps }) => (
             <Form.Item key={name} name={name} rules={rules}>
-                <Component placeholder={placeholder} style={inputStyle} {...inputProps} />
+                <Component
+                    placeholder={placeholder}
+                    style={inputStyle}
+                    {...inputProps}
+                    required
+                />
             </Form.Item>
         ))}
     </>

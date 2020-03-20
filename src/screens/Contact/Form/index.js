@@ -8,17 +8,15 @@ import ContactSubmitBtn from "./SubmitBtn";
 import ContactUploadBtn from "./UploadBtn";
 
 export default function ContactForm() {
-    const onFinish = values => {
-        console.log(values);
-    };
+    const [form] = Form.useForm();
 
     return (
         <Block>
-            <Form name="contact-form" onFinish={onFinish} hideRequiredMark>
+            <Form form={form} name="contact-form" hideRequiredMark>
                 <ContactInputs />
                 <Row gutter={[15, 15]} align="middle">
                     <ContactUploadBtn />
-                    <ContactSubmitBtn />
+                    <ContactSubmitBtn form={form} />
                 </Row>
             </Form>
         </Block>

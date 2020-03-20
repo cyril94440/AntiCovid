@@ -4,6 +4,10 @@ const AirtableBase = new Airtable({
     apiKey: `keyjwkLQP9bny6W38`
 }).base(`appa5E38MXXODf7uE`);
 
+export const AirtableContactBase = new Airtable({
+    apiKey: `keyjwkLQP9bny6W38`
+}).base(`appg8PbzpUHqLvEsB`);
+
 export function doesPropertyContain(propertyArray, allowedValuesArray) {
     if (propertyArray) {
         for (const i in propertyArray) {
