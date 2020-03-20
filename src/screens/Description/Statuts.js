@@ -4,7 +4,7 @@ const DescriptionsStatus = ({ data }) => {
     return (
         <p style={{ fontWeight: "bold" }}>
             Type d'entreprise:{" "}
-            {data["Statut du dirigeant"].length ? (
+            {data["Statut du dirigeant"] && data["Statut du dirigeant"].length ? (
                 data["Statut du dirigeant"].map((statut, index) => (
                     <span
                         style={{ color: "white", padding: "5px 10px", borderRadius: 10 }}
@@ -18,7 +18,7 @@ const DescriptionsStatus = ({ data }) => {
                 <span
                     style={{ color: "white", padding: "5px 10px", borderRadius: 10 }}
                     className="bg-orange"
-                    key={statut}
+                    key={1}
                 >
                     Toutes
                 </span>
