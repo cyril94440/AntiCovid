@@ -3,10 +3,18 @@ export const PLANS = "/plans";
 export const PLAN_HREF = "/plans/[planId]";
 export const BLOG = "/blog";
 export const CONTACT = "/contact";
+export const JOIN_US = "/joinUs";
 
 export const NAVLINKS = [
     { href: HOME, label: "ACCUEIL" },
-    { href: PLANS, label: "MES AIDES" },
-    { href: BLOG, label: "BLOG" }
-    // { href: CONTACT, label: "Contact" }
+    { href: CONTACT, label: "CONTACT" },
+    { href: BLOG, label: "BLOG" },
+    { href: JOIN_US, label: "REJOINGNEZ-NOUS" }
+];
+
+export const SOCIAL_LINKS = [
+    { url: "facebook", icon: "", bg: "" },
+    { url: "instagram", icon: "", bg: "" },
+    { url: "twitter", icon: "", bg: "" },
+    { url: "facebook", icon: "", bg: "" }
 ];

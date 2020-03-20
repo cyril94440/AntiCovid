@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Row, Col } from "antd";
 import { useRouter } from "next/router";
 
-import { NAVLINKS, CONTACT, HOME } from "@constants/routes";
-import { ORANGE } from "@constants/style";
+import { NAVLINKS, PLANS, HOME } from "@constants/routes";
+import { ORANGE, RED } from "@constants/style";
 
 import Logo from "./Logo";
 import BaseButton from "./Button";
@@ -14,32 +14,27 @@ export default function Header() {
     return (
         <Container>
             <Row align="middle" className="text-center">
-                <Col
-                    xs={{ span: 6, order: 3 }}
-                    sm={{ span: 6, order: 3 }}
-                    lg={{ span: 6, order: 1 }}
-                >
-                    <ContactButton
-                        className="bg-orange text-uppercase"
-                        onClick={() => router.push(CONTACT)}
-                    >
-                        Contact
-                    </ContactButton>
+                <Col>
+                    <Row>
+                        <Col>
+                            <ContactButton
+                                className="bg-orange text-uppercase"
+                                onClick={() => router.push(PLANS)}
+                            >
+                                MES AIDES
+                            </ContactButton>
+                        </Col>
+                        <Col>
+                            <HelpButton>SOUMETTRE UNE AIDE</HelpButton>
+                        </Col>
+                    </Row>
                 </Col>
-                <Col
-                    xs={{ span: 24, order: 1 }}
-                    sm={{ span: 24, order: 1 }}
-                    lg={{ order: 2, span: 12 }}
-                >
+                <Col>
                     <div onClick={() => router.push(HOME)} className="cursor-pointer">
                         <Logo />
                     </div>
                 </Col>
-                <Col
-                    xs={{ span: 18, order: 2 }}
-                    sm={{ span: 18, order: 2 }}
-                    lg={{ span: 6, order: 3 }}
-                >
+                <Col>
                     <Row>
                         {NAVLINKS.map(({ href, label }) => (
                             <Col key={href}>
@@ -71,17 +66,16 @@ const Container = styled.header`
 const ContactButton = styled(BaseButton)`
     padding: 0 30px;
     transition: all 0.5s;
+`;
 
-    &:hover {
-        color: ${ORANGE};
-        border: 1px solid ${ORANGE};
-        background-color: white;
-    }
+const HelpButton = styled(BaseButton)`
+    padding: 0 30px;
+    transition: all 0.5s;
+    background-color: ${RED};
 `;
 
 const Link = styled.a`
     font-size: 14px !important;
 
     color: ${props => (props.active ? `${ORANGE} !important` : "initial")};
-    font-weight: ${props => (props.active ? `bold` : "initial")};
 `;
