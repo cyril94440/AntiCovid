@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BLUE } from "@constants/style";
 import BaseCard from "@components/Card";
 import BaseButton from "../../components/Button";
+import { ORANGE } from "../../constants/style";
 
 const data = [
     {
@@ -50,7 +51,7 @@ const JoinUsDescription = () => (
             ))}
         </Grid>
 
-        <JoinUsButton className="text-uppercase">Rejoingez nous ici</JoinUsButton>
+        <JoinUsButton className="text-uppercase"><a href="https://join.slack.com/t/anticovid/shared_invite/zt-cqp7qpgi-MTzPntEyKkDQnr4jbLRDyg" target="_blank">Rejoignez nous ici</a></JoinUsButton>
     </Container>
 );
 
@@ -98,6 +99,12 @@ const JoinUsButton = styled(BaseButton)`
 
     @media screen and (max-width: 992px) {
         margin-bottom: 15px;
+    }
+    a{
+        color:white;
+    }
+    a:hover{
+        color: ${ORANGE};
     }
 `;
 
