@@ -10,7 +10,7 @@ const Contact = () => (
         <Container justify="center" align="middle">
             <Col xs={24} sm={24} md={18} lg={12}>
                 <Row gutter={[25, 25]}>
-                    <Col span={24}>
+                    <Col span={24} className="displayTitle">
                         <h3 style={{ color: "white" }}>Contact</h3>
                     </Col>
                     <Col span={24}>
@@ -36,6 +36,9 @@ const Container = styled(Row)`
         padding: 12.5px;
         h3 {
             font-size: 50px;
+        }
+        .displayTitle {
+            display: none;
         }
         .addNewPlan {
             position: fixed;
