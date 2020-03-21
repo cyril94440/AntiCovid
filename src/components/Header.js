@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Row, Col } from "antd";
 import { useRouter } from "next/router";
 
-import { NAVLINKS, PLANS, HOME, MENUMOBILE } from "@constants/routes";
+import { NAVLINKS, PLANS, HOME } from "@constants/routes";
 import { ORANGE, RED } from "@constants/style";
 
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";

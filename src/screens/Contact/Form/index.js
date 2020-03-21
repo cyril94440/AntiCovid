@@ -26,8 +26,6 @@ export default function ContactForm() {
     };
 
     const onFinish = values => {
-        if (!values.fichiers) delete values.fichiers;
-        console.log(values);
         sendDataToAirtable(values);
         form.resetFields();
     };
@@ -49,7 +47,7 @@ export default function ContactForm() {
             <Form {...formProps}>
                 <ContactInputs />
                 <Row gutter={[15, 15]} align="middle">
-                    <ContactUploadBtn />
+                    {/*<ContactUploadBtn />*/}
                     <ContactSubmitBtn />
                 </Row>
             </Form>
