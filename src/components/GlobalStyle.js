@@ -17,24 +17,31 @@ const GlobalStyle = createGlobalStyle`
         outline: 1px solid ${BLUE};
     }
 
+    .backgroundMobileMenu {
+        background-image: url('/backgroundMobileMenu.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: left top !important;
+        background-size: 100% 100% !important; 
+    }
+
     body {
         font-family: ${FONT_FAMILY};
         color:${BLUE};
 
-        @media only screen and (max-width: 767px) {
-            background-image: url('/backgroundWaveMobile.png');
-            background-repeat: no-repeat;
-            background-position: left top;
-            background-size: 100% auto;
+        @media only screen and (max-width: 768px) {
+            background-image: url('/backgroundWaveMobile.png') !important;
+            background-repeat: no-repeat !important;
+            background-position: left top !important;
+            background-size: 100% auto !important; 
         }
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 769px) {
             background-color: white;
-            background-image: url('/backgroundWave.png');
+            background-image: url(/backgroundWave.png);
             background-size: auto 100%;
+            height: 100%;
             background-repeat: no-repeat;
             background-position: left top;
-            height:100%;
-            overflow:hidden;
+            overflow: hidden;
         }
     }
 

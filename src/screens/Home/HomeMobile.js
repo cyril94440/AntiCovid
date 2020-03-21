@@ -19,8 +19,6 @@ return (
     <HomeMobileContainer justify="center" gutter={[25, 25]} className="text-center">
         <Col span={24}>
             <DescriptionContainer>
-                {/* AntiCovid est une plateforme solidaire pour aider les entrepreneurs à
-                        surmonter la crise du Covid 19. */}
                 <p className="description">
                     AntiCovid est une plateforme solidaire pour aider les entrepreneurs à
                     surmonter la crise du Covid 19.

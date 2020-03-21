@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 import BaseButton from "./Button";
-import { CONTACT } from "@constants/routes";
 
 const NewPlanButton = ({text,link}) => {
     const router = useRouter();
