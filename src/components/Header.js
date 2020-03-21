@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 import { useRouter } from "next/router";
 import { MenuMobileModal } from "./menuMobileModal";
 
-import { NAVLINKS, PLANS, HOME, MENUMOBILE } from "@constants/routes";
+import { NAVLINKS, PLANS, HOME, MENUMOBILE, CONTACT } from "@constants/routes";
 import { ORANGE, RED } from "@constants/style";
 
 import { MenuOutlined } from "@ant-design/icons";
@@ -70,7 +70,15 @@ export default function Header({ title }) {
                             </ContactButton>
                         </Col>
                         <Col>
-                            <HelpButton>SOUMETTRE UNE AIDE</HelpButton>
+                            <HelpButton>
+                                <HelpLink
+                                    className="text-white"
+                                    href="https://airtable.com/shroZVJ5EV8tpsaNd"
+                                    target="_blank"
+                                >
+                                    SOUMETTRE UNE AIDE
+                                </HelpLink>
+                            </HelpButton>
                         </Col>
                     </Row>
                 </Col>
@@ -139,6 +147,14 @@ const HelpButton = styled(BaseButton)`
     padding: 0 30px;
     transition: all 0.5s;
     background-color: ${RED};
+`;
+
+const HelpLink = styled.a`
+    color: white;
+
+    &:hover {
+        color: white;
+    }
 `;
 
 const Link = styled.a`
