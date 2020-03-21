@@ -46,6 +46,11 @@ const DescriptionButtons = ({ data }) =>
     ));
 
 const LinkButton = styled(BaseButton)`
+    @media screen and (max-width: 576px) {
+        width: 200px;
+        height: 50px;
+        margin-bottom: -10px;
+    }
     padding: 10px auto;
     width: 425px;
 `;

@@ -30,17 +30,17 @@ const DescriptionCard = ({ recordId }) => {
 
                     if (!data) return <Spin />;
 
-                    console.log(data["Updated"]);
-
                     return (
                         <Block style={{ height: size.height - 150 }}>
                             <Header>{data["Nom du dispositif"]}</Header>
                             <Time>{data["Updated"]}</Time>
                             <Container>
                                 <p>{data["Description"]}</p>
-                                {components.map((Component, index) => (
-                                    <Component key={index} data={data} />
-                                ))}
+                                <Info>
+                                    {components.map((Component, index) => (
+                                        <Component key={index} data={data} />
+                                    ))}
+                                </Info>
 
                                 <Disqus.DiscussionEmbed
                                     shortname={disqusShortname}
@@ -59,11 +59,9 @@ const Block = styled(Card)`
     border-radius: 18px !important;
     border: 0;
     overflow: scroll;
-
     .ant-card-body {
         padding: 0;
     }
-
     ::-webkit-scrollbar {
         display: none;
     }
@@ -73,7 +71,8 @@ const Header = styled.div`
     background-color: ${BLUE};
     color: white;
     font-weight: 700;
-    height: 40px;
+    min-height: 40px;
+    // height: 40px;
     line-height: 40px;
     text-align: center;
 `;
@@ -92,10 +91,19 @@ const Time = styled.div`
 `;
 
 const Container = styled.div`
+    @media screen and (max-width: 576px) {
+        padding: 20px 30px;
+    }
     padding: 20px 60px;
     font-size: 12px;
     text-align: justify;
     line-height: 14px;
+`;
+const Info = styled.div`
+    @media screen and (max-width: 576px) {
+        font-size: 12px !important;
+        text-align: left;
+    }
 `;
 
 export default DescriptionCard;

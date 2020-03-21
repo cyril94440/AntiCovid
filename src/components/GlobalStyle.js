@@ -20,15 +20,22 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: ${FONT_FAMILY};
         color:${BLUE};
-      
-        background-color: white;
-        background-image: url('/backgroundWave.png');
-        background-size: auto 100%;
-        background-repeat: no-repeat;
-        background-position: left top;
 
-        height:100%;
-        overflow:hidden;
+        @media only screen and (max-width: 767px) {
+            background-image: url('/backgroundWaveMobile.png');
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: 100% auto;
+        }
+        @media only screen and (min-width: 768px) {
+            background-color: white;
+            background-image: url('/backgroundWave.png');
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position: left top;
+            height:100%;
+            overflow:hidden;
+        }
     }
 
     .ant-layout{
@@ -42,29 +49,35 @@ const GlobalStyle = createGlobalStyle`
     h1 {
         font-size: 45px;
         line-height: 27px;
+        color: ${BLUE};
     }
 
     h2 {
         font-size: 30px;
         line-height: 27px;
+        font-weight: 900;
+        color: ${BLUE};
     }
 
     h3 {
         font-size: 23px;
         line-height: 27px;
+        font-weight: 900;
+        color: ${BLUE};
     }
 
     p {
         font-size: 15px;
         line-height: 27px;
+        color: ${BLUE};
     }
 
     a {
-        color:${BLUE};
+        color: ${BLUE};
     }
 
-    a:hover{
-        color:${ORANGE};
+    a:hover {
+        color: ${ORANGE};
     }
 
     .text-uppercase {

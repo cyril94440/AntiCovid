@@ -36,9 +36,9 @@ const data = [
 ];
 
 const JoinUsDescription = () => (
-    <Row justify="center" gutter={[25, 25]} className="text-center">
+    <Row justify="center" align="" gutter={[25, 25]} className="text-center">
         {data.map(({ title, icon, items }, index) => (
-            <Col key={icon} sm={{ span: 24, order: index }} md={12} lg={7}>
+            <Col flex="1" key={icon} sm={{ span: 24, order: index }} md={12} lg={7}>
                 <StyledCard>
                     <Img src={icon} />
                     <TextCard>{title}</TextCard>

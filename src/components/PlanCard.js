@@ -15,23 +15,30 @@ const StyledPlanCard = styled.div`
 `;
 
 const Header = styled.div`
+    @media screen and (max-width: 576px) {
+        padding: 5px;
+        line-height: 20px;
+    }
+    padding: 20px 60px;
     color: white;
     font-weight: 700;
-    height: 40px;
-    line-height: 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Container = styled.div`
-    padding: 20px 60px;
+    padding: 20px 30px;
     font-size: 12px;
-    text-align: justify;
-    line-height: 14px;
+    @media only screen and (min-width: 768px) {
+        padding: 20px 60px;
+    }
 `;
 
 const CommentDiv = styled.div`
     margin-bottom: 10px;
     font-size: 16px;
-
     img {
         width: 16px;
         margin-right: 7px;
@@ -39,8 +46,11 @@ const CommentDiv = styled.div`
 `;
 
 const PlanButton = styled(BaseButton)`
-    padding: 0 70px;
+    padding: 0 30px;
     margin: auto;
+    @media only screen and (min-width: 768px) {
+        padding: 0 70px;
+    }
 `;
 
 export default function PlanCard({ name, description, planId }) {

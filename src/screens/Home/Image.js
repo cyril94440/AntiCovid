@@ -31,6 +31,7 @@ const DescriptionCard = styled(BaseCard)`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     padding: 30px 100px 15px 100px;
+    box-shadow: none;
 
     .description {
         font-size: 17px;

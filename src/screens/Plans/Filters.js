@@ -3,7 +3,6 @@ import { EnvironmentFilled } from "@ant-design/icons";
 import styled from "styled-components";
 
 import BaseCard from "@components/Card";
-import NewPlanButton from "@components/NewPlanButton";
 
 const accordionData = [
     /*{ title: "Forme de société" },
@@ -58,9 +57,6 @@ const PlansFilters = ({ filters, setFilters }) => (
                 ))}
             </Collapse>
         </Block>
-        <div className="text-center">
-            <NewPlanButton />
-        </div>
     </Col>
 );
 

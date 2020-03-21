@@ -1,11 +1,17 @@
 import styled from "styled-components";
-import { Layout } from "antd";
 
 import BaseButton from "./Button";
 
 const text = "Soumetttre un dispositif non référencé";
+const airTableNewDipositifLink = "https://airtable.com/shroZVJ5EV8tpsaNd";
 
-const NewPlanButton = () => <Wrapper className="bg-orange">{text}</Wrapper>;
+const NewPlanButton = () => (
+    <Wrapper className="bg-orange">
+        <a href={airTableNewDipositifLink} target="_blank" className="text-white">
+            {text}
+        </a>
+    </Wrapper>
+);
 
 const Wrapper = styled(BaseButton)`
     padding: 10px 100px;

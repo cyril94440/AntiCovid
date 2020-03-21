@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Form, Row } from "antd";
 
+import { BLUE, GRAY, DARKGRAY, ORANGE, BOXSHADOW } from "@constants/style";
 import BaseCard from "@components/Card";
 
 import ContactInputs from "./Inputs";
@@ -24,5 +25,9 @@ export default function ContactForm() {
 }
 
 const Block = styled(BaseCard)`
+    box-shadow: ${BOXSHADOW};
+    @media screen and (max-width: 576px) {
+        padding: 35px 20px 5px 20px;
+    }
     padding: 35px 45px 5px 45px;
 `;

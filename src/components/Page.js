@@ -3,9 +3,8 @@ import { Layout } from "antd";
 import styled from "styled-components";
 import Router from "next/router";
 import NProgress from "nprogress";
-
+import { Breakpoint, BreakpointProvider } from "react-socks";
 import Header from "./Header";
-import { BLUE, ORANGE, FONT_FAMILY } from "../constants/style";
 
 export default function Page({ title, children }) {
     React.useEffect(() => {
@@ -34,57 +33,17 @@ export default function Page({ title, children }) {
                 />
                 <title>{title}</title>
             </Head>
-            <Body>
-                <Header />
+            <Layout>
+                <Header title={title} />
                 <Container>{children}</Container>
-            </Body>
+            </Layout>
         </>
     );
 }
-
-const Body = styled(Layout)`
-    font-family: ${FONT_FAMILY};
-    color: ${BLUE};
-
-    h1 {
-        font-size: 45px;
-        line-height: 27px;
-        color: ${BLUE};
-    }
-
-    h2 {
-        font-size: 30px;
-        line-height: 27px;
-        font-weight: 900;
-        color: ${BLUE};
-    }
-
-    h3 {
-        font-size: 23px;
-        line-height: 27px;
-        font-weight: 900;
-        color: ${BLUE};
-    }
-
-    p {
-        font-size: 15px;
-        line-height: 27px;
-        color: ${BLUE};
-    }
-
-    a {
-        color: ${BLUE};
-    }
-
-    a:hover {
-        color: ${ORANGE};
-    }
-`;
 
 const Container = styled(Layout.Content)`
     min-height: calc(100vh - 102px);
     padding: 15px;
     overflow: scroll;
     height: 10px; //TODO: .....
-    color: ${BLUE};
 `;
