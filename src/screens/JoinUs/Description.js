@@ -67,7 +67,7 @@ const Grid = styled.div`
     justify-items: center;
     grid-template: 1fr / repeat(3, 0.8fr);
     grid-gap: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 
     @media screen and (max-width: 992px) {
         grid-template: 1fr / 100%;
