@@ -1,8 +1,7 @@
-import { Row, Col, Card } from "antd";
+import { Row, Col } from "antd";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { NAVLINKSMENUMOBILE } from "@constants/routes";
-import BaseButton from "./Button";
 
 const MenuMobile = () => {
     const router = useRouter();
@@ -30,7 +29,9 @@ const MenuItem = styled(Row)`
     margin: 40px 0px;
     align-items: center;
 `;
-const Img = styled.img``;
+const Img = styled.img`
+    height: 30px;
+`;
 
 const Label = styled.div`
     font-size: 23px !important;

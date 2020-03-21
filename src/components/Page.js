@@ -39,10 +39,11 @@ export default function Page({ title, noHeader = false, children }) {
                 />
                 <title>{title}</title>
             </Head>
-            <Layout>
+            <Layout className={` ${mobileHeader ? 'backgroundMobileMenu' : ''}`}>
                 {!noHeader && <Header title={(mobileHeader) ? "Menu" : title} mobileHeader={mobileHeader} toggleMobileHeader={toggleMobileHeader} />}
-                {(mobileHeader) ? <Container><MenuMobile /></Container> : <Container>{children}</Container>}
-                {/* {(mobileHeader) ? <MenuMobile /> : <Container>{children}</Container>} */}
+                <Container>
+                     {(mobileHeader) ? <MenuMobile /> : children}
+                </Container>
             </Layout>
         </>
     );

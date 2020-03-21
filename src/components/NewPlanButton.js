@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 import BaseButton from "./Button";
-import { CONTACT } from "@constants/routes";
 
 const text = "Soumetttre un dispositif non référencé";
 const airTableNewDipositifLink = "https://airtable.com/shroZVJ5EV8tpsaNd";
