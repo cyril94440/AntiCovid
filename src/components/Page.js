@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Router from "next/router";
 import NProgress from "nprogress";
 import Header from "./Header";
-import MenuMobile from "./menuMobileModal";
+import MenuMobile from "./menuMobile";
 
 export default function Page({ title, noHeader = false, children }) {
     const [mobileHeader, setMobileHeader] = React.useState(false);
@@ -53,6 +53,3 @@ const Container = styled(Layout.Content)`
     overflow: scroll;
     height: 10px; //TODO: .....
 `;
-
-
-/* {mobileHeader ? <MenuMobile /> : <Container>{children}</Container>} */
