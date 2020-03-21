@@ -1,40 +1,20 @@
 import styled from "styled-components";
 import { Row, Col } from "antd";
 import { useRouter } from "next/router";
-import { MenuMobileModal } from "./menuMobileModal";
 
 import { NAVLINKS, PLANS, HOME, MENUMOBILE, CONTACT } from "@constants/routes";
 import { ORANGE, RED } from "@constants/style";
 
-import { MenuOutlined } from "@ant-design/icons";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import Logo from "./Logo";
 import BaseButton from "./Button";
 import Title from "./Title";
 
-export default function Header({ title }) {
+export default function Header({ title, toggleMobileHeader, mobileHeader }) {
     const router = useRouter();
-
-    const [visible, setVisible] = React.useState(false);
-    const showModal = () => {
-        console.log("show modal");
-        setVisible(true);
-    };
-    const handleOk = e => {
-        console.log(e);
-        setVisible(false);
-    };
-    const handleCancel = e => {
-        console.log(e);
-        setVisible(false);
-    };
 
     return (
         <Container>
-            <MenuMobileModal
-                visible={visible}
-                handleOk={handleOk}
-                handleCancel={handleCancel}
-            />
             <Row
                 align="middle"
                 className="text-center"
@@ -47,11 +27,11 @@ export default function Header({ title }) {
                     lg={{ span: 0, order: 1 }}
                 >
                     <div
-                        onClick={() => router.push(MENUMOBILE)}
+                        onClick={toggleMobileHeader}
                         className="cursor-pointer"
                         style={{ width: "auto", height: "auto" }}
                     >
-                        <MenuOutlined style={{ fontSize: 30 }} />
+                        <MenuOutlined className="mobile-icon" />
                     </div>
                 </Col>
                 <Col
@@ -103,10 +83,26 @@ export default function Header({ title }) {
                             <Logo />
                         </div>
                     ) : (
-                        <div>
-                            <Title>{title}</Title>
+                            <div>
+                                <Title>{title}</Title>
+                            </div>
+                        )}
+                </Col>
+                <Col
+                    xs={{ span: 1, order: 3 }}
+                    sm={{ span: 0, order: 1 }}
+                    md={{ span: 0, order: 1 }}
+                    lg={{ span: 0, order: 1 }}
+                >
+                    {(mobileHeader) &&
+                        <div
+                            onClick={toggleMobileHeader}
+                            className="cursor-pointer"
+                            style={{ width: "auto", height: "auto" }}
+                        >
+                            <CloseOutlined className="mobile-icon" />
                         </div>
-                    )}
+                    }
                 </Col>
                 <Col
                     xs={{ span: 0, order: 2 }}

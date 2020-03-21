@@ -3,10 +3,16 @@ import { Layout } from "antd";
 import styled from "styled-components";
 import Router from "next/router";
 import NProgress from "nprogress";
-import { Breakpoint, BreakpointProvider } from "react-socks";
 import Header from "./Header";
+import MenuMobile from "./menuMobileModal";
 
-export default function Page({ title, children }) {
+export default function Page({ title, noHeader = false, children }) {
+    const [mobileHeader, setMobileHeader] = React.useState(false);
+    const toggleMobileHeader = (e) => {
+        e.preventDefault();
+        setMobileHeader(!mobileHeader);
+    };
+
     React.useEffect(() => {
         Router.onRouteChangeStart = () => {
             NProgress.start();
@@ -34,8 +40,8 @@ export default function Page({ title, children }) {
                 <title>{title}</title>
             </Head>
             <Layout>
-                <Header title={title} />
-                <Container>{children}</Container>
+                {!noHeader && <Header title={(mobileHeader) ? "Menu" : title} mobileHeader={mobileHeader} toggleMobileHeader={toggleMobileHeader} />}
+                {(mobileHeader) ? <MenuMobile /> : <Container>{children}</Container>}
             </Layout>
         </>
     );
@@ -47,3 +53,6 @@ const Container = styled(Layout.Content)`
     overflow: scroll;
     height: 10px; //TODO: .....
 `;
+
+
+/* {mobileHeader ? <MenuMobile /> : <Container>{children}</Container>} */

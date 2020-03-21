@@ -1,18 +1,43 @@
-import { Row, Col, Card, Modal } from "antd";
+import { Row, Col, Card } from "antd";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import Page from "@components/Page";
-import { HomeFilled, WechatFilled, PhoneFilled } from "@ant-design/icons";
 import { NAVLINKSMENUMOBILE } from "@constants/routes";
 
-export const MenuMobileModal = ({ visible, handleOk, handleCancel }) => (
-    <Modal title="Basic Modal" visible={visible} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-    </Modal>
-);
 
-const FullPageModal = styled(Modal)`
-    width: 100%:
+const MenuMobile = () => {
+    const router = useRouter();
+    return (
+        <Container justify="center" align="middle">
+            {NAVLINKSMENUMOBILE.map(({ href, label, icon }) => (
+                <MenuItem justify="center" key={href}>
+                    <Img src={icon} />
+                    <Link
+                        className="text-uppercase"
+                        key={href}
+                        onClick={() => router.push(href)}
+                        active={router.pathname === href}
+                    >
+                        {label}
+                    </Link>
+                </MenuItem>
+            ))}
+        </Container>
+    );
+};
+
+const Container = styled(Col)``;
+const MenuItem = styled(Row)`
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0px;
+    align-items: center;
 `;
+const Img = styled.img``;
+
+const Link = styled.a`
+    font-size: 23px !important;
+    font-weight: bold;
+    color: white !important;
+`;
+
+export default MenuMobile;

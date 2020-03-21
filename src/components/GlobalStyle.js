@@ -126,6 +126,10 @@ const GlobalStyle = createGlobalStyle`
         color: ${YELLOW};
     }
 
+    .mobile-icon {
+        font-size: 30px;
+        color: white;
+    }
 
     /* NProgress */
 
