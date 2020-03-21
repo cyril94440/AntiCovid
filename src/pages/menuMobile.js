@@ -1,3 +1,3 @@
-import MenuMobile from "@screens/menuMobile";
+import MenuMobile from "@screens/MenuMobile";
 
 export default () => <MenuMobile />;
