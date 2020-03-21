@@ -33,8 +33,8 @@ const accordionData = [
 ];
 
 const PlansFilters = ({ filters, setFilters }) => (
-    <Col span={8}>
-        <Typography.Title level={3}>Mon entreprise</Typography.Title>
+    <Col sm={24} xl={8}>
+        <h3 style={{ color: "white", marginLeft: 30 }}>Mon entreprise</h3>
         <Block>
             <Collapse bordered={false}>
                 {accordionData.map(({ title, data, Icon, key }) => (

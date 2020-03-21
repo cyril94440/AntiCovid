@@ -32,8 +32,17 @@ const Header = styled.div`
 const Container = styled.div`
     padding: 20px 30px;
     font-size: 12px;
+    display: flex;
+    height: 360px;
+    flex-direction: column;
+    justify-content: space-between;
+
     @media only screen and (min-width: 768px) {
         padding: 20px 60px;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        height: auto;
     }
 `;
 
@@ -50,7 +59,7 @@ const PlanButton = styled(BaseButton)`
     padding: 0 30px;
     margin: auto;
     @media only screen and (min-width: 768px) {
-        padding: 0 70px;
+        padding: 0 50px;
     }
 `;
 
@@ -61,25 +70,27 @@ export default function PlanCard({ name, description, planId }) {
         <StyledPlanCard>
             <Header className="bg-blue text-center">{name}</Header>
             <Container>
-                <p style={{ minHeight: 141 }}>{description}</p>
-                <CommentDiv className="text-orange">
-                    <img src="/commentBubble.png" />
-                    <Disqus.CommentCount
-                        shortname={disqusShortname}
-                        config={getDisqusConfig(planId)}
-                    >
-                        ...
-                    </Disqus.CommentCount>
-                </CommentDiv>
-                <div className="text-center">
-                    <PlanButton
-                        className="bg-green"
-                        onClick={() => {
-                            router.push(PLAN_HREF, PLANS + "/" + planId);
-                        }}
-                    >
-                        En savoir plus
-                    </PlanButton>
+                <p>{description}</p>
+                <div>
+                    <CommentDiv className="text-orange">
+                        <img src="/commentBubble.png" />
+                        <Disqus.CommentCount
+                            shortname={disqusShortname}
+                            config={getDisqusConfig(planId)}
+                        >
+                            ...
+                        </Disqus.CommentCount>
+                    </CommentDiv>
+                    <div className="text-center">
+                        <PlanButton
+                            className="bg-green"
+                            onClick={() => {
+                                router.push(PLAN_HREF, PLANS + "/" + planId);
+                            }}
+                        >
+                            En savoir plus
+                        </PlanButton>
+                    </div>
                 </div>
             </Container>
         </StyledPlanCard>

@@ -17,7 +17,7 @@ const Plans = () => {
                     <PlansMobile filters={filters} setFilters={setFilters} />
                 </Breakpoint>
                 <Breakpoint medium up>
-                    <Row align="middle" gutter={[25, 25]}>
+                    <Row align="middle" style={{ padding: 15 }} gutter={[25, 25]}>
                         <PlansFilters filters={filters} setFilters={setFilters} />
                         <PlansCards filters={filters} />
                     </Row>

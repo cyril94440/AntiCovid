@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import { Form, Row } from "antd";
+import { Form, Row, message } from "antd";
 
-import { BLUE, GRAY, DARKGRAY, ORANGE, BOXSHADOW } from "@constants/style";
+import { AirtableContactBase } from "@helpers/airtable";
+
+import { BOXSHADOW } from "@constants/style";
 import BaseCard from "@components/Card";
 
 import ContactInputs from "./Inputs";
@@ -11,13 +13,44 @@ import ContactUploadBtn from "./UploadBtn";
 export default function ContactForm() {
     const [form] = Form.useForm();
 
+    const sendDataToAirtable = fields => {
+        AirtableContactBase("Table 1").create([{ fields }], function(err) {
+            if (err) {
+                console.error(err);
+                message.error("Une erreur s'est produite !");
+                return;
+            }
+
+            message.success("Message Envoyé");
+        });
+    };
+
+    const onFinish = values => {
+        if (!values.fichiers) delete values.fichiers;
+        console.log(values);
+        sendDataToAirtable(values);
+        form.resetFields();
+    };
+
+    const onFinishFailed = error => {
+        message.error("Une erreur s'est produite !");
+    };
+
+    const formProps = {
+        onFinish,
+        onFinishFailed,
+        form,
+        hideRequiredMark: true,
+        name: "contact-form"
+    };
+
     return (
         <Block>
-            <Form form={form} name="contact-form" hideRequiredMark>
+            <Form {...formProps}>
                 <ContactInputs />
                 <Row gutter={[15, 15]} align="middle">
                     <ContactUploadBtn />
-                    <ContactSubmitBtn form={form} />
+                    <ContactSubmitBtn />
                 </Row>
             </Form>
         </Block>

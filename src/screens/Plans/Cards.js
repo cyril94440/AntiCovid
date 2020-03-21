@@ -16,8 +16,8 @@ const Badge = styled.span`
 `;
 
 const PlansCards = ({ filters }) => (
-    <Col span={16}>
-        <h3>
+    <Col sm={24} xl={16}>
+        <Title>
             Mes aides{" "}
             <Badge>
                 {" "}
@@ -27,30 +27,39 @@ const PlansCards = ({ filters }) => (
                     }}
                 </Observer>
             </Badge>
-        </h3>
+        </Title>
         <Container>
-            <Row gutter={[35, 35]}>
+            <CardsContainer>
                 <Observer>
                     {() =>
-                        aidStore.filteredAids([filters.localization]).map(plan => (
-                            <Col xs={24} md={24} lg={12} key={plan.ID}>
+                        aidStore
+                            .filteredAids([filters.localization])
+                            .map(plan => (
                                 <PlanCard
+                                    key={plan.ID}
                                     name={plan["Nom du dispositif"]}
                                     description={plan["Résumé"]}
                                     planId={plan.ID}
                                 />
-                            </Col>
-                        ))
+                            ))
                     }
                 </Observer>
-            </Row>
+            </CardsContainer>
         </Container>
     </Col>
 );
 
+const Title = styled.h3`
+    margin-left: 30px;
+
+    @media screen and (max-width: 1200px) {
+        color: white;
+    }
+`;
+
 const Container = styled.div`
     overflow: scroll;
-    padding: 0 15px;
+    padding: 0 5px;
     height: calc(100vh - 150px);
 
     &::-webkit-scrollbar {
@@ -65,6 +74,26 @@ const Container = styled.div`
     &::-webkit-scrollbar-thumb {
         background-color: ${BLUE};
         outline: 1px solid ${BLUE};
+    }
+
+    @media screen and (max-width: 1200px) {
+        padding: 0;
+        overflow: "auto";
+        height: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+`;
+
+const CardsContainer = styled.div`
+    display: grid;
+    grid-template: 1fr / repeat(2, 1fr);
+    grid-gap: 25px;
+
+    @media screen and (max-width: 1200px) {
+        grid-template: 1fr / 1fr;
     }
 `;
 
