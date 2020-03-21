@@ -12,6 +12,8 @@ const HomeMobile = () => (
     <HomeMobileContainer justify="center" gutter={[25, 25]} className="text-center">
         <Col span={24}>
             <DescriptionContainer>
+                {/* AntiCovid est une plateforme solidaire pour aider les entrepreneurs à
+                        surmonter la crise du Covid 19. */}
                 <p className="description">
                     AntiCovid est une plateforme solidaire pour aider les entrepreneurs à
                     surmonter la crise du Covid 19.
@@ -46,7 +48,11 @@ const HomeMobileContainer = styled(Row)`
     // padding: 0px 30px;
     margin: 0px 0px !important;
 `;
-const DescriptionContainer = styled.span`
+const DescriptionContainer = styled(Row)`
+    font-size: 15px;
+    color: white;
+    font-weight: 800;
+    text-align: center;
     .description {
         font-size: 15px;
         color: white;
