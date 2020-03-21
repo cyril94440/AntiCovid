@@ -5,9 +5,11 @@ import formidable from "formidable";
 export default async (req, res) => {
     const form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
-        if (err) console.error(err);
-        console.log(files);
-        res.json({ fields, files });
+        if (err) return res.status(500).json(err);
+        console.log("API:");
+        console.log("fields", fields);
+        console.log("files", files);
+        return res.status(200).send(files);
     });
 };
 

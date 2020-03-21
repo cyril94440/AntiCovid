@@ -1,4 +1,4 @@
-import { Form, Upload, Col } from "antd";
+import { Form, Upload, Col, message } from "antd";
 import styled from "styled-components";
 
 import BaseButton from "@components/Button";
@@ -14,10 +14,25 @@ const ContactUploadBtn = () => {
         return e && e.fileList;
     };
 
+    const uploadProps = {
+        name: "files",
+        action: "/api/upload",
+        onChange(info) {
+            if (info.file.status !== "uploading") {
+                console.log(info.file, info.fileList);
+            }
+            if (info.file.status === "done") {
+                message.success(`${info.file.name} file uploaded successfully`);
+            } else if (info.file.status === "error") {
+                message.error(`${info.file.name} file upload failed.`);
+            }
+        }
+    };
+
     return (
         <Col span={24}>
             <Form.Item name="fichiers" valuePropName="fileList" getValueFromEvent={normFile}>
-                <WrapperUpload name="files">
+                <WrapperUpload {...uploadProps}>
                     <BaseButton type="button" className="form bg-green">
                         Pièce jointe
                     </BaseButton>
