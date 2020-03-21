@@ -41,7 +41,8 @@ export default function Page({ title, noHeader = false, children }) {
             </Head>
             <Layout>
                 {!noHeader && <Header title={(mobileHeader) ? "Menu" : title} mobileHeader={mobileHeader} toggleMobileHeader={toggleMobileHeader} />}
-                {(mobileHeader) ? <MenuMobile /> : <Container>{children}</Container>}
+                {(mobileHeader) ? <Container><MenuMobile /></Container> : <Container>{children}</Container>}
+                {/* {(mobileHeader) ? <MenuMobile /> : <Container>{children}</Container>} */}
             </Layout>
         </>
     );

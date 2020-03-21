@@ -10,14 +10,16 @@ const MenuMobile = () => {
         <Container justify="center" align="middle">
             {NAVLINKSMENUMOBILE.map(({ href, label, icon }) => (
                 <MenuItem justify="center" key={href} onClick={() => router.push(href)}>
-                    <Img src={icon} />
-                    <Link
-                        className="text-uppercase"
-                        key={href}
-                        
-                    >
-                        {label}
-                    </Link>
+                        <Img src={icon} />
+                        <Link
+                            className="text-uppercase"
+                            key={href}
+
+                        >
+
+                            {label}
+                        </Link>
+
                 </MenuItem>
                 // <MenuItem justify="center" key={href}>
                 //     <Img src={icon} />
@@ -35,7 +37,7 @@ const MenuMobile = () => {
     );
 };
 
-const Container = styled(Col)``;
+const Container = styled.a``;
 const MenuItem = styled(Row)`
     display: flex;
     flex-direction: column;
