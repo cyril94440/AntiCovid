@@ -17,6 +17,8 @@ import DescriptionsStatus from "./Statuts";
 
 import useWindowSize from "@hooks/useWindowSize";
 
+import ReactMarkdown from "react-markdown";
+
 const components = [DescriptionInfos, DescriptionsStatus, DescriptionButtons];
 
 const DescriptionCard = ({ recordId }) => {
@@ -35,7 +37,7 @@ const DescriptionCard = ({ recordId }) => {
                             <Header>{data["Nom du dispositif"]}</Header>
                             <Time>{data["Updated"]}</Time>
                             <Container>
-                                <p>{data["Description"]}</p>
+                                <p><ReactMarkdown source={data["Description"]} /></p>
                                 <Info>
                                     {components.map((Component, index) => (
                                         <Component key={index} data={data} />

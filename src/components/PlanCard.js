@@ -9,6 +9,8 @@ import { PLAN_HREF, PLANS } from "../constants/routes";
 
 import { disqusShortname, getDisqusConfig } from "../helpers/disqus";
 
+import ReactMarkdown from "react-markdown";
+
 const StyledPlanCard = styled(BaseCard)`
     border-radius: 18px;
     overflow: hidden;
@@ -70,7 +72,7 @@ export default function PlanCard({ name, description, planId }) {
         <StyledPlanCard>
             <Header className="bg-blue text-center">{name}</Header>
             <Container>
-                <p>{description}</p>
+                <ReactMarkdown source={description} />
                 <div>
                     <CommentDiv className="text-orange">
                         <img src="/commentBubble.png" />
