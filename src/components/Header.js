@@ -23,8 +23,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                 <Col
                     xs={{ span: 1, order: 1 }}
                     sm={{ span: 0, order: 1 }}
-                    md={{ span: 0, order: 1 }}
-                    lg={{ span: 0, order: 1 }}
+                    xl={{ span: 0, order: 1 }}
                 >
                     <div
                         onClick={toggleMobileHeader}
@@ -34,13 +33,12 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                         <MenuOutlined className="mobile-icon" />
                     </div>
                 </Col>
-                <Col
+                <ContainerButtons
                     xs={{ span: 0, order: 3 }}
                     sm={{ span: 24, order: 3 }}
-                    md={{ span: 24, order: 3 }}
-                    lg={{ span: 8, order: 1 }}
+                    xl={{ span: 8, order: 1 }}
                 >
-                    <Row>
+                    <Row gutter={[15, 15]}>
                         <Col>
                             <ContactButton
                                 className="bg-orange text-uppercase"
@@ -61,12 +59,11 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                             </HelpButton>
                         </Col>
                     </Row>
-                </Col>
+                </ContainerButtons>
                 <Col
                     xs={{ span: 0, order: 2 }}
                     sm={{ span: 24, order: 1 }}
-                    md={{ span: 24, order: 1 }}
-                    lg={{ span: 10, order: 2 }}
+                    xl={{ span: 10, order: 2 }}
                 >
                     <div onClick={() => router.push(HOME)} className="cursor-pointer">
                         <Logo />
@@ -75,26 +72,24 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                 <Col
                     xs={{ span: 22, order: 2 }}
                     sm={{ span: 0, order: 1 }}
-                    md={{ span: 0, order: 1 }}
-                    lg={{ span: 0, order: 2 }}
+                    xl={{ span: 0, order: 2 }}
                 >
                     {title === "Accueil" ? (
                         <div onClick={() => router.push(HOME)} className="cursor-pointer">
                             <Logo />
                         </div>
                     ) : (
-                            <div>
-                                <Title>{title}</Title>
-                            </div>
-                        )}
+                        <div>
+                            <Title>{title}</Title>
+                        </div>
+                    )}
                 </Col>
                 <Col
                     xs={{ span: 1, order: 3 }}
                     sm={{ span: 0, order: 1 }}
-                    md={{ span: 0, order: 1 }}
-                    lg={{ span: 0, order: 1 }}
+                    xl={{ span: 0, order: 1 }}
                 >
-                    {(mobileHeader) &&
+                    {mobileHeader && (
                         <div
                             onClick={toggleMobileHeader}
                             className="cursor-pointer"
@@ -102,13 +97,12 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                         >
                             <CloseOutlined className="mobile-icon" />
                         </div>
-                    }
+                    )}
                 </Col>
                 <Col
                     xs={{ span: 0, order: 2 }}
                     sm={{ span: 24, order: 2 }}
-                    md={{ span: 24, order: 2 }}
-                    lg={{ span: 6, order: 3 }}
+                    xl={{ span: 6, order: 3 }}
                 >
                     <Row>
                         {NAVLINKS.map(({ href, label }) => (
@@ -132,6 +126,12 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 
 const Container = styled.header`
     padding: 10px 15px;
+`;
+
+const ContainerButtons = styled(Col)`
+    @media screen and (max-width: 1200px) {
+        margin-top: 15px;
+    }
 `;
 
 const ContactButton = styled(BaseButton)`
