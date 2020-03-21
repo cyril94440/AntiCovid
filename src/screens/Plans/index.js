@@ -1,6 +1,4 @@
-import { Row } from "antd";
-import { Breakpoint, BreakpointProvider } from "react-socks";
-
+import { MobileOnly, DesktopOnly } from "@components/ResponsiveCompo"
 import Page from "@components/Page";
 
 import PlansFilters from "./Filters";
@@ -12,6 +10,7 @@ const Plans = () => {
 
     return (
         <Page title="Mes aides">
+<<<<<<< HEAD
             <BreakpointProvider>
                 <Breakpoint small down>
                     <PlansMobile filters={filters} setFilters={setFilters} />
@@ -23,6 +22,15 @@ const Plans = () => {
                     </Row>
                 </Breakpoint>
             </BreakpointProvider>
+=======
+            <MobileOnly>
+                <PlansMobile filters={filters} setFilters={setFilters} />
+            </MobileOnly>
+            <DesktopOnly>
+                <PlansFilters filters={filters} setFilters={setFilters} />
+                <PlansCards filters={filters} />
+            </DesktopOnly>
+>>>>>>> jeremie
         </Page>
     );
 };

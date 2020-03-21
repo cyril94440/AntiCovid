@@ -1,16 +1,13 @@
 import styled from "styled-components";
-import { Breakpoint, BreakpointProvider } from "react-socks";
-
+import { MobileOnly, DesktopOnly } from "@components/ResponsiveCompo"
 const Logo = () => (
     <Wrapper>
-        <BreakpointProvider>
-            <Breakpoint small down className="mobile">
+        <MobileOnly  className="mobile">
                 AntiCovid<span className="text-orange">.</span>
-            </Breakpoint>
-            <Breakpoint medium up className="desktop">
-                AntiCovid<span className="text-orange">.</span>
-            </Breakpoint>
-        </BreakpointProvider>
+        </MobileOnly>
+        <DesktopOnly className="desktop">
+            AntiCovid<span className="text-orange">.</span>
+        </DesktopOnly>
     </Wrapper>
 );
 
