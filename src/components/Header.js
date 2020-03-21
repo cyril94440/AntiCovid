@@ -21,14 +21,14 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                 gutter={{ xs: 0, sm: 15, md: 15, lg: 0 }}
             >
                 <Col
-                    xs={{ span: 1, order: 1 }}
+                    xs={{ span: 3, order: 1 }}
                     sm={{ span: 0, order: 1 }}
                     xl={{ span: 0, order: 1 }}
                 >
                     <div
                         onClick={toggleMobileHeader}
                         className="cursor-pointer"
-                        style={{ width: "auto", height: "auto" }}
+                        style={{ width: "fit-content", height: "auto" }}
                     >
                         <MenuOutlined className="mobile-icon" />
                     </div>
@@ -70,7 +70,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                     </div>
                 </Col>
                 <Col
-                    xs={{ span: 22, order: 2 }}
+                    xs={{ span: 18, order: 2 }}
                     sm={{ span: 0, order: 1 }}
                     xl={{ span: 0, order: 2 }}
                 >
@@ -85,7 +85,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
                     )}
                 </Col>
                 <Col
-                    xs={{ span: 1, order: 3 }}
+                    xs={{ span: 3, order: 3 }}
                     sm={{ span: 0, order: 1 }}
                     xl={{ span: 0, order: 1 }}
                 >
