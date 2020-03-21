@@ -12,7 +12,7 @@ const NewPlanButton = () => {
 
     return (
         <Wrapper className="bg-orange">
-            <a href={airTableNewDipositifLink} target="_blank" className="text-white">
+            <a href={airTableNewDipositifLink} target="_blank" style={{color: "white"}}>
                 {text}
             </a>
         </Wrapper>
