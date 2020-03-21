@@ -16,9 +16,6 @@ const Contact = () => (
                     <Col span={24}>
                         <ContactForm />
                     </Col>
-                    <Col xs={{ span: 24 }} md={{ span: 0 }} className="text-center addNewPlan">
-                        <NewPlanButton />
-                    </Col>
                 </Row>
             </Col>
         </Container>
