@@ -98,7 +98,8 @@ const JoinUsButton = styled(BaseButton)`
     width: 400px;
 
     @media screen and (max-width: 992px) {
-        margin-bottom: 15px;
+        margin-bottom: 90px;
+        width:80%;
     }
     a{
         color:white;

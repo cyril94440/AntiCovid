@@ -46,7 +46,7 @@ return (
                     crise !
                 </p>
             </AboutContainer>
-                    <FixedContainer onClick={() => router.push(JOIN_US)} ><NewPlanButton text={text} link={"#"} /></FixedContainer>
+                    <FixedContainer onClick={() => router.push(JOIN_US)} ><NewPlanButton text={text} /></FixedContainer>
         </Col>
     </HomeMobileContainer>
 )};
