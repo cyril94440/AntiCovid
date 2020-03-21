@@ -4,11 +4,12 @@ import { useRouter } from "next/router";
 import Disqus from "disqus-react";
 
 import BaseButton from "./Button";
+import BaseCard from "./Card";
 import { PLAN_HREF, PLANS } from "../constants/routes";
 
 import { disqusShortname, getDisqusConfig } from "../helpers/disqus";
 
-const StyledPlanCard = styled.div`
+const StyledPlanCard = styled(BaseCard)`
     border-radius: 18px;
     overflow: hidden;
     background-color: white;
@@ -60,9 +61,7 @@ export default function PlanCard({ name, description, planId }) {
         <StyledPlanCard>
             <Header className="bg-blue text-center">{name}</Header>
             <Container>
-                <Typography.Paragraph style={{ minHeight: 141 }} ellipsis={{ rows: 6 }}>
-                    {description}
-                </Typography.Paragraph>
+                <p style={{ minHeight: 141 }}>{description}</p>
                 <CommentDiv className="text-orange">
                     <img src="/commentBubble.png" />
                     <Disqus.CommentCount
