@@ -9,17 +9,27 @@ const MenuMobile = () => {
     return (
         <Container justify="center" align="middle">
             {NAVLINKSMENUMOBILE.map(({ href, label, icon }) => (
-                <MenuItem justify="center" key={href}>
+                <MenuItem justify="center" key={href} onClick={() => router.push(href)}>
                     <Img src={icon} />
                     <Link
                         className="text-uppercase"
                         key={href}
-                        onClick={() => router.push(href)}
-                        active={router.pathname === href}
+                        
                     >
                         {label}
                     </Link>
                 </MenuItem>
+                // <MenuItem justify="center" key={href}>
+                //     <Img src={icon} />
+                //     <Link
+                //         className="text-uppercase"
+                //         key={href}
+                //         onClick={() => router.push(href)}
+                //         active={router.pathname === href}
+                //     >
+                //         {label}
+                //     </Link>
+                // </MenuItem>
             ))}
         </Container>
     );
