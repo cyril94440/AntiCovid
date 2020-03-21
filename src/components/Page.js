@@ -51,7 +51,7 @@ export default function Page({ title, noHeader = false, children }) {
 
 const Container = styled(Layout.Content)`
     min-height: calc(100vh - 102px);
-    padding: 15px;
+    padding: 5px !important;
     overflow: scroll;
     height: 10px; //TODO: .....
 `;
