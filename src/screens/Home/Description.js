@@ -57,6 +57,7 @@ const AboutContainer = styled(BaseCard)`
 const StyledCard = styled(BaseCard)`
     border-radius: 25px;
     padding: 30px 60px;
+    height: 240px;
 `;
 
 const Img = styled.img`

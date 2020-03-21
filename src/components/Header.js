@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Row, Col, Modal } from "antd";
+import { Row, Col } from "antd";
 import { useRouter } from "next/router";
 import { MenuMobileModal } from "./menuMobileModal";
 
@@ -35,7 +35,11 @@ export default function Header({ title }) {
                 handleOk={handleOk}
                 handleCancel={handleCancel}
             />
-            <Row align="middle" className="text-center">
+            <Row
+                align="middle"
+                className="text-center"
+                gutter={{ xs: 0, sm: 15, md: 15, lg: 0 }}
+            >
                 <Col
                     xs={{ span: 1, order: 1 }}
                     sm={{ span: 0, order: 1 }}

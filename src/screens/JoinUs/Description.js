@@ -1,4 +1,3 @@
-import { Row, Col } from "antd";
 import styled from "styled-components";
 
 import { BLUE } from "@constants/style";
@@ -36,30 +35,52 @@ const data = [
 ];
 
 const JoinUsDescription = () => (
-    <Row justify="center" align="" gutter={[25, 25]} className="text-center">
-        {data.map(({ title, icon, items }, index) => (
-            <Col flex="1" key={icon} sm={{ span: 24, order: index }} md={12} lg={7}>
-                <StyledCard>
+    <Container className="text-center mx-auto" style={{ padding: 15 }}>
+        <Grid>
+            {data.map(({ title, icon, items }, index) => (
+                <StyledCard key={title}>
                     <Img src={icon} />
                     <TextCard>{title}</TextCard>
-                    <Items className="text-center">
+                    <div className="text-center">
                         {items.map(item => (
-                            <li key={item}>{item}</li>
+                            <p key={item}>
+                                <span style={{ fontSize: 40, marginRight: 10 }}>.</span>
+                                {item}
+                            </p>
                         ))}
-                    </Items>
+                    </div>
                 </StyledCard>
-            </Col>
-        ))}
+            ))}
+        </Grid>
 
-        <Col span={24} order={3}>
-            <JoinUsButton className="text-uppercase">Rejoingez nous</JoinUsButton>
-        </Col>
-    </Row>
+        <JoinUsButton className="text-uppercase">Rejoingez nous ici</JoinUsButton>
+    </Container>
 );
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+
+const Grid = styled.div`
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template: 1fr / repeat(3, 0.8fr);
+    grid-gap: 25px;
+    margin-bottom: 25px;
+
+    @media screen and (max-width: 992px) {
+        grid-template: 1fr / 100%;
+    }
+`;
 
 const StyledCard = styled(BaseCard)`
     border-radius: 25px;
     padding: 30px 60px;
+    width: 100%;
 `;
 
 const Img = styled.img`
@@ -73,10 +94,14 @@ const TextCard = styled.p`
     font-weight: 900;
 `;
 
-const Items = styled.ul``;
-
 const JoinUsButton = styled(BaseButton)`
-    background-color: #aaa;
+    background-color: ${BLUE};
+    font-weight: 500;
+    width: 400px;
+
+    @media screen and (max-width: 992px) {
+        margin-bottom: 15px;
+    }
 `;
 
 export default JoinUsDescription;

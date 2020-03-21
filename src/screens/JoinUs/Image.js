@@ -8,7 +8,7 @@ const JoinUsImage = () => (
         <Col sm={24} md={20} lg={14}>
             <DescriptionCard className="text-center">
                 <p className="description">
-                    Vous avez de l'énergie, un peu de temps disponible et vous e^tes motivé(e)
+                    Vous avez de l'énergie, un peu de temps disponible et vous êtes motivé(e)
                     pour rejoindre la communauté Anticovid ?
                 </p>
                 <p className="encouragement">
