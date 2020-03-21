@@ -3,20 +3,19 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { NAVLINKSMENUMOBILE } from "@constants/routes";
 
-const MenuMobile = ({toggleMobileHeader}) => {
+const MenuMobile = ({ toggleMobileHeader }) => {
     const router = useRouter();
-    console.log('Router query : ', router.pathname)
-    const hangleItemClick = (e) =>{
-        e.preventDefault();
-        toggleMobileHeader();
+
+    const hangleItemClick = (href) => (e) => {
+        toggleMobileHeader(e);
         router.push(href);
     }
+
     return (
         <Col justify="center" align="middle">
             {NAVLINKSMENUMOBILE.map(({ href, label, icon }) => (
-
                 <MenuItem justify="center" key={href} >
-                    <a onClick={hangleItemClick}> 
+                    <a onClick={hangleItemClick(href)}>
                         <Img src={icon} />
                         <Label className="text-uppercase" key={href}>
                             {label}
