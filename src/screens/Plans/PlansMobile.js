@@ -38,6 +38,9 @@ const accordionData = [
     }
 ];
 
+const text = "Soumettre un dispositif non référencé";
+const airTableNewDipositifLink = "https://airtable.com/shroZVJ5EV8tpsaNd";
+
 const PlansMobile = ({ filters, setFilters }) => (
     <PlansMobileContainer justify="center" gutter={[25, 25]}>
         <Col span={24}>
@@ -101,7 +104,7 @@ const PlansMobile = ({ filters, setFilters }) => (
             </Container>
 
             <AddPlanContainer>
-                <NewPlanButton />
+                <NewPlanButton text={text} link={airTableNewDipositifLink} />
             </AddPlanContainer>
         </Col>
     </PlansMobileContainer>

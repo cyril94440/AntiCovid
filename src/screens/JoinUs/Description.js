@@ -51,7 +51,7 @@ const JoinUsDescription = () => (
             ))}
         </Grid>
 
-        <JoinUsButton className="text-uppercase"><a href="https://join.slack.com/t/anticovid/shared_invite/zt-cqp7qpgi-MTzPntEyKkDQnr4jbLRDyg" target="_blank">Rejoignez nous ici</a></JoinUsButton>
+        <JoinUsButton className="text-uppercase"><a href="https://airtable.com/shrVHJ45g3JIGKne7" target="_blank">Rejoignez nous ici</a></JoinUsButton>
     </Container>
 );
 

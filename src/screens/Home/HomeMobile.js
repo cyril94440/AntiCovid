@@ -2,13 +2,20 @@ import { Row, Col, Card } from "antd";
 import styled from "styled-components";
 import { BLUE, GRAY, DARKGRAY, BOXSHADOW } from "@constants/style";
 import BaseCard from "@components/Card";
+import NewPlanButton from "@components/NewPlanButton";
+import { useRouter } from "next/router";
+import { JOIN_US } from "../../constants/routes";
 
 const data = [
     { text: "Un accompagnement pour trouver les aides adéquates", icon: "/community.png" },
     { text: "Un Blog pour rester informé(e) et faire les bons choix", icon: "/blogImg.png" }
 ];
 
-const HomeMobile = () => (
+const text = "On a besoin d'aide !";
+
+const HomeMobile = () => {
+    const router = useRouter();
+return (
     <HomeMobileContainer justify="center" gutter={[25, 25]} className="text-center">
         <Col span={24}>
             <DescriptionContainer>
@@ -41,9 +48,11 @@ const HomeMobile = () => (
                     crise !
                 </p>
             </AboutContainer>
+                    <FixedContainer onClick={() => router.push(JOIN_US)} ><NewPlanButton text={text} link={"#"} /></FixedContainer>
         </Col>
     </HomeMobileContainer>
-);
+)};
+
 const HomeMobileContainer = styled(Row)`
     // padding: 0px 30px;
     margin: 0px 0px !important;
@@ -107,4 +116,14 @@ const AboutContainer = styled(Row)`
         color: black;
     }
 `;
+const FixedContainer = styled.div`
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: auto;
+`;
+
 export default HomeMobile;

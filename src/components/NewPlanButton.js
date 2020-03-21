@@ -4,15 +4,12 @@ import { useRouter } from "next/router";
 import BaseButton from "./Button";
 import { CONTACT } from "@constants/routes";
 
-const text = "Soumetttre un dispositif non référencé";
-const airTableNewDipositifLink = "https://airtable.com/shroZVJ5EV8tpsaNd";
-
-const NewPlanButton = () => {
+const NewPlanButton = ({text,link}) => {
     const router = useRouter();
 
     return (
         <Wrapper className="bg-orange">
-            <a href={airTableNewDipositifLink} target="_blank" style={{color: "white"}}>
+            <a href={link} target="_blank" style={{color: "white"}}>
                 {text}
             </a>
         </Wrapper>

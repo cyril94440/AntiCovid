@@ -9,7 +9,7 @@ export const NAVLINKS = [
     { href: HOME, label: "ACCUEIL" },
     { href: CONTACT, label: "CONTACT" },
     { href: BLOG, label: "BLOG" },
-    { href: JOIN_US, label: "REJOINGNEZ-NOUS" }
+    { href: JOIN_US, label: "REJOIGNEZ-NOUS" }
 ];
 
 export const NAVLINKSMENUMOBILE = [

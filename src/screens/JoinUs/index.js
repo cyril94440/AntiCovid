@@ -4,7 +4,7 @@ import JoinUsImage from "./Image";
 import JoinUsDescription from "./Description";
 
 const JoinUs = () => (
-    <Page title="Rejoingnez-nous">
+    <Page title="Rejoignez-nous">
         <JoinUsImage />
         <JoinUsDescription />
     </Page>
