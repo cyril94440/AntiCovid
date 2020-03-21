@@ -41,14 +41,11 @@ const JoinUsDescription = () => (
                 <StyledCard key={title}>
                     <Img src={icon} />
                     <TextCard>{title}</TextCard>
-                    <div className="text-center">
+                    <ul className="text-center" style={{ listStylePosition: "inside" }}>
                         {items.map(item => (
-                            <p key={item}>
-                                <span style={{ fontSize: 40, marginRight: 10 }}>.</span>
-                                {item}
-                            </p>
+                            <li key={item}>{item}</li>
                         ))}
-                    </div>
+                    </ul>
                 </StyledCard>
             ))}
         </Grid>
