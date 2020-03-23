@@ -1,3 +1,4 @@
+
 ![AnticCovid est une plateforme solidaire pour aider les entrepreneurs à surmonter la crise du Covid 19.](https://i.ibb.co/mtPrGSK/MARION-ANTICOVID-CAPSULE-TW-HEADER-19-03-20.jpg)
 
 AntiCovid is an open source project to which anyone can participate! 
@@ -17,3 +18,11 @@ You'll need access to it, please ask Cyril T in [AntiCovid Slack](https://join.s
 - next.js
 - mobX
 - ant.design
+### Contributing
+
+Join us on [Slack](https://join.slack.com/t/anticovid/shared_invite/zt-cqp7qpgi-MTzPntEyKkDQnr4jbLRDyg)
+Take a look at the ToDo list
+Fork the project
+Submit a Pull Request
+
+Let's fight together!
