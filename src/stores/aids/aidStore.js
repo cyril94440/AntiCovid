@@ -32,7 +32,8 @@ class AidStore {
                 console.log("results received from AirTable");
                 if (err) console.error(err);
                 else {
-                    const data = records.map(record => record.fields);
+                    let data = records.map(record => record.fields);
+                    data = data.filter(record => record["online"])
                     this.aids = data;
                 }
             });
