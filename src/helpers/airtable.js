@@ -1,11 +1,11 @@
 const Airtable = require("airtable");
 
 const AirtableBase = new Airtable({
-    apiKey: `keyjwkLQP9bny6W38`
+    apiKey: `keymHkPTuEpFEmOBw`
 }).base(`appa5E38MXXODf7uE`);
 
 export const AirtableContactBase = new Airtable({
-    apiKey: `keyjwkLQP9bny6W38`
+    apiKey: `keymHkPTuEpFEmOBw`
 }).base(`appg8PbzpUHqLvEsB`);
 
 export function doesPropertyContain(propertyArray, allowedValuesArray) {
