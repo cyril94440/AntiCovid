@@ -37,14 +37,17 @@ const DescriptionCard = ({ recordId }) => {
                             <Header>{data["Nom du dispositif"]}</Header>
                             <Time>{data["Updated"]}</Time>
                             <Container>
-                                <ReactMarkdown source={data["Description"]} />
+                                <p><ReactMarkdown source={data["Description"]} /></p>
                                 <Info>
                                     {components.map((Component, index) => (
                                         <Component key={index} data={data} />
                                     ))}
                                 </Info>
-                                <div id="commento"></div>
-                                <script src="https://cdn.commento.io/js/commento.js"></script>
+
+                                <Disqus.DiscussionEmbed
+                                    shortname={disqusShortname}
+                                    config={getDisqusConfig(recordId)}
+                                />
                             </Container>
                         </Block>
                     );
