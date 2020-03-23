@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import { Typography } from "antd";
 import { useRouter } from "next/router";
-import Disqus from "disqus-react";
 
 import BaseButton from "./Button";
 import BaseCard from "./Card";
 import { PLAN_HREF, PLANS } from "../constants/routes";
 
-import { disqusShortname, getDisqusConfig } from "../helpers/disqus";
 
 import ReactMarkdown from "react-markdown";
 
@@ -76,12 +73,7 @@ export default function PlanCard({ name, description, planId }) {
                 <div>
                     <CommentDiv className="text-orange">
                         <img src="/commentBubble.png" />
-                        <Disqus.CommentCount
-                            shortname={disqusShortname}
-                            config={getDisqusConfig(planId)}
-                        >
-                            ...
-                        </Disqus.CommentCount>
+                        <div className="gc-counter" data-url={`https://www.anticovid.io/plans/${planId}`} style={{display:"inline"}}></div>
                     </CommentDiv>
                     <div className="text-center">
                         <PlanButton
