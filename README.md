@@ -21,7 +21,7 @@ You'll need access to it, please ask Cyril T in [AntiCovid Slack](https://join.s
 ### Contributing
 
 Join us on [Slack](https://join.slack.com/t/anticovid/shared_invite/zt-cqp7qpgi-MTzPntEyKkDQnr4jbLRDyg).  
-Take a look at the ToDo list.  
+Take a look at the [AirTable ToDo board](https://airtable.com/shrAmP2chGxdf9vwn).  
 Fork the project.  
 Submit a Pull Request.  
    
