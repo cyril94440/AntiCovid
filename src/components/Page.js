@@ -9,7 +9,8 @@ import MenuMobile from "./menuMobile";
 export default function Page({ title, noHeader = false, children }) {
     const [mobileHeader, setMobileHeader] = React.useState(false);
     const toggleMobileHeader = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
+        console.log('toggleMobileHeader')
         setMobileHeader(!mobileHeader);
     };
 
@@ -42,7 +43,7 @@ export default function Page({ title, noHeader = false, children }) {
             <Layout className={` ${mobileHeader ? 'backgroundMobileMenu' : ''}`}>
                 {!noHeader && <Header title={(mobileHeader) ? "Menu" : title} mobileHeader={mobileHeader} toggleMobileHeader={toggleMobileHeader} />}
                 <Container>
-                     {(mobileHeader) ? <MenuMobile /> : children}
+                     {(mobileHeader) ? <MenuMobile toggleMobileHeader={toggleMobileHeader} /> : children}
                 </Container>
             </Layout>
         </>
