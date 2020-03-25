@@ -13,7 +13,7 @@ export default function PlanListRow({ name, description, planId }) {
 	const router = useRouter();
 
 	return (
-		<Container>
+		<Container onClick={() => router.push(PLAN_HREF, PLANS + "/" + planId)}>
 			<IconDiv />
 			<CommentDiv>
 				<img src="/commentBubble.png" />
@@ -35,6 +35,7 @@ const Container = styled.div`
 	-moz-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
 	box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
 	margin-bottom: 0px;
+	cursor: pointer;
 `;
 const IconDiv = styled.div`
 	float: left;

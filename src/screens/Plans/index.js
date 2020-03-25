@@ -6,6 +6,9 @@ import PlansList from "./PlansList";
 import PlansMobile from "./PlansMobile";
 import { Row, Col } from "antd";
 import { useEffect } from "react";
+import BaseButton from "../../components/Button";
+import styled from "styled-components";
+import { RED } from "../../constants/style";
 
 const Plans = () => {
 	const [filters, setFilters] = React.useState({});
@@ -39,8 +42,39 @@ const Plans = () => {
 		<Page title="Mes aides">
 			<PlansFilters filters={filters} setFilters={setFilters} />
 			<PlansList filters={filters} />
+
+			<HelpButtonContainer>
+				<HelpButton>
+					<HelpLink
+						className="text-white"
+						href="https://airtable.com/shroZVJ5EV8tpsaNd"
+						target="_blank"
+					>
+						SOUMETTRE UNE AIDE
+					</HelpLink>
+				</HelpButton>
+			</HelpButtonContainer>
 		</Page>
 	);
 };
+
+const HelpButtonContainer = styled.div`
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 40px;
+`;
+
+const HelpButton = styled(BaseButton)`
+	padding: 0 30px;
+	transition: all 0.5s;
+	background-color: ${RED};
+`;
+const HelpLink = styled.a`
+	color: white;
+
+	&:hover {
+		color: white;
+	}
+`;
 
 export default Plans;
