@@ -1,4 +1,4 @@
-import { Row, Col } from "antd";
+import { Row, Col, Radio } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 
@@ -19,17 +19,22 @@ const Badge = styled.span`
 const PlansList = ({ filters }) => (
 	<div>
 		<Title>
-			Mes aides{" "}
-			<Badge>
-				{" "}
-				<Observer>
-					{() => {
-						return aidStore.filteredAids([filters.localization])
-							.length;
-					}}
-				</Observer>
-			</Badge>
+			{" "}
+			<Observer>
+				{() => {
+					return aidStore.filteredAids([filters.localization]).length;
+				}}
+			</Observer>{" "}
+			aides disponibles
 		</Title>
+
+		<RadioContainer>
+			<Radio.Group defaultValue="a" buttonStyle="solid" size="large">
+				<Radio.Button value="a"> Professionnelles </Radio.Button>
+				<Radio.Button value="b"> Personnelles </Radio.Button>
+			</Radio.Group>
+		</RadioContainer>
+
 		<Container>
 			<CardsContainer>
 				<Observer>
@@ -53,10 +58,7 @@ const PlansList = ({ filters }) => (
 
 const Title = styled.h3`
 	margin-left: 30px;
-
-	@media screen and (max-width: 1200px) {
-		color: white;
-	}
+	color: white;
 `;
 
 const Container = styled.div`
@@ -86,6 +88,33 @@ const Container = styled.div`
 		&::-webkit-scrollbar {
 			display: none;
 		}
+	}
+`;
+
+const RadioContainer = styled.div`
+	width: 100%;
+	text-align: center;
+	position: relative;
+	top: -40px;
+
+	.ant-radio-group {
+		border-radius: 10px;
+		overflow: hidden;
+		-webkit-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
+		-moz-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
+		box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
+		font-weight: 700;
+		border: none !important;
+	}
+	.ant-radio-button-wrapper {
+		border: none !important;
+	}
+	.ant-radio-button-wrapper-checked {
+		border: none !important;
+		background-color: ${ORANGE} !important;
+	}
+	.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+		background: none;
 	}
 `;
 
