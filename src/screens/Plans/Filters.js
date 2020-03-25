@@ -10,6 +10,23 @@ const accordionData = [
     { title: "Nombre de salariés" },
     { title: "Chiffre d'affaires" },*/
     {
+        title: "Vous êtes",
+        key:"Type structure",
+        Icon: undefined,
+        data: [
+            "Société",
+            "Indépendant (auto-entreprise, micro entreprise, entreprise individuelle, EIRL, dirigeant de société unipersonnelle)"
+        ]
+    },
+    {
+        title: "Votre activité",
+        key:"Activité",
+        Icon: undefined,
+        data: [
+            "artisan","agent commercial"
+        ]
+    },
+    {
         title: "Localisation géographique",
         key: "localization",
         Icon: EnvironmentFilled,
@@ -33,7 +50,7 @@ const accordionData = [
 ];
 
 const PlansFilters = ({ filters, setFilters }) => (
-    <Col sm={24} xl={8}>
+    <div>
         <h3 style={{ color: "white", marginLeft: 30 }}>Mon entreprise</h3>
         <Block>
             <Collapse bordered={false}>
@@ -57,7 +74,7 @@ const PlansFilters = ({ filters, setFilters }) => (
                 ))}
             </Collapse>
         </Block>
-    </Col>
+        </div>
 );
 
 const Block = styled(BaseCard)`

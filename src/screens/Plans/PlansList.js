@@ -8,14 +8,15 @@ import { BLUE } from "@constants/style";
 
 import PlanCard from "@components/PlanCard";
 import { ORANGE } from "../../constants/style";
+import PlanListRow from "../../components/PlanListRow";
 
 const Badge = styled.span`
 	color: ${ORANGE};
-	position: relative;
-	left: 10px;
+	margin: auto;
+	float: center;
 `;
 
-const PlansCards = ({ filters }) => (
+const PlansList = ({ filters }) => (
 	<div>
 		<Title>
 			Mes aides{" "}
@@ -36,7 +37,7 @@ const PlansCards = ({ filters }) => (
 						aidStore
 							.filteredAids([filters.localization])
 							.map(plan => (
-								<PlanCard
+								<PlanListRow
 									key={plan.ID}
 									name={plan["Nom du dispositif"]}
 									description={plan["Résumé"]}
@@ -59,9 +60,9 @@ const Title = styled.h3`
 `;
 
 const Container = styled.div`
-	overflow: scroll;
 	padding: 0 5px;
-	height: calc(100vh - 150px);
+	padding-bottom: 20px;
+	height: auto;
 
 	&::-webkit-scrollbar {
 		width: 7px;
@@ -90,12 +91,8 @@ const Container = styled.div`
 
 const CardsContainer = styled.div`
 	display: grid;
-	grid-template: 1fr / repeat(2, 1fr);
-	grid-gap: 25px;
-
-	@media screen and (max-width: 1200px) {
-		grid-template: 1fr / 1fr;
-	}
+	grid-template: 1fr / 1fr;
+	grid-gap: 14px;
 `;
 
-export default PlansCards;
+export default PlansList;
