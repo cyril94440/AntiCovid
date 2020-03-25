@@ -9,6 +9,7 @@ import { BLUE } from "@constants/style";
 import PlanCard from "@components/PlanCard";
 import { ORANGE } from "../../constants/style";
 import PlanListRow from "../../components/PlanListRow";
+import { DesktopOnly } from "../../components/ResponsiveCompo";
 
 const Badge = styled.span`
 	color: ${ORANGE};
@@ -18,15 +19,18 @@ const Badge = styled.span`
 
 const PlansList = ({ filters }) => (
 	<div>
-		<Title>
-			{" "}
-			<Observer>
-				{() => {
-					return aidStore.filteredAids([filters.localization]).length;
-				}}
-			</Observer>{" "}
-			aides disponibles
-		</Title>
+		<DesktopOnly>
+			<Title>
+				{" "}
+				<Observer>
+					{() => {
+						return aidStore.filteredAids([filters.localization])
+							.length;
+					}}
+				</Observer>{" "}
+				aides disponibles
+			</Title>
+		</DesktopOnly>
 
 		<RadioContainer>
 			<Radio.Group defaultValue="a" buttonStyle="solid" size="large">
@@ -97,6 +101,11 @@ const RadioContainer = styled.div`
 	position: relative;
 	top: -40px;
 
+	@media screen and (max-width: 768px) {
+		top: 0px;
+		margin-bottom: 20px;
+	}
+
 	.ant-radio-group {
 		border-radius: 10px;
 		overflow: hidden;
@@ -111,6 +120,9 @@ const RadioContainer = styled.div`
 		height: 50px;
 		line-height: 50px;
 		width: 200px;
+		@media screen and (max-width: 768px) {
+			width: auto;
+		}
 	}
 	.ant-radio-button-wrapper-checked {
 		border: none !important;

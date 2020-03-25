@@ -37,13 +37,8 @@ const Plans = () => {
 
 	return (
 		<Page title="Mes aides">
-			<MobileOnly>
-				<PlansMobile filters={filters} setFilters={setFilters} />
-			</MobileOnly>
-			<DesktopOnly>
-				<PlansFilters filters={filters} setFilters={setFilters} />
-				<PlansList filters={filters} />
-			</DesktopOnly>
+			<PlansFilters filters={filters} setFilters={setFilters} />
+			<PlansList filters={filters} />
 		</Page>
 	);
 };

@@ -7,6 +7,7 @@ import BaseCard from "./Card";
 import { PLAN_HREF, PLANS } from "../constants/routes";
 
 import ReactMarkdown from "react-markdown";
+import { DesktopOnly } from "./ResponsiveCompo";
 
 export default function PlanListRow({ name, description, planId }) {
 	const router = useRouter();
@@ -20,8 +21,7 @@ export default function PlanListRow({ name, description, planId }) {
 			</CommentDiv>
 			<MainContent>
 				<TitleH4>{name}</TitleH4>
-				<br />
-				{description}
+				<DesktopOnly>{description}</DesktopOnly>
 			</MainContent>
 		</Container>
 	);
@@ -67,6 +67,7 @@ const MainContent = styled.div`
 	left: 20px;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+	width: 75%;
 `;
 const TitleH4 = styled.h4`
 	display: inline;

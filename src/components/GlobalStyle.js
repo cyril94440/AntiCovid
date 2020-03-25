@@ -44,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
             overflow: hidden;
         }
     }
+    
 
     .ant-layout{
         background:none;
