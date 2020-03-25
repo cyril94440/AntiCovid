@@ -108,6 +108,9 @@ const RadioContainer = styled.div`
 	}
 	.ant-radio-button-wrapper {
 		border: none !important;
+		height: 50px;
+		line-height: 50px;
+		width: 200px;
 	}
 	.ant-radio-button-wrapper-checked {
 		border: none !important;
