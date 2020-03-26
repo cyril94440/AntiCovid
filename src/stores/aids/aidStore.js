@@ -35,8 +35,6 @@ class AidStore {
 	filteredAids = computedFn(function getFilteredAids(filters) {
 		let results = this.aids;
 
-		console.log(filters);
-
 		for (var key in filters) {
 			results = results.filter(a =>
 				doesPropertyContain(a[key], [filters[key]])
