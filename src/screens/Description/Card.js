@@ -1,4 +1,4 @@
-import { Col, Card, Spin } from "antd";
+import { Col, Card, Spin, Row } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 import Disqus from "disqus-react";
@@ -19,6 +19,9 @@ import useWindowSize from "@hooks/useWindowSize";
 
 import ReactMarkdown from "react-markdown";
 import { useEffect } from "react";
+
+import { TagView } from "@components/TagView";
+import { ORANGE, YELLOW, RED } from "../../constants/style";
 
 const components = [DescriptionInfos, DescriptionsStatus, DescriptionButtons];
 
@@ -63,15 +66,35 @@ const DescriptionCard = ({ recordId }) => {
 					if (!data) return <Spin />;
 
 					return (
-						<Block style={{ height: size.height - 150 }}>
+						<Block>
 							<Header>{data["Nom de l'aide"]}</Header>
 							<Time>{data["Nature de l'aide"][0]}</Time>
 							<Container>
 								<h2>Qui est concerné ?</h2>
+								<TagView
+									array={
+										data["Activité de l'indépendant"] ||
+										data[
+											"Activité de l'auto-entreprise / micro-entreprise"
+										] ||
+										data["Activité de la société"]
+									}
+									key="Activité"
+								/>
+								<TagView
+									array={data["Localisation"]}
+									key="Localisation"
+									color={ORANGE}
+								/>
 								<ReactMarkdown
 									source={data["Détail - qui est concerné"]}
 								/>
 								<h2>Description de l'aide</h2>
+								<TagView
+									array={data["Organisme"]}
+									key="Organisme"
+									color={RED}
+								/>
 								<ReactMarkdown
 									source={data["Description détaillée"]}
 								/>
@@ -92,14 +115,29 @@ const DescriptionCard = ({ recordId }) => {
 								/>
 								<h3>Liens utiles</h3>
 								<Info>
-									{components.map((Component, index) => (
-										<Component key={index} data={data} />
-									))}
+									{Object.keys(data)
+										.filter(k => k.startsWith("lien utile"))
+										.map(k => {
+											const key = k.replace(
+												"lien utile - ",
+												""
+											);
+											return (
+												<Row gutter={[0, 16]}>
+													<KeyCol md={8} sm={24}>
+														{key}
+													</KeyCol>
+													<ValueCol md={16} sm={24}>
+														<ReactMarkdown
+															source={data[k]}
+														/>
+													</ValueCol>
+												</Row>
+											);
+										})}
 								</Info>
 								<h2>Commentaires</h2>
 								<ReactMarkdown source={data["commentaires"]} />
-								<h3>Test</h3>
-								<ReactMarkdown source={data["Field 22"]} />
 								<div id="graphcomment"></div>
 							</Container>
 						</Block>
@@ -113,7 +151,8 @@ const DescriptionCard = ({ recordId }) => {
 const Block = styled(Card)`
 	border-radius: 18px !important;
 	border: 0;
-	overflow: scroll;
+	margin-bottom: 20px;
+	overflow: hidden;
 
 	-webkit-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
 	-moz-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
@@ -151,19 +190,23 @@ const Time = styled.div`
 `;
 
 const Container = styled.div`
-	@media screen and (max-width: 576px) {
-		padding: 20px 30px;
-	}
+	// @media screen and (max-width: 576px) {
+	// 	padding: 20px 30px;
+	// }
 	padding: 20px 60px;
 	font-size: 12px;
 	text-align: justify;
 	line-height: 14px;
 `;
 const Info = styled.div`
-	@media screen and (max-width: 576px) {
-		font-size: 12px !important;
-		text-align: left;
-	}
+	font-size: 16px;
 `;
+const KeyCol = styled(Col)`
+	font-size: 1.2em;
+	font-weight: 700;
+	text-align: left;
+	line-height: 1.2em;
+`;
+const ValueCol = styled(Col)``;
 
 export default DescriptionCard;
