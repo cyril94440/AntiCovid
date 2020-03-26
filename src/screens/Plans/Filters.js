@@ -6,87 +6,81 @@ import BaseCard from "@components/Card";
 import { BLUE } from "../../constants/style";
 import { Observer } from "mobx-react";
 import aidStore from "../../stores/aids/aidStore";
+import { useState } from "react";
 
 const { Option } = Select;
 
-const accordionData = [
-	/*{ title: "Forme de société" },
-    { title: "Secteur d'activité" },
-    { title: "Nombre de salariés" },
-    { title: "Chiffre d'affaires" },*/
-	{
-		title: "Vous êtes",
-		key: "Type structure",
-		Icon: undefined,
-		data: [
-			"Société",
-			"Indépendant (auto-entreprise, micro entreprise, entreprise individuelle, EIRL, dirigeant de société unipersonnelle)"
-		]
-	},
-	{
-		title: "Votre activité",
-		key: "Activité",
-		Icon: undefined,
-		data: ["artisan", "agent commercial"]
-	}
-	// {
-	// 	title: "Localisation géographique",
-	// 	key: "localization",
-	// 	Icon: EnvironmentFilled,
-	// 	data: [
-	// 		"DOM",
-	// 		"Auvergne - Rhônes - Alpes",
-	// 		"Hauts de France",
-	// 		"Bretagne",
-	// 		"Grand-Est",
-	// 		"PACA",
-	// 		"Pays de la Loire",
-	// 		"Occitanie",
-	// 		"Bourgogne-Franche-Comté",
-	// 		"Centre Val-De-Loire",
-	// 		"Ile-de-France",
-	// 		"Normandie",
-	// 		"Nouvelle-Aquitaine",
-	// 		"Corse"
-	// 	]
-	// }
-];
+const PlansFilters = ({ filters, setFilters }) => {
+	const [activeType, setActiveType] = useState("default");
 
-const PlansFilters = ({ filters, setFilters }) => (
-	<Container>
-		<AntiCovidDiv>
-			<span className="description">
-				AntiCovid est une plateforme solidaire pour aider les
-				entrepreneurs à surmonter la crise du Covid 19.{" "}
-			</span>
-		</AntiCovidDiv>
-		<h3 style={{ color: "white", marginLeft: 30 }}>Mon entreprise</h3>
-		<StyledForm>
-			{accordionData.map(({ title, data, Icon, key }) => (
-				<Form.Item name={key}>
-					<Select placeholder={title}>
-						{data.map(value => (
-							<Option value={value}>{value}</Option>
-						))}
-					</Select>
-				</Form.Item>
-			))}
+	let form;
+
+	const onTypeChange = value => {
+		form.setFieldsValue({ Activité: undefined });
+		if (value.startsWith("Soc")) {
+			setActiveType("Soc");
+		} else if (value.startsWith("Ind")) {
+			setActiveType("Ind");
+		} else if (value.startsWith("Auto")) {
+			setActiveType("Auto");
+		} else {
+			setActiveType("default");
+			alert("Unknown type. Please contact us");
+		}
+	};
+
+	return (
+		<Container>
+			<AntiCovidDiv>
+				<span className="description">
+					AntiCovid est une plateforme solidaire pour aider les
+					entrepreneurs à surmonter la crise du Covid 19.{" "}
+				</span>
+			</AntiCovidDiv>
+			<h3 style={{ color: "white", marginLeft: 30 }}>Mon entreprise</h3>
+
 			<Observer>
 				{() => (
-					<Form.Item name={aidStore.filterLocalisation.key}>
-						<Select placeholder={aidStore.filterLocalisation.title}>
-							{[...aidStore.filterLocalisation.data].map(
-								value => (
+					<StyledForm ref={ref => (form = ref)}>
+						<Form.Item name={aidStore.filterType.key}>
+							<Select
+								placeholder={aidStore.filterType.title}
+								onChange={onTypeChange}
+							>
+								{[...aidStore.filterType.data].map(value => (
 									<Option value={value}>{value}</Option>
-								)
-							)}
-						</Select>
-					</Form.Item>
+								))}
+							</Select>
+						</Form.Item>
+						<Form.Item name={aidStore.filterActivity.key}>
+							<Select
+								placeholder={aidStore.filterActivity.title}
+								disabled={activeType === "default"}
+							>
+								{[
+									...aidStore.filterActivity.data[activeType]
+								].map(value => (
+									<Option value={value}>{value}</Option>
+								))}
+							</Select>
+						</Form.Item>
+						<Form.Item name={aidStore.filterLocalisation.key}>
+							<Select
+								placeholder={aidStore.filterLocalisation.title}
+							>
+								{[...aidStore.filterLocalisation.data].map(
+									value => (
+										<Option value={value}>{value}</Option>
+									)
+								)}
+							</Select>
+						</Form.Item>
+					</StyledForm>
 				)}
 			</Observer>
-		</StyledForm>
-	</Container>
-);
+		</Container>
+	);
+};
 
 const Container = styled.div``;
 const StyledForm = styled(Form)`

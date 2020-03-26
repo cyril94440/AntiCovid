@@ -5,9 +5,21 @@ import { doesPropertyContain } from "../../helpers/airtable";
 
 class AidStore {
 	@observable aids = [];
-	@observable filterType = [];
-	@observable filterFreelanceActivity = [];
-	@observable filterCompanyActivity = [];
+	@observable filterType = {
+		title: "Vous êtes",
+		key: "Type structure",
+		data: new Set()
+	};
+	@observable filterActivity = {
+		title: "Votre activité",
+		key: "Activité",
+		data: {
+			default: [],
+			Soc: new Set(),
+			Ind: new Set(),
+			Auto: new Set()
+		}
+	};
 	@observable filterLocalisation = {
 		title: "Localisation géographique",
 		key: "localization",
@@ -44,24 +56,31 @@ class AidStore {
 					data = data.filter(record => record["online"]);
 					this.aids = data;
 
-					this.filterType = new Set();
-					this.filterCompanyActivity = new Set();
-					this.filterFreelanceActivity = new Set();
-
 					this.aids.forEach(r => {
 						if (r["Type structure"])
-							this.filterType.add(r["Type structure"][0]);
-						if (r["Activité de la société"])
-							this.filterCompanyActivity.add(
-								r["Activité de la société"][0]
-							);
+							this.filterType.data.add(r["Type structure"][0]);
 						if (r["Localisation"])
 							this.filterLocalisation.data.add(
 								r["Localisation"][0]
 							);
+
+						if (r["Activité de la société"])
+							this.filterActivity.data.Soc.add(
+								r["Activité de la société"][0]
+							);
 						if (r["Activité de l'indépendant"])
-							this.filterFreelanceActivity.add(
+							this.filterActivity.data.Ind.add(
 								r["Activité de l'indépendant"][0]
+							);
+						if (
+							r[
+								"Activité de l'auto-entreprise / micro-entreprise"
+							]
+						)
+							this.filterActivity.data.Auto.add(
+								r[
+									"Activité de l'auto-entreprise / micro-entreprise"
+								][0]
 							);
 					});
 				}
