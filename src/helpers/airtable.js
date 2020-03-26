@@ -10,6 +10,8 @@ export const AirtableContactBase = new Airtable({
 
 export function doesPropertyContain(propertyArray, allowedValuesArray) {
 	if (propertyArray) {
+		if (propertyArray.indexOf("toutes") !== -1) return true;
+		if (propertyArray.indexOf("France entière") !== -1) return true;
 		for (const i in propertyArray) {
 			const value = propertyArray[i];
 			if (allowedValuesArray.indexOf(value) !== -1) {
