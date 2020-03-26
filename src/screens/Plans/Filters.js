@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 import BaseCard from "@components/Card";
 import { BLUE } from "../../constants/style";
+import { Observer } from "mobx-react";
+import aidStore from "../../stores/aids/aidStore";
 
 const { Option } = Select;
 
@@ -26,28 +28,28 @@ const accordionData = [
 		key: "Activité",
 		Icon: undefined,
 		data: ["artisan", "agent commercial"]
-	},
-	{
-		title: "Localisation géographique",
-		key: "localization",
-		Icon: EnvironmentFilled,
-		data: [
-			"DOM",
-			"Auvergne - Rhônes - Alpes",
-			"Hauts de France",
-			"Bretagne",
-			"Grand-Est",
-			"PACA",
-			"Pays de la Loire",
-			"Occitanie",
-			"Bourgogne-Franche-Comté",
-			"Centre Val-De-Loire",
-			"Ile-de-France",
-			"Normandie",
-			"Nouvelle-Aquitaine",
-			"Corse"
-		]
 	}
+	// {
+	// 	title: "Localisation géographique",
+	// 	key: "localization",
+	// 	Icon: EnvironmentFilled,
+	// 	data: [
+	// 		"DOM",
+	// 		"Auvergne - Rhônes - Alpes",
+	// 		"Hauts de France",
+	// 		"Bretagne",
+	// 		"Grand-Est",
+	// 		"PACA",
+	// 		"Pays de la Loire",
+	// 		"Occitanie",
+	// 		"Bourgogne-Franche-Comté",
+	// 		"Centre Val-De-Loire",
+	// 		"Ile-de-France",
+	// 		"Normandie",
+	// 		"Nouvelle-Aquitaine",
+	// 		"Corse"
+	// 	]
+	// }
 ];
 
 const PlansFilters = ({ filters, setFilters }) => (
@@ -69,6 +71,19 @@ const PlansFilters = ({ filters, setFilters }) => (
 					</Select>
 				</Form.Item>
 			))}
+			<Observer>
+				{() => (
+					<Form.Item name={aidStore.filterLocalisation.key}>
+						<Select placeholder={aidStore.filterLocalisation.title}>
+							{[...aidStore.filterLocalisation.data].map(
+								value => (
+									<Option value={value}>{value}</Option>
+								)
+							)}
+						</Select>
+					</Form.Item>
+				)}
+			</Observer>
 		</StyledForm>
 	</Container>
 );

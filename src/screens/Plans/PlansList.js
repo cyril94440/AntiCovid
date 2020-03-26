@@ -48,8 +48,8 @@ const PlansList = ({ filters }) => (
 							.map(plan => (
 								<PlanListRow
 									key={plan.ID}
-									name={plan["Nom du dispositif"]}
-									description={plan["Résumé"]}
+									name={plan["Nom de l'aide"]}
+									description={plan["Résumé de l'aide"]}
 									planId={plan.ID}
 								/>
 							))
