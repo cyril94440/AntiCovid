@@ -28,7 +28,7 @@ export default function PlanListRow({ name, description, planId }) {
 
 			<CommentDiv>
 				<img src="/commentBubble.png" />
-				<CommentNumber>13</CommentNumber>
+				<CommentNumber>0</CommentNumber>
 			</CommentDiv>
 		</Container>
 	);
