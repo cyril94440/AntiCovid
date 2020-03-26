@@ -40,12 +40,12 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 				>
 					<Row gutter={[15, 15]}>
 						<Col>
-							<ContactButton
+							{/* <ContactButton
 								className="bg-orange text-uppercase"
 								onClick={() => router.push(PLANS)}
 							>
 								MES AIDES
-							</ContactButton>
+							</ContactButton> */}
 						</Col>
 						{/* <Col>
 							<HelpButton>
@@ -111,7 +111,9 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 					xl={{ span: 6, order: 3 }}
 				>
 					<Row gutter={10}>
-						{NAVLINKS.map(({ href, label }) => (
+						{NAVLINKS.filter(
+							({ href, label }) => label != "ACCUEIL"
+						).map(({ href, label }) => (
 							<Col key={href}>
 								<Link
 									className="text-uppercase"
