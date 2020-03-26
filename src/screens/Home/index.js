@@ -2,19 +2,11 @@ import Page from "@components/Page";
 import HomeImage from "./Image";
 import HomeDescription from "./Description";
 import HomeMobile from "./HomeMobile";
-import { MobileOnly, DesktopOnly } from "@components/ResponsiveCompo"
+import { MobileOnly, DesktopOnly } from "@components/ResponsiveCompo";
+import Plans from "@screens/Plans";
+
 const Home = () => {
-    return (
-        <Page title="Accueil">
-            <MobileOnly>
-                <HomeMobile />
-            </MobileOnly>
-            <DesktopOnly>
-                <HomeImage />
-                <HomeDescription />
-            </DesktopOnly>
-        </Page>
-    );
+	return <Plans />;
 };
 
 export default Home;
