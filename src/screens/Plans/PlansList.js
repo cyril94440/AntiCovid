@@ -45,11 +45,11 @@ const PlansList = ({ filters, setFilters }) => {
 				>
 					<Radio.Button value="aide professionnelle">
 						{" "}
-						Professionnelles{" "}
+						Professionnel{" "}
 					</Radio.Button>
 					<Radio.Button value="aide personnelle">
 						{" "}
-						Personnelles{" "}
+						Particulier{" "}
 					</Radio.Button>
 				</Radio.Group>
 			</RadioContainer>

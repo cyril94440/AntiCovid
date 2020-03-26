@@ -33,6 +33,10 @@ class AidStore {
 	};
 
 	filteredAids = computedFn(function getFilteredAids(filters) {
+		if (filters["Nature de l'aide"] == "aide personnelle") {
+			filters = { "Nature de l'aide": "aide personnelle" };
+		}
+
 		let results = this.aids;
 
 		for (var key in filters) {
