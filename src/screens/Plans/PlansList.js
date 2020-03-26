@@ -17,47 +17,64 @@ const Badge = styled.span`
 	float: center;
 `;
 
-const PlansList = ({ filters }) => (
-	<div>
-		<DesktopOnly>
-			<Title>
-				{" "}
-				<Observer>
-					{() => {
-						return aidStore.filteredAids(filters).length;
-					}}
-				</Observer>{" "}
-				aides disponibles
-			</Title>
-		</DesktopOnly>
+const PlansList = ({ filters, setFilters }) => {
+	const radioOnChange = event => {
+		setFilters({ ...filters, "Nature de l'aide": event.target.value });
+	};
 
-		<RadioContainer>
-			<Radio.Group defaultValue="a" buttonStyle="solid" size="large">
-				<Radio.Button value="a"> Professionnelles </Radio.Button>
-				<Radio.Button value="b"> Personnelles </Radio.Button>
-			</Radio.Group>
-		</RadioContainer>
+	return (
+		<div>
+			<DesktopOnly>
+				<Title>
+					{" "}
+					<Observer>
+						{() => {
+							return aidStore.filteredAids(filters).length;
+						}}
+					</Observer>{" "}
+					aides disponibles
+				</Title>
+			</DesktopOnly>
 
-		<Container>
-			<CardsContainer>
-				<Observer>
-					{() =>
-						aidStore
-							.filteredAids(filters)
-							.map(plan => (
-								<PlanListRow
-									key={plan.ID}
-									name={plan["Nom de l'aide"]}
-									description={plan["Résumé de l'aide"]}
-									planId={plan.ID}
-								/>
-							))
-					}
-				</Observer>
-			</CardsContainer>
-		</Container>
-	</div>
-);
+			<RadioContainer>
+				<Radio.Group
+					defaultValue="aide professionnelle"
+					buttonStyle="solid"
+					size="large"
+					onChange={radioOnChange}
+				>
+					<Radio.Button value="aide professionnelle">
+						{" "}
+						Professionnelles{" "}
+					</Radio.Button>
+					<Radio.Button value="aide personnelle">
+						{" "}
+						Personnelles{" "}
+					</Radio.Button>
+				</Radio.Group>
+			</RadioContainer>
+
+			<Container>
+				<CardsContainer>
+					<Observer>
+						{() =>
+							aidStore
+								.filteredAids(filters)
+								.map(plan => (
+									<PlanListRow
+										key={plan.ID}
+										name={plan["Nom de l'aide"]}
+										description={plan["Résumé de l'aide"]}
+										planId={plan.ID}
+									/>
+								))
+						}
+					</Observer>
+				</CardsContainer>
+			</Container>
+		</div>
+	);
+};
 
 const Title = styled.h3`
 	margin-left: 30px;

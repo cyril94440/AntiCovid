@@ -39,7 +39,10 @@ const PlansFilters = ({ filters, setFilters }) => {
 				newFilters["Activité"];
 		}
 		delete newFilters["Activité"];
-		setFilters(newFilters);
+		setFilters({
+			...newFilters,
+			"Nature de l'aide": filters["Nature de l'aide"]
+		});
 	};
 
 	return (

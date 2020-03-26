@@ -11,7 +11,9 @@ import styled from "styled-components";
 import { RED } from "../../constants/style";
 
 const Plans = () => {
-	const [filters, setFilters] = React.useState({});
+	const [filters, setFilters] = React.useState({
+		"Nature de l'aide": "aide professionnelle"
+	});
 
 	useEffect(() => {
 		const script1 = document.createElement("script");
@@ -41,7 +43,7 @@ const Plans = () => {
 	return (
 		<Page title="Mes aides">
 			<PlansFilters filters={filters} setFilters={setFilters} />
-			<PlansList filters={filters} />
+			<PlansList filters={filters} setFilters={setFilters} />
 
 			<HelpButtonContainer>
 				<HelpButton>
