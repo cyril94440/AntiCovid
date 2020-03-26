@@ -75,10 +75,11 @@ class AidStore {
 								r["Localisation"][0]
 							);
 
-						if (r["Activité de la société"])
-							this.filterActivity.data.Soc.add(
-								r["Activité de la société"][0]
-							);
+						if (r["Activité de la société"]) {
+							r["Activité de la société"].forEach(v => {
+								this.filterActivity.data.Soc.add(v);
+							});
+						}
 						if (r["Activité de l'indépendant"]) {
 							r["Activité de l'indépendant"].forEach(v => {
 								this.filterActivity.data.Ind.add(v);
@@ -88,12 +89,13 @@ class AidStore {
 							r[
 								"Activité de l'auto-entreprise / micro-entreprise"
 							]
-						)
-							this.filterActivity.data.Auto.add(
-								r[
-									"Activité de l'auto-entreprise / micro-entreprise"
-								][0]
-							);
+						) {
+							r[
+								"Activité de l'auto-entreprise / micro-entreprise"
+							].forEach(v => {
+								this.filterActivity.data.Auto.add(v);
+							});
+						}
 					});
 				}
 			});
