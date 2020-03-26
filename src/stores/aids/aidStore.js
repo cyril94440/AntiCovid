@@ -79,10 +79,11 @@ class AidStore {
 							this.filterActivity.data.Soc.add(
 								r["Activité de la société"][0]
 							);
-						if (r["Activité de l'indépendant"])
-							this.filterActivity.data.Ind.add(
-								r["Activité de l'indépendant"][0]
-							);
+						if (r["Activité de l'indépendant"]) {
+							r["Activité de l'indépendant"].forEach(v => {
+								this.filterActivity.data.Ind.add(v);
+							});
+						}
 						if (
 							r[
 								"Activité de l'auto-entreprise / micro-entreprise"
