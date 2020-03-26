@@ -24,8 +24,7 @@ const PlansList = ({ filters }) => (
 				{" "}
 				<Observer>
 					{() => {
-						return aidStore.filteredAids([filters.localization])
-							.length;
+						return aidStore.filteredAids(filters).length;
 					}}
 				</Observer>{" "}
 				aides disponibles
@@ -44,7 +43,7 @@ const PlansList = ({ filters }) => (
 				<Observer>
 					{() =>
 						aidStore
-							.filteredAids([filters.localization])
+							.filteredAids(filters)
 							.map(plan => (
 								<PlanListRow
 									key={plan.ID}

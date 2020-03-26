@@ -22,15 +22,26 @@ class AidStore {
 	};
 	@observable filterLocalisation = {
 		title: "Localisation géographique",
-		key: "localization",
+		key: "Localisation",
 		data: new Set()
 	};
+	activitiesFullKey = {
+		default: "default",
+		Soc: "Activité de la société",
+		Auto: "Activité de l'auto-entreprise / micro-entreprise",
+		Ind: "Activité de l'indépendant"
+	};
 
-	filteredAids = computedFn(function getFilteredAids(regionArray) {
-		if (regionArray[0] === undefined) return this.aids;
-		const results = this.aids.filter(a =>
-			doesPropertyContain(a["Localisation géographique"], regionArray)
-		);
+	filteredAids = computedFn(function getFilteredAids(filters) {
+		let results = this.aids;
+
+		console.log(filters);
+
+		for (var key in filters) {
+			results = results.filter(a =>
+				doesPropertyContain(a[key], [filters[key]])
+			);
+		}
 
 		return results;
 	});

@@ -16,7 +16,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 	let form;
 
 	const onTypeChange = value => {
-		form.setFieldsValue({ Activité: undefined });
+		form.resetFields(["Activité"]);
 		if (value.startsWith("Soc")) {
 			setActiveType("Soc");
 		} else if (value.startsWith("Ind")) {
@@ -27,6 +27,19 @@ const PlansFilters = ({ filters, setFilters }) => {
 			setActiveType("default");
 			alert("Unknown type. Please contact us");
 		}
+	};
+
+	const onFormValuesChange = (changedValues, allValues) => {
+		const newFilters = { ...allValues };
+		if ("Type structure" in changedValues) {
+			delete newFilters["Activité"];
+		}
+		if (newFilters["Activité"]) {
+			newFilters[aidStore.activitiesFullKey[activeType]] =
+				newFilters["Activité"];
+		}
+		delete newFilters["Activité"];
+		setFilters(newFilters);
 	};
 
 	return (
@@ -41,7 +54,10 @@ const PlansFilters = ({ filters, setFilters }) => {
 
 			<Observer>
 				{() => (
-					<StyledForm ref={ref => (form = ref)}>
+					<StyledForm
+						ref={ref => (form = ref)}
+						onValuesChange={onFormValuesChange}
+					>
 						<Form.Item name={aidStore.filterType.key}>
 							<Select
 								placeholder={aidStore.filterType.title}
