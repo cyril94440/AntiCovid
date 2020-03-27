@@ -51,6 +51,19 @@ export default function Page({ title, noHeader = false, children }) {
 						__html: `(function(b,o,n,g,s,r,c){if(b[s])return;b[s]={};b[s].scriptToken="Xy02MjA5NjAxMjY";b[s].callsQueue=[];b[s].api=function(){b[s].callsQueue.push(arguments);};r=o.createElement(n);c=o.getElementsByTagName(n)[0];r.async=1;r.src=g;r.id=s+n;c.parentNode.insertBefore(r,c);})(window,document,"script","https://cdn.oribi.io/Xy02MjA5NjAxMjY/oribi.js","ORIBI");`
 					}}
 				/>
+				<script
+					async
+					src="https://www.googletagmanager.com/gtag/js?id=UA-162058754-1"
+				></script>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+					  
+						gtag('config', 'UA-162058754-1');`
+					}}
+				/>
 				<title>{title}</title>
 			</Head>
 			<Layout
