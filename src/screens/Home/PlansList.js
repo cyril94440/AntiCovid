@@ -2,7 +2,7 @@ import { Row, Col, Radio } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 
-import aidStore from "../../stores/aids/aidStore";
+import aidStore from "../../stores/aidStore";
 
 import { BLUE } from "@constants/style";
 
@@ -43,14 +43,8 @@ const PlansList = ({ filters, setFilters }) => {
 					size="large"
 					onChange={radioOnChange}
 				>
-					<Radio.Button value="aide professionnelle">
-						{" "}
-						Professionnel{" "}
-					</Radio.Button>
-					<Radio.Button value="aide personnelle">
-						{" "}
-						Particulier{" "}
-					</Radio.Button>
+					<Radio.Button value="aide professionnelle"> Professionnel </Radio.Button>
+					<Radio.Button value="aide personnelle"> Particulier </Radio.Button>
 				</Radio.Group>
 			</RadioContainer>
 

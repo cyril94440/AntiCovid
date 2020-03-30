@@ -2,7 +2,7 @@ import { Row, Col } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 
-import aidStore from "../../stores/aids/aidStore";
+import aidStore from "../../stores/aidStore";
 
 import { BLUE } from "@constants/style";
 
@@ -23,8 +23,7 @@ const PlansCards = ({ filters }) => (
 				{" "}
 				<Observer>
 					{() => {
-						return aidStore.filteredAids([filters.localization])
-							.length;
+						return aidStore.filteredAids([filters.localization]).length;
 					}}
 				</Observer>
 			</Badge>

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import BaseCard from "@components/Card";
 import { BLUE } from "../../constants/style";
 import { Observer } from "mobx-react";
-import aidStore from "../../stores/aids/aidStore";
+import aidStore from "../../stores/aidStore";
 import { useState } from "react";
 
 const { Option } = Select;
@@ -35,8 +35,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 			delete newFilters["Activité"];
 		}
 		if (newFilters["Activité"]) {
-			newFilters[aidStore.activitiesFullKey[activeType]] =
-				newFilters["Activité"];
+			newFilters[aidStore.activitiesFullKey[activeType]] = newFilters["Activité"];
 		}
 		delete newFilters["Activité"];
 		setFilters({
@@ -49,18 +48,15 @@ const PlansFilters = ({ filters, setFilters }) => {
 		<Container>
 			<AntiCovidDiv>
 				<span className="description">
-					AntiCovid est une plateforme solidaire pour aider les
-					entrepreneurs à surmonter la crise du Covid 19.{" "}
+					AntiCovid est une plateforme solidaire pour aider les entrepreneurs à
+					surmonter la crise du Covid 19.{" "}
 				</span>
 			</AntiCovidDiv>
 			<h3 style={{ color: "white", marginLeft: 30 }}>Mon entreprise</h3>
 
 			<Observer>
 				{() => (
-					<StyledForm
-						ref={ref => (form = ref)}
-						onValuesChange={onFormValuesChange}
-					>
+					<StyledForm ref={ref => (form = ref)} onValuesChange={onFormValuesChange}>
 						<Form.Item name={aidStore.filterType.key}>
 							<Select
 								placeholder={aidStore.filterType.title}
@@ -76,22 +72,16 @@ const PlansFilters = ({ filters, setFilters }) => {
 								placeholder={aidStore.filterActivity.title}
 								disabled={activeType === "default"}
 							>
-								{[
-									...aidStore.filterActivity.data[activeType]
-								].map(value => (
+								{[...aidStore.filterActivity.data[activeType]].map(value => (
 									<Option value={value}>{value}</Option>
 								))}
 							</Select>
 						</Form.Item>
 						<Form.Item name={aidStore.filterLocalisation.key}>
-							<Select
-								placeholder={aidStore.filterLocalisation.title}
-							>
-								{[...aidStore.filterLocalisation.data].map(
-									value => (
-										<Option value={value}>{value}</Option>
-									)
-								)}
+							<Select placeholder={aidStore.filterLocalisation.title}>
+								{[...aidStore.filterLocalisation.data].map(value => (
+									<Option value={value}>{value}</Option>
+								))}
 							</Select>
 						</Form.Item>
 					</StyledForm>

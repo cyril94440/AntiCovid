@@ -1,7 +1,7 @@
 import { observable, action, computed } from "mobx";
-import AirtableBase from "@helpers/airtable";
 import { computedFn } from "mobx-utils";
-import { doesPropertyContain } from "../../helpers/airtable";
+
+import AirtableBase, { doesPropertyContain } from "@helpers/airtable";
 
 class AidStore {
 	@observable aids = [];
@@ -40,9 +40,7 @@ class AidStore {
 		let results = this.aids;
 
 		for (var key in filters) {
-			results = results.filter(a =>
-				doesPropertyContain(a[key], [filters[key]])
-			);
+			results = results.filter(a => doesPropertyContain(a[key], [filters[key]]));
 		}
 
 		return results;
@@ -73,9 +71,7 @@ class AidStore {
 						if (r["Type structure"])
 							this.filterType.data.add(r["Type structure"][0]);
 						if (r["Localisation"])
-							this.filterLocalisation.data.add(
-								r["Localisation"][0]
-							);
+							this.filterLocalisation.data.add(r["Localisation"][0]);
 
 						if (r["Activité de la société"]) {
 							r["Activité de la société"].forEach(v => {
@@ -87,16 +83,12 @@ class AidStore {
 								this.filterActivity.data.Ind.add(v);
 							});
 						}
-						if (
-							r[
-								"Activité de l'auto-entreprise / micro-entreprise"
-							]
-						) {
-							r[
-								"Activité de l'auto-entreprise / micro-entreprise"
-							].forEach(v => {
-								this.filterActivity.data.Auto.add(v);
-							});
+						if (r["Activité de l'auto-entreprise / micro-entreprise"]) {
+							r["Activité de l'auto-entreprise / micro-entreprise"].forEach(
+								v => {
+									this.filterActivity.data.Auto.add(v);
+								}
+							);
 						}
 					});
 				}

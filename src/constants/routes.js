@@ -1,26 +1,16 @@
 export const HOME = "/";
-export const PLANS = "/plans";
-export const PLAN_HREF = "/plans/[planId]";
-export const BLOG = "/blog";
+export const PLAN_HREF = "/plan/[planId]";
 export const CONTACT = "/contact";
 export const JOIN_US = "/joinUs";
 
-export const NAVLINKS = [
-	{ href: HOME, label: "ACCUEIL" },
-	{ href: CONTACT, label: "CONTACT" },
-	// { href: BLOG, label: "BLOG" },
-	{ href: JOIN_US, label: "REJOIGNEZ-NOUS" }
-];
-
-export const NAVLINKSMENUMOBILE = [
-	{ href: HOME, label: "ACCUEIL", icon: "/homeWhiteIcon.png" },
-	// { href: BLOG, label: "BLOG", icon: "/blogWhiteIcon.png" },
-	{ href: CONTACT, label: "CONTACT", icon: "/contactWhiteIcon.png" }
-];
-
-export const SOCIAL_LINKS = [
-	{ url: "facebook", icon: "", bg: "" },
-	{ url: "instagram", icon: "", bg: "" },
-	{ url: "twitter", icon: "", bg: "" },
-	{ url: "facebook", icon: "", bg: "" }
-];
+export const NAVLINKS = {
+	desktop: [
+		{ href: HOME, label: "ACCUEIL" },
+		{ href: CONTACT, label: "CONTACT" },
+		{ href: JOIN_US, label: "REJOIGNEZ-NOUS" }
+	],
+	mobile: [
+		{ href: HOME, label: "ACCUEIL", icon: "/homeWhiteIcon.png" },
+		{ href: CONTACT, label: "CONTACT", icon: "/contactWhiteIcon.png" }
+	]
+};

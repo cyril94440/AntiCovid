@@ -102,6 +102,18 @@ const GlobalStyle = createGlobalStyle`
 
     /* Theme */
 
+    .font-bold {
+        font-weight: bold;
+    }
+
+    .font-extrabold {
+        font-weight: 900;
+    }
+
+    .font-light {
+        font-weight: 300;
+    }
+
     .bg-blue {
         background-color: ${BLUE};
     }

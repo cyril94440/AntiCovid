@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 import Disqus from "disqus-react";
 
-import aidStore from "../../stores/aids/aidStore";
+import aidStore from "../../stores/aidStore";
 
 import { disqusShortname, getDisqusConfig } from "@helpers/disqus";
 
@@ -86,51 +86,36 @@ const DescriptionCard = ({ recordId }) => {
 									key="Localisation"
 									color={ORANGE}
 								/>
-								<ReactMarkdown
-									source={data["Détail - qui est concerné"]}
-								/>
+								<ReactMarkdown source={data["Détail - qui est concerné"]} />
 								<h2>Description de l'aide</h2>
 								<TagView
 									array={data["Organisme"]}
 									key="Organisme"
 									color={RED}
 								/>
-								<ReactMarkdown
-									source={data["Description détaillée"]}
-								/>
+								<ReactMarkdown source={data["Description détaillée"]} />
 								<h2>Procédure d'obtention</h2>
 								<h3>Descriptif</h3>
 								<ReactMarkdown
-									source={
-										data[
-											"procédure d'obtention - description"
-										]
-									}
+									source={data["procédure d'obtention - description"]}
 								/>
 								<h3>Délais</h3>
 								<ReactMarkdown
-									source={
-										data["procédure d'obtention - délais"]
-									}
+									source={data["procédure d'obtention - délais"]}
 								/>
 								<h3>Liens utiles</h3>
 								<Info>
 									{Object.keys(data)
 										.filter(k => k.startsWith("lien utile"))
 										.map(k => {
-											const key = k.replace(
-												"lien utile - ",
-												""
-											);
+											const key = k.replace("lien utile - ", "");
 											return (
 												<Row gutter={[0, 16]}>
 													<KeyCol md={8} sm={24}>
 														{key}
 													</KeyCol>
 													<ValueCol md={16} sm={24}>
-														<ReactMarkdown
-															source={data[k]}
-														/>
+														<ReactMarkdown source={data[k]} />
 													</ValueCol>
 												</Row>
 											);
