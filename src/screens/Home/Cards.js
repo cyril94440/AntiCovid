@@ -2,12 +2,11 @@ import { Row, Col } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 
-import aidStore from "../../stores/aidStore";
+import aidStore from "@stores/aidStore";
 
-import { BLUE } from "@constants/style";
+import { BLUE, ORANGE } from "@constants/style";
 
 import PlanCard from "@components/PlanCard";
-import { ORANGE } from "../../constants/style";
 
 const Badge = styled.span`
 	color: ${ORANGE};

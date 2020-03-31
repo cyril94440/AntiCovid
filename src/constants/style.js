@@ -1,9 +1,14 @@
+export const BODY_COLOR = "#383549";
+export const BODY_BACKGROUND = "#ffffff";
+
 // COLORS
-export const BLUE = "#264c59";
-export const GREEN = "#42978c";
-export const YELLOW = "#f8de79";
+export const BLUE = "#69b1e2";
+export const GREEN = "#29aa59";
+export const YELLOW = "#edcb5e";
 export const ORANGE = "#f8ae68";
-export const RED = "#d46b4c";
+export const RED = "#f05044";
+export const DARK_BLUE = "#4157a4";
+export const PINK = "#f59bb9";
 
 export const GRAY = "#F0F2F5";
 export const DARKGRAY = "#AAAAAA";

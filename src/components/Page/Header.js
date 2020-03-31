@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { Row, Col } from "antd";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 
-import { NAVLINKS, PLANS, HOME } from "@constants/routes";
+import { NAVLINKS, HOME } from "@constants/routes";
 import { ORANGE, RED } from "@constants/style";
 
-import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import Logo from "./Logo";
-import BaseButton from "./Button";
+import BaseButton from "../Button";
 import Title from "./Title";
 
 export default function Header({ title, toggleMobileHeader, mobileHeader }) {
@@ -39,25 +39,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 					xl={{ span: 8, order: 1 }}
 				>
 					<Row gutter={[15, 15]}>
-						<Col>
-							{/* <ContactButton
-								className="bg-orange text-uppercase"
-								onClick={() => router.push(PLANS)}
-							>
-								MES AIDES
-							</ContactButton> */}
-						</Col>
-						{/* <Col>
-							<HelpButton>
-								<HelpLink
-									className="text-white"
-									href="https://airtable.com/shroZVJ5EV8tpsaNd"
-									target="_blank"
-								>
-									SOUMETTRE UNE AIDE
-								</HelpLink>
-							</HelpButton>
-						</Col> */}
+						<Col></Col>
 					</Row>
 				</ContainerButtons>
 				<Col
@@ -65,10 +47,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 					sm={{ span: 24, order: 1 }}
 					xl={{ span: 10, order: 2 }}
 				>
-					<div
-						onClick={() => router.push(HOME)}
-						className="cursor-pointer"
-					>
+					<div onClick={() => router.push(HOME)} className="cursor-pointer">
 						<Logo />
 					</div>
 				</Col>
@@ -78,10 +57,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 					xl={{ span: 0, order: 2 }}
 				>
 					{title === "Accueil" ? (
-						<div
-							onClick={() => router.push(HOME)}
-							className="cursor-pointer"
-						>
+						<div onClick={() => router.push(HOME)} className="cursor-pointer">
 							<Logo />
 						</div>
 					) : (
@@ -111,9 +87,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 					xl={{ span: 6, order: 3 }}
 				>
 					<Row gutter={10}>
-						{NAVLINKS.filter(
-							({ href, label }) => label != "ACCUEIL"
-						).map(({ href, label }) => (
+						{NAVLINKS.desktop.map(({ href, label }) => (
 							<Col key={href}>
 								<Link
 									className="text-uppercase"

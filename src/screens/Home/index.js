@@ -1,21 +1,19 @@
-import { MobileOnly, DesktopOnly } from "@components/ResponsiveCompo";
+import styled from "styled-components";
+
+import { RED } from "@constants/style";
+
 import Page from "@components/Page";
+import BaseButton from "@components/Button";
 
 import PlansFilters from "./Filters";
 import PlansList from "./PlansList";
-import PlansMobile from "./PlansMobile";
-import { Row, Col } from "antd";
-import { useEffect } from "react";
-import BaseButton from "../../components/Button";
-import styled from "styled-components";
-import { RED } from "../../constants/style";
 
 const Plans = () => {
 	const [filters, setFilters] = React.useState({
 		"Nature de l'aide": "aide professionnelle"
 	});
 
-	useEffect(() => {
+	React.useEffect(() => {
 		const script1 = document.createElement("script");
 		script1.type = "text/javascript";
 		script1.textContent = `/* - - - CONFIGURATION VARIABLES - - - */

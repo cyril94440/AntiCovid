@@ -1,28 +1,22 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+
 import { ORANGE } from "@constants/style";
+import { PLAN_HREF, PLAN } from "@constants/routes";
 
-import BaseButton from "./Button";
-import BaseCard from "./Card";
-import { PLAN_HREF, PLANS } from "../constants/routes";
-
-import ReactMarkdown from "react-markdown";
 import { DesktopOnly } from "./ResponsiveCompo";
-import { Row, Col } from "antd";
 
 export default function PlanListRow({ name, description, planId }) {
 	const router = useRouter();
 
 	return (
-		<Container onClick={() => router.push(PLAN_HREF, PLANS + "/" + planId)}>
+		<Container onClick={() => router.push(PLAN_HREF, PLAN + planId)}>
 			<IconDiv />
 
 			<MainContent>
 				<TextContent>
 					<TitleH4>{name}</TitleH4>
-					<DesktopOnly style={{ maxHeight: "50px" }}>
-						{description}
-					</DesktopOnly>
+					<DesktopOnly style={{ maxHeight: "50px" }}>{description}</DesktopOnly>
 				</TextContent>
 			</MainContent>
 

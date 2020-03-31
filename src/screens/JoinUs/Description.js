@@ -1,19 +1,15 @@
 import styled from "styled-components";
 
-import { BLUE } from "@constants/style";
+import { BLUE, ORANGE } from "@constants/style";
+
 import BaseCard from "@components/Card";
-import BaseButton from "../../components/Button";
-import { ORANGE } from "../../constants/style";
+import BaseButton from "@components/Button";
 
 const data = [
 	{
 		title: "Développement web ou design",
 		icon: "/web.png",
-		items: [
-			"Front-End (React)",
-			"Back-End (Node.js)",
-			"Design (Figma, Photoshop)"
-		]
+		items: ["Front-End (React)", "Back-End (Node.js)", "Design (Figma, Photoshop)"]
 	},
 	{
 		title: "Marketing digital / produit",
@@ -46,10 +42,7 @@ const JoinUsDescription = () => (
 				<StyledCard key={title}>
 					<Img src={icon} />
 					<TextCard>{title}</TextCard>
-					<ul
-						className="text-center"
-						style={{ listStylePosition: "inside" }}
-					>
+					<ul className="text-center" style={{ listStylePosition: "inside" }}>
 						{items.map(item => (
 							<li key={item}>{item}</li>
 						))}

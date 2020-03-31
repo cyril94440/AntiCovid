@@ -1,17 +1,23 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
-
-import theme from "@constants/theme";
+import Router from "next/router";
+import NProgress from "nprogress";
 
 import GlobalStyle from "@components/GlobalStyle";
 
-import "antd/dist/antd.less";
+import "antd/dist/antd.css";
+
+Router.events.on("routeChangeStart", url => {
+	console.log(`Loading: ${url}`);
+	NProgress.start();
+});
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 const MyApp = ({ Component, pageProps }) => (
-	<ThemeProvider theme={theme}>
+	<React.Fragment>
 		<GlobalStyle />
 		<Component {...pageProps} />
-	</ThemeProvider>
+	</React.Fragment>
 );
 
 export default MyApp;

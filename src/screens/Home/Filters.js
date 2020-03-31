@@ -1,19 +1,17 @@
-import { Col, Typography, Collapse, Radio, Select, Form, Row } from "antd";
-import { EnvironmentFilled } from "@ant-design/icons";
+import { Select, Form } from "antd";
 import styled from "styled-components";
-
-import BaseCard from "@components/Card";
-import { BLUE } from "../../constants/style";
 import { Observer } from "mobx-react";
-import aidStore from "../../stores/aidStore";
-import { useState } from "react";
+
+import aidStore from "@stores/aidStore";
+
+import { BLUE } from "@constants/style";
 
 const { Option } = Select;
 
 const PlansFilters = ({ filters, setFilters }) => {
-	const [activeType, setActiveType] = useState("default");
+	const [activeType, setActiveType] = React.useState("default");
 
-	let form;
+	const [form] = Form.useForm();
 
 	const onTypeChange = value => {
 		form.resetFields(["Activité"]);
@@ -56,7 +54,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 
 			<Observer>
 				{() => (
-					<StyledForm ref={ref => (form = ref)} onValuesChange={onFormValuesChange}>
+					<StyledForm form={form} onValuesChange={onFormValuesChange}>
 						<Form.Item name={aidStore.filterType.key}>
 							<Select
 								placeholder={aidStore.filterType.title}
@@ -92,6 +90,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 };
 
 const Container = styled.div``;
+
 const StyledForm = styled(Form)`
 	margin-left: 10px;
 	background-color: white;

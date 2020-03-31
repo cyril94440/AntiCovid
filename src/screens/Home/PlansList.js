@@ -2,14 +2,13 @@ import { Row, Col, Radio } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 
-import aidStore from "../../stores/aidStore";
+import aidStore from "@stores/aidStore";
 
-import { BLUE } from "@constants/style";
+import { BLUE, ORANGE } from "@constants/style";
 
 import PlanCard from "@components/PlanCard";
-import { ORANGE } from "../../constants/style";
-import PlanListRow from "../../components/PlanListRow";
-import { DesktopOnly } from "../../components/ResponsiveCompo";
+import PlanListRow from "@components/PlanListRow";
+import { DesktopOnly } from "@components/ResponsiveCompo";
 
 const Badge = styled.span`
 	color: ${ORANGE};
