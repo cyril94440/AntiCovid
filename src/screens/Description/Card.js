@@ -1,6 +1,7 @@
-import { Col, Spin } from "antd";
+import { Col, Spin, Row } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
+import ReactMarkdown from "react-markdown";
 
 import { useRouter } from "next/router";
 import { CloseOutlined } from "@ant-design/icons";
@@ -10,8 +11,7 @@ import aidStore from "@stores/aids/aidStore";
 import { HOME } from "@constants/routes";
 import { BLUE_BACKGROUND } from "@constants/style";
 
-import DescriptionTop from "./Top";
-import DescriptionContent from "./Content";
+import { TagView } from "../../components/TagView";
 
 const DescriptionCard = ({ recordId }) => {
 	const router = useRouter();
