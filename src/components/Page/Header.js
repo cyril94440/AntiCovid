@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 import { useRouter } from "next/router";
 
 import { NAVLINKS, HOME } from "@constants/routes";
-import { DARK_BLUE, BTN_BACKGROUND } from "@constants/style";
+import { DARK_BLUE, BLUE_BACKGROUND } from "@constants/style";
 
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import Logo from "../Logo";
@@ -126,7 +126,7 @@ const Link = styled.a`
 	cursor: pointer;
 	font-size: 14px !important;
 	color: ${DARK_BLUE};
-	background-color: ${BTN_BACKGROUND};
+	background-color: ${BLUE_BACKGROUND};
 	font-weight: 700;
 	border-radius: 18px;
 	font-size: 17px;

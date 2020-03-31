@@ -3,10 +3,8 @@ import { UserOutlined, ToolOutlined, CompassOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { Observer } from "mobx-react";
 
-import { BLUE, RED, YELLOW } from "@constants/style";
-
+import { BLUE, BLUE_BACKGROUND, YELLOW, RED } from "@constants/style";
 import aidStore from "@stores/aids/aidStore";
-
 const { Option } = Select;
 
 const PlansFilters = ({ filters, setFilters }) => {
@@ -149,7 +147,7 @@ const StyledForm = styled(Form)`
 	margin-bottom: 20px;
 
 	.ant-select-selector {
-		background-color: #f1f1f1 !important;
+		background-color: ${BLUE_BACKGROUND} !important;
 		border: none !important;
 		border-radius: 20px !important;
 		height: 40px !important;
@@ -184,11 +182,12 @@ const AntiCovidDiv = styled.div`
 	padding-top: 40px;
 	padding-bottom: 40px;
 	max-width: 800px;
-	margin: 0 auto;
+	margin: auto;
 
 	.description {
-		font-size: 30px;
+		font-size: 24px;
 		margin: auto;
+		font-weight: 300;
 	}
 `;
 
