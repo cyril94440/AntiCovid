@@ -53,9 +53,25 @@ const DescriptionCard = ({ recordId }) => {
 
 					if (!data) return <Spin />;
 
+					const category = data["categorie"];
+
 					return (
 						<>
-							<DescriptionTop data={data} />
+							<Row>
+								<Col>
+									<h2 style={{ maxWidth: 650 }}>
+										{data["Nom de l'aide"]}
+									</h2>
+								</Col>
+								<Col flex="auto"></Col>
+								<Col flex="100px">
+									<img
+										src={`/CATEGORIES/${category}.png`}
+										alt={category}
+										width="100"
+									/>
+								</Col>
+							</Row>
 							<Block>
 								<IconContainer>
 									<CloseIcon
@@ -63,7 +79,106 @@ const DescriptionCard = ({ recordId }) => {
 									/>
 								</IconContainer>
 
-								<DescriptionContent data={data} />
+								<Container>
+									<div
+										style={{
+											paddingTop: "20px",
+											paddingBottom: "40px"
+										}}
+									>
+										<FloatH3>Qui est concerné ?</FloatH3>
+										<TagView
+											array={
+												data[
+													"Activité de l'indépendant"
+												] ||
+												data[
+													"Activité de l'auto-entreprise / micro-entreprise"
+												] ||
+												data["Activité de la société"]
+											}
+											key="Activité"
+											float="left"
+											icon="ACTIVITE"
+										/>
+										<TagView
+											array={data["Localisation"]}
+											key="Localisation"
+											icon="LOCALISATION"
+										/>
+									</div>
+									<ReactMarkdown
+										source={
+											data["Détail - qui est concerné"]
+										}
+									/>
+									<div
+										style={{
+											paddingTop: "20px",
+											paddingBottom: "40px"
+										}}
+									>
+										<FloatH3>Description de l'aide</FloatH3>
+										<TagView
+											array={data["Organisme"]}
+											key="Organisme"
+											icon="VOUSETES"
+										/>
+									</div>
+									<ReactMarkdown
+										source={data["Description détaillée"]}
+									/>
+									<MainH3>Procédure d'obtention</MainH3>
+									<h3>Descriptif</h3>
+									<ReactMarkdown
+										source={
+											data[
+												"procédure d'obtention - description"
+											]
+										}
+									/>
+									<h3>Délais</h3>
+									<ReactMarkdown
+										source={
+											data[
+												"procédure d'obtention - délais"
+											]
+										}
+									/>
+									<MainH3>Liens utiles</MainH3>
+									<Info>
+										{Object.keys(data)
+											.filter(k =>
+												k.startsWith("lien utile")
+											)
+											.map(k => {
+												const key = k.replace(
+													"lien utile - ",
+													""
+												);
+												return (
+													<Row gutter={[0, 16]}>
+														<KeyCol md={8} sm={24}>
+															{key}
+														</KeyCol>
+														<ValueCol
+															md={16}
+															sm={24}
+														>
+															<ReactMarkdown
+																source={data[k]}
+															/>
+														</ValueCol>
+													</Row>
+												);
+											})}
+									</Info>
+									<MainH3>Commentaires</MainH3>
+									<ReactMarkdown
+										source={data["commentaires"]}
+									/>
+									<div id="graphcomment"></div>
+								</Container>
 							</Block>
 						</>
 					);
@@ -74,11 +189,11 @@ const DescriptionCard = ({ recordId }) => {
 };
 
 const Block = styled.div`
-	border-radius: 18px !important;
 	background-color: ${BLUE_BACKGROUND};
 	border: 0;
 	margin-bottom: 20px;
 	overflow: hidden;
+	text-align: justify;
 
 	::-webkit-scrollbar {
 		display: none;
@@ -89,6 +204,21 @@ const IconContainer = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	margin: 15px 25px 0 0;
+`;
+
+const MainH3 = styled.h3`
+	margin-bottom: 40px;
+	margin-top: 40px;
+`;
+
+const FloatH3 = styled(MainH3)`
+	float: left;
+	height: 50px;
+	margin-right: 20px;
+	// background-color: red;
+	margin-top: 0px;
+	padding-top: 10px;
+	margin-bottom: 0px;
 `;
 
 const CloseIcon = styled(CloseOutlined)`
