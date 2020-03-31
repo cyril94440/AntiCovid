@@ -2,7 +2,7 @@ import { Select, Form } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react";
 
-import { BLUE } from "@constants/style";
+import { BLUE, BLUE_BACKGROUND } from "@constants/style";
 
 import aidStore from "@stores/aids/aidStore";
 
@@ -110,7 +110,7 @@ const StyledForm = styled(Form)`
 	margin-bottom: 20px;
 
 	.ant-select-selector {
-		background-color: #f1f1f1 !important;
+		background-color: ${BLUE_BACKGROUND} !important;
 		border: none !important;
 		border-radius: 20px !important;
 		height: 40px !important;
@@ -143,10 +143,12 @@ const AntiCovidDiv = styled.div`
 	padding-top: 40px;
 	padding-bottom: 40px;
 	max-width: 800px;
+	margin: auto;
 
 	.description {
-		font-size: 30px;
+		font-size: 24px;
 		margin: auto;
+		font-weight: 300;
 	}
 `;
 

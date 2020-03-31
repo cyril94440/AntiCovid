@@ -2,7 +2,7 @@
 export const BODY_BACKGROUND = "#fff";
 export const BODY_COLOR = "#383549";
 
-export const BTN_BACKGROUND = "#f2f2f2";
+export const BLUE_BACKGROUND = "#f2f2f2";
 
 export const BLUE = "#69b1e2";
 export const DARK_BLUE = "#4157a4";
