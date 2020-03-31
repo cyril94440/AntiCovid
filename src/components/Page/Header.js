@@ -131,6 +131,7 @@ const Link = styled.a`
 	border-radius: 18px;
 	font-size: 17px;
 	height: 29px;
+	padding: 8px 16px;
 	line-height: 19px;
 	border: none;
 	text-align: center;

@@ -1,8 +1,9 @@
 import { Select, Form } from "antd";
+import { UserOutlined, ToolOutlined, CompassOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { Observer } from "mobx-react";
 
-import { BLUE } from "@constants/style";
+import { BLUE, RED, YELLOW } from "@constants/style";
 
 import aidStore from "@stores/aids/aidStore";
 
@@ -51,14 +52,31 @@ const PlansFilters = ({ filters, setFilters }) => {
 					entrepreneurs à surmonter la crise du Covid 19.{" "}
 				</span>
 			</AntiCovidDiv>
-			<h3 style={{ color: "white", marginLeft: 30 }}>Mon entreprise</h3>
+			<h3
+				style={{
+					fontfamily: "Montserrat Bold, arial",
+					marginLeft: 30
+				}}
+			>
+				Mon entreprise
+			</h3>
 
 			<Observer>
 				{() => (
 					<StyledForm form={form} onValuesChange={onFormValuesChange}>
 						<Form.Item name={aidStore.filterType.key}>
 							<Select
-								placeholder={aidStore.filterType.title}
+								placeholder={
+									<span>
+										<UserOutlined
+											style={{
+												color: `${RED}`,
+												margin: "0 6px 0 0"
+											}}
+										/>
+										{aidStore.filterType.title}
+									</span>
+								}
 								onChange={onTypeChange}
 							>
 								{[...aidStore.filterType.data].map(value => (
@@ -68,7 +86,17 @@ const PlansFilters = ({ filters, setFilters }) => {
 						</Form.Item>
 						<Form.Item name={aidStore.filterActivity.key}>
 							<Select
-								placeholder={aidStore.filterActivity.title}
+								placeholder={
+									<span>
+										<ToolOutlined
+											style={{
+												color: `${YELLOW}`,
+												margin: "0 6px 0 0"
+											}}
+										/>
+										{aidStore.filterActivity.title}
+									</span>
+								}
 								disabled={activeType === "default"}
 							>
 								{[
@@ -80,7 +108,17 @@ const PlansFilters = ({ filters, setFilters }) => {
 						</Form.Item>
 						<Form.Item name={aidStore.filterLocalisation.key}>
 							<Select
-								placeholder={aidStore.filterLocalisation.title}
+								placeholder={
+									<span>
+										<CompassOutlined
+											style={{
+												color: `${BLUE}`,
+												margin: "0 6px 0 0"
+											}}
+										/>
+										{aidStore.filterLocalisation.title}
+									</span>
+								}
 							>
 								{[...aidStore.filterLocalisation.data].map(
 									value => (
@@ -98,6 +136,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 
 const Container = styled.div``;
 const StyledForm = styled(Form)`
+	color: black;
 	margin-left: 10px;
 	background-color: white;
 	// max-width: 600px;
@@ -114,6 +153,7 @@ const StyledForm = styled(Form)`
 		border: none !important;
 		border-radius: 20px !important;
 		height: 40px !important;
+		font-size: medium;
 	}
 
 	.ant-select-single {
@@ -126,11 +166,12 @@ const StyledForm = styled(Form)`
 		position: relative !important;
 		left: 20px !important;
 		top: 5px;
+		font-size: medium;
 	}
 
 	.ant-select-selection-placeholder {
 		line-height: 40px !important;
-		color: ${BLUE};
+		color: black;
 		font-weight: 500;
 		opacity: 1;
 		position: relative;
@@ -143,6 +184,7 @@ const AntiCovidDiv = styled.div`
 	padding-top: 40px;
 	padding-bottom: 40px;
 	max-width: 800px;
+	margin: 0 auto;
 
 	.description {
 		font-size: 30px;

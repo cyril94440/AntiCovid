@@ -78,7 +78,8 @@ const PlansList = ({ filters, setFilters }) => {
 
 const Title = styled.h3`
 	margin-left: 30px;
-	color: white;
+	color: black;
+	font-family: "Montserrat Bold, arial";
 `;
 
 const Container = styled.div`

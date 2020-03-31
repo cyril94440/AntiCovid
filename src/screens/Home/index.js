@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { RED } from "@constants/style";
+import { BLUE } from "@constants/style";
 
 import Page from "@components/Page";
 import BaseButton from "@components/Button";
@@ -67,7 +67,7 @@ const HelpButtonContainer = styled.div`
 const HelpButton = styled(BaseButton)`
 	padding: 0 30px;
 	transition: all 0.5s;
-	background-color: ${RED};
+	background-color: ${BLUE};
 `;
 const HelpLink = styled.a`
 	color: white;
