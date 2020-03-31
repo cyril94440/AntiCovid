@@ -61,13 +61,13 @@ const GlobalStyle = createGlobalStyle`
 
     h1 {
         font-size: 45px;
-        line-height: 27px;
+        line-height: 50px;
         color: ${BODY_COLOR};
     }
 
     h2 {
         font-size: 30px;
-        line-height: 27px;
+        line-height: 33px;
         font-weight: 900;
         color: ${BODY_COLOR};
     }
@@ -80,7 +80,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     p {
-        font-size: 15px;
+        font-size: 16px;
         line-height: 27px;
         color: ${BODY_COLOR};
     }
