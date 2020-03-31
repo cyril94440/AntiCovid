@@ -1,16 +1,17 @@
-import { Col, Spin, Row } from "antd";
+import { Col, Spin } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
-import ReactMarkdown from "react-markdown";
+
 import { useRouter } from "next/router";
 import { CloseOutlined } from "@ant-design/icons";
 
 import aidStore from "@stores/aids/aidStore";
 
 import { HOME } from "@constants/routes";
-import { ORANGE, RED, BLUE_BACKGROUND } from "@constants/style";
+import { BLUE_BACKGROUND } from "@constants/style";
 
-import { TagView } from "@components/TagView";
+import DescriptionTop from "./Top";
+import DescriptionContent from "./Content";
 
 const DescriptionCard = ({ recordId }) => {
 	const router = useRouter();
@@ -54,9 +55,7 @@ const DescriptionCard = ({ recordId }) => {
 
 					return (
 						<>
-							<h2 style={{ maxWidth: 650 }}>
-								{data["Nom de l'aide"]}
-							</h2>
+							<DescriptionTop data={data} />
 							<Block>
 								<IconContainer>
 									<CloseIcon
@@ -64,88 +63,7 @@ const DescriptionCard = ({ recordId }) => {
 									/>
 								</IconContainer>
 
-								<Container>
-									<h3>Qui est concerné ?</h3>
-									<TagView
-										array={
-											data["Activité de l'indépendant"] ||
-											data[
-												"Activité de l'auto-entreprise / micro-entreprise"
-											] ||
-											data["Activité de la société"]
-										}
-										key="Activité"
-									/>
-									<TagView
-										array={data["Localisation"]}
-										key="Localisation"
-										color={ORANGE}
-									/>
-									<ReactMarkdown
-										source={
-											data["Détail - qui est concerné"]
-										}
-									/>
-									<h3>Description de l'aide</h3>
-									<TagView
-										array={data["Organisme"]}
-										key="Organisme"
-										color={RED}
-									/>
-									<ReactMarkdown
-										source={data["Description détaillée"]}
-									/>
-									<h2>Procédure d'obtention</h2>
-									<h3>Descriptif</h3>
-									<ReactMarkdown
-										source={
-											data[
-												"procédure d'obtention - description"
-											]
-										}
-									/>
-									<h3>Délais</h3>
-									<ReactMarkdown
-										source={
-											data[
-												"procédure d'obtention - délais"
-											]
-										}
-									/>
-									<h3>Liens utiles</h3>
-									<Info>
-										{Object.keys(data)
-											.filter(k =>
-												k.startsWith("lien utile")
-											)
-											.map(k => {
-												const key = k.replace(
-													"lien utile - ",
-													""
-												);
-												return (
-													<Row gutter={[0, 16]}>
-														<KeyCol md={8} sm={24}>
-															{key}
-														</KeyCol>
-														<ValueCol
-															md={16}
-															sm={24}
-														>
-															<ReactMarkdown
-																source={data[k]}
-															/>
-														</ValueCol>
-													</Row>
-												);
-											})}
-									</Info>
-									<h2>Commentaires</h2>
-									<ReactMarkdown
-										source={data["commentaires"]}
-									/>
-									<div id="graphcomment"></div>
-								</Container>
+								<DescriptionContent data={data} />
 							</Block>
 						</>
 					);
