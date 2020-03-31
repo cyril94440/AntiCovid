@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+
 import { ORANGE } from "@constants/style";
+import { PLAN_HREF, PLANS } from "@constants/routes";
 
-import BaseButton from "./Button";
-import BaseCard from "./Card";
-import { PLAN_HREF, PLANS } from "../constants/routes";
-
-import ReactMarkdown from "react-markdown";
 import { DesktopOnly } from "./ResponsiveCompo";
-import { Row, Col } from "antd";
 
 export default function PlanListRow({ name, description, planId }) {
 	const router = useRouter();

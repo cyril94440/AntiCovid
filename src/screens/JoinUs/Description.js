@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { BLUE } from "@constants/style";
+import { BLUE, ORANGE } from "@constants/style";
+
 import BaseCard from "@components/Card";
-import BaseButton from "../../components/Button";
-import { ORANGE } from "../../constants/style";
+import BaseButton from "@components/Button";
 
 const data = [
 	{
@@ -42,7 +42,7 @@ const data = [
 const JoinUsDescription = () => (
 	<Container className="text-center mx-auto" style={{ padding: 15 }}>
 		<Grid>
-			{data.map(({ title, icon, items }, index) => (
+			{data.map(({ title, icon, items }) => (
 				<StyledCard key={title}>
 					<Img src={icon} />
 					<TextCard>{title}</TextCard>

@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { Row, Col } from "antd";
 import { useRouter } from "next/router";
 
-import { NAVLINKS, PLANS, HOME } from "@constants/routes";
-import { ORANGE, RED } from "@constants/style";
+import { NAVLINKS, HOME } from "@constants/routes";
+import { DARK_BLUE, BTN_BACKGROUND } from "@constants/style";
 
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
-import Logo from "./Logo";
-import BaseButton from "./Button";
+import Logo from "../Logo";
+
 import Title from "./Title";
 
 export default function Header({ title, toggleMobileHeader, mobileHeader }) {
@@ -39,25 +39,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 					xl={{ span: 8, order: 1 }}
 				>
 					<Row gutter={[15, 15]}>
-						<Col>
-							{/* <ContactButton
-								className="bg-orange text-uppercase"
-								onClick={() => router.push(PLANS)}
-							>
-								MES AIDES
-							</ContactButton> */}
-						</Col>
-						{/* <Col>
-							<HelpButton>
-								<HelpLink
-									className="text-white"
-									href="https://airtable.com/shroZVJ5EV8tpsaNd"
-									target="_blank"
-								>
-									SOUMETTRE UNE AIDE
-								</HelpLink>
-							</HelpButton>
-						</Col> */}
+						<Col></Col>
 					</Row>
 				</ContainerButtons>
 				<Col
@@ -111,9 +93,7 @@ export default function Header({ title, toggleMobileHeader, mobileHeader }) {
 					xl={{ span: 6, order: 3 }}
 				>
 					<Row gutter={10}>
-						{NAVLINKS.filter(
-							({ href, label }) => label != "ACCUEIL"
-						).map(({ href, label }) => (
+						{NAVLINKS.desktop.map(({ href, label }) => (
 							<Col key={href}>
 								<Link
 									className="text-uppercase"
@@ -142,27 +122,21 @@ const ContainerButtons = styled(Col)`
 	}
 `;
 
-const ContactButton = styled(BaseButton)`
-	padding: 0 30px;
-	transition: all 0.5s;
-`;
-
-const HelpButton = styled(BaseButton)`
-	padding: 0 30px;
-	transition: all 0.5s;
-	background-color: ${RED};
-`;
-
-const HelpLink = styled.a`
-	color: white;
+const Link = styled.a`
+	cursor: pointer;
+	font-size: 14px !important;
+	color: ${DARK_BLUE};
+	background-color: ${BTN_BACKGROUND};
+	font-weight: 700;
+	border-radius: 18px;
+	font-size: 17px;
+	height: 29px;
+	line-height: 19px;
+	border: none;
+	text-align: center;
+	margin: auto;
 
 	&:hover {
-		color: white;
+		color: ${DARK_BLUE};
 	}
-`;
-
-const Link = styled.a`
-	font-size: 14px !important;
-
-	color: ${props => (props.active ? `${ORANGE} !important` : "initial")};
 `;

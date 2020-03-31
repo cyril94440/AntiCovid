@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
+
+import { PLAN_HREF, PLANS } from "@constants/routes";
 
 import BaseButton from "./Button";
 import BaseCard from "./Card";
-import { PLAN_HREF, PLANS } from "../constants/routes";
-
-import ReactMarkdown from "react-markdown";
 
 const StyledPlanCard = styled(BaseCard)`
 	border-radius: 18px;

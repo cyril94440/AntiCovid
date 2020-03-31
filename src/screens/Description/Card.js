@@ -1,34 +1,16 @@
 import { Col, Card, Spin, Row } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
-import Disqus from "disqus-react";
-
-import aidStore from "../../stores/aids/aidStore";
-
-import { disqusShortname, getDisqusConfig } from "@helpers/disqus";
-
-import { BLUE, GREEN } from "@constants/style";
-
-import BaseButton from "@components/Button";
-
-import DescriptionInfos from "./Infos";
-import DescriptionButtons from "./Buttons";
-import DescriptionsStatus from "./Statuts";
-
-import useWindowSize from "@hooks/useWindowSize";
-
 import ReactMarkdown from "react-markdown";
-import { useEffect } from "react";
+
+import aidStore from "@stores/aids/aidStore";
+
+import { BLUE, GREEN, ORANGE, RED } from "@constants/style";
 
 import { TagView } from "@components/TagView";
-import { ORANGE, YELLOW, RED } from "../../constants/style";
-
-const components = [DescriptionInfos, DescriptionsStatus, DescriptionButtons];
 
 const DescriptionCard = ({ recordId }) => {
-	const size = useWindowSize();
-
-	useEffect(() => {
+	React.useEffect(() => {
 		const script1 = document.createElement("script");
 		script1.type = "text/javascript";
 		script1.textContent = `/* - - - CONFIGURATION VARIABLES - - - */

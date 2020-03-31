@@ -1,7 +1,8 @@
 import { Row, Col } from "antd";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { NAVLINKSMENUMOBILE } from "@constants/routes";
+
+import { NAVLINKS } from "@constants/routes";
 
 const MenuMobile = ({ toggleMobileHeader }) => {
 	const router = useRouter();
@@ -13,7 +14,7 @@ const MenuMobile = ({ toggleMobileHeader }) => {
 
 	return (
 		<Col justify="center" align="middle">
-			{NAVLINKSMENUMOBILE.map(({ href, label, icon }) => (
+			{NAVLINKS.mobile.map(({ href, label, icon }) => (
 				<MenuItem justify="center" key={href}>
 					<a onClick={hangleItemClick(href)}>
 						<Img src={icon} />

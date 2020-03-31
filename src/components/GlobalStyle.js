@@ -1,6 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
-import { BLUE, ORANGE, GREEN, YELLOW, FONT_FAMILY } from "@constants/style";
+import {
+	DARK_BLUE,
+	BLUE,
+	ORANGE,
+	GREEN,
+	YELLOW,
+	FONT_FAMILY,
+	BODY_BACKGROUND,
+	BODY_COLOR
+} from "@constants/style";
 
 const GlobalStyle = createGlobalStyle`
     &::-webkit-scrollbar {
@@ -13,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: ${BLUE};
-        outline: 1px solid ${BLUE};
+        background-color: ${DARK_BLUE};
+        outline: 1px solid ${DARK_BLUE};
     }
 
     .backgroundMobileMenu {
@@ -26,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: ${FONT_FAMILY};
-        color:${BLUE};
+        color:${BODY_COLOR};
 
         @media only screen and (max-width: 768px) {
             background-image: url('/backgroundWaveMobile.png') !important;
@@ -35,12 +44,8 @@ const GlobalStyle = createGlobalStyle`
             background-size: 100% auto !important; 
         }
         @media only screen and (min-width: 769px) {
-            background-color: white;
-            background-image: url(/backgroundWave.png);
-            background-size: auto 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            background-position: left top;
+            background-color: ${BODY_BACKGROUND};
+            height: 100vh;
             overflow: hidden;
         }
     }
@@ -57,31 +62,31 @@ const GlobalStyle = createGlobalStyle`
     h1 {
         font-size: 45px;
         line-height: 27px;
-        color: ${BLUE};
+        color: ${BODY_COLOR};
     }
 
     h2 {
         font-size: 30px;
         line-height: 27px;
         font-weight: 900;
-        color: ${BLUE};
+        color: ${BODY_COLOR};
     }
 
     h3 {
         font-size: 23px;
         line-height: 27px;
         font-weight: 900;
-        color: ${BLUE};
+        color: ${BODY_COLOR};
     }
 
     p {
         font-size: 15px;
         line-height: 27px;
-        color: ${BLUE};
+        color: ${BODY_COLOR};
     }
 
     a {
-        color: ${BLUE};
+        color: ${BODY_COLOR};
     }
 
     a:hover {
@@ -145,7 +150,7 @@ const GlobalStyle = createGlobalStyle`
         pointer-events: none;
 
         .bar {
-            background: ${BLUE};
+            background: ${BODY_COLOR};
             position: fixed;
             z-index: 1031;
             top: 0;
@@ -160,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
             right: 0;
             width: 100px;
             height: 100%;
-            box-shadow: 0 0 10px ${BLUE}, 0 0 5px ${BLUE};
+            box-shadow: 0 0 10px ${BODY_COLOR}, 0 0 5px ${BODY_COLOR};
             opacity: 1;
             -webkit-transform: rotate(3deg) translate(0px, -4px);
             -ms-transform: rotate(3deg) translate(0px, -4px);
@@ -180,8 +185,8 @@ const GlobalStyle = createGlobalStyle`
             height: 18px;
             box-sizing: border-box;
             border: solid 2px transparent;
-            border-top-color: ${BLUE};
-            border-left-color: ${BLUE};
+            border-top-color: ${BODY_COLOR};
+            border-left-color: ${BODY_COLOR};
             border-radius: 50%;
             -webkit-animation: nprogress-spinner 400ms linear infinite;
             animation: nprogress-spinner 400ms linear infinite;

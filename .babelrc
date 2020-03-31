@@ -1,24 +1,25 @@
 {
-    "presets": ["next/babel"],
-    "plugins": [
-        ["@babel/plugin-proposal-decorators", { "legacy": true }],
-        ["styled-components", { "ssr": true }],
-        ["import", { "libraryName": "antd", "style": true }],
-        [
-            "module-resolver",
-            {
-                "root": ["./"],
-                "alias": {
-                    "@components": "./src/components",
-                    "@constants": "./src/constants",
-                    "@containers": "./src/containers",
-                    "@contexts": "./src/contexts",
-                    "@helpers": "./src/helpers",
-                    "@hooks": "./src/hooks",
-                    "@models": "./src/models",
-                    "@screens": "./src/screens"
-                }
-            }
-        ]
-    ]
+	"presets": ["next/babel"],
+	"plugins": [
+		["@babel/plugin-proposal-decorators", { "legacy": true }],
+		["styled-components", { "ssr": true }],
+		["import", { "libraryName": "antd", "style": true }],
+		[
+			"module-resolver",
+			{
+				"root": ["./"],
+				"alias": {
+					"@components": "./src/components",
+					"@constants": "./src/constants",
+					"@containers": "./src/containers",
+					"@contexts": "./src/contexts",
+					"@helpers": "./src/helpers",
+					"@hooks": "./src/hooks",
+					"@models": "./src/models",
+					"@screens": "./src/screens",
+					"@stores": "./src/stores"
+				}
+			}
+		]
+	]
 }

@@ -1,19 +1,17 @@
-import { Col, Typography, Collapse, Radio, Select, Form, Row } from "antd";
-import { EnvironmentFilled } from "@ant-design/icons";
+import { Select, Form } from "antd";
 import styled from "styled-components";
-
-import BaseCard from "@components/Card";
-import { BLUE } from "../../constants/style";
 import { Observer } from "mobx-react";
-import aidStore from "../../stores/aids/aidStore";
-import { useState } from "react";
+
+import { BLUE } from "@constants/style";
+
+import aidStore from "@stores/aids/aidStore";
 
 const { Option } = Select;
 
 const PlansFilters = ({ filters, setFilters }) => {
-	const [activeType, setActiveType] = useState("default");
+	const [activeType, setActiveType] = React.useState("default");
 
-	let form;
+	const [form] = Form.useForm();
 
 	const onTypeChange = value => {
 		form.resetFields(["Activité"]);
@@ -57,10 +55,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 
 			<Observer>
 				{() => (
-					<StyledForm
-						ref={ref => (form = ref)}
-						onValuesChange={onFormValuesChange}
-					>
+					<StyledForm form={form} onValuesChange={onFormValuesChange}>
 						<Form.Item name={aidStore.filterType.key}>
 							<Select
 								placeholder={aidStore.filterType.title}
@@ -147,17 +142,11 @@ const AntiCovidDiv = styled.div`
 	text-align: center;
 	padding-top: 40px;
 	padding-bottom: 40px;
+	max-width: 800px;
 
 	.description {
-		font-size: 20px;
-		line-height: 20px;
-		font-weight: 900;
-		margin-bottom: 5px;
-	}
-
-	.encouragement {
-		font-size: 16px;
-		line-height: 20px;
+		font-size: 30px;
+		margin: auto;
 	}
 `;
 
