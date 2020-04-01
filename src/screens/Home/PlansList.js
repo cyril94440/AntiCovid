@@ -4,7 +4,7 @@ import { Observer } from "mobx-react-lite";
 
 import aidStore from "../../stores/aids/aidStore";
 
-import { GREEN, BODY_COLOR, RED, BLUE } from "../../constants/style";
+import { GREEN, BODY_COLOR, RED, BLUE, GRAY } from "../../constants/style";
 import PlanListRow from "../../components/PlanListRow";
 
 const PlansList = ({ filters, setFilters }) => {
@@ -30,7 +30,7 @@ const PlansList = ({ filters, setFilters }) => {
 								<InfosContainer>
 									<h3>{data.length} aides disponibles</h3>
 									<HelpLink
-										href="https://airtable.com/shroZVJ5EV8tpsaNd"
+										href="https://airtable.com/shr82bZn3LPiNiyQq"
 										target="_blank"
 									>
 										Soumettre une aide
@@ -45,6 +45,7 @@ const PlansList = ({ filters, setFilters }) => {
 												plan["Résumé de l'aide"]
 											}
 											planId={plan.ID}
+											category={plan["categorie"]}
 										/>
 									))}
 								</CardsContainer>
@@ -60,6 +61,7 @@ const PlansList = ({ filters, setFilters }) => {
 												plan["Résumé de l'aide"]
 											}
 											planId={plan.ID}
+											category={plan["categorie"]}
 										/>
 									))}
 								</CardsContainer>
@@ -147,6 +149,8 @@ const CardsContainer = styled.div`
 	display: grid;
 	grid-template: 1fr / 1fr;
 	grid-gap: 14px;
+	background-color: ${GRAY};
+	padding: 20px;
 `;
 
 export default PlansList;

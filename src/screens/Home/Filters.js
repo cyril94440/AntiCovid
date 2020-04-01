@@ -148,7 +148,7 @@ const StyledForm = styled(Form)`
 	background-color: white;
 	// max-width: 600px;
 
-	overflow: hidden;
+	// overflow: hidden;
 	padding: 20px;
 	margin-bottom: 20px;
 	display: grid;

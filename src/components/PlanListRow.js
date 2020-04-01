@@ -7,27 +7,32 @@ import { PLAN_HREF, PLANS } from "@constants/routes";
 
 import { DesktopOnly } from "./ResponsiveCompo";
 
-export default function PlanListRow({ name, description, planId }) {
+export default function PlanListRow({ name, description, planId, category }) {
 	const router = useRouter();
 
 	return (
 		<Container onClick={() => router.push(PLAN_HREF, PLANS + "/" + planId)}>
-			<IconDiv />
-			<Col>
+			<IconCol>
+				<CategoryImg
+					src={`/CATEGORIES/${category}.png`}
+					alt={category}
+				/>
+			</IconCol>
+			<MainCol>
 				<MainContent>
 					<TextContent>
 						<TitleH4>{name}</TitleH4>
 						<DesktopOnly
-							style={{
-								maxHeight: "50px"
-							}}
+						// style={{
+						// 	maxHeight: "50px"
+						// }}
 						>
 							{description}
 						</DesktopOnly>
 					</TextContent>
 				</MainContent>
 
-				<ReactionDiv>
+				{/* <ReactionDiv>
 					<span
 						className="comments"
 						style={{ color: `${RED}`, margin: "0 70px 0 10px" }}
@@ -35,8 +40,8 @@ export default function PlanListRow({ name, description, planId }) {
 						<CommentOutlined />
 						<CommentNumber>12</CommentNumber>
 					</span>
-				</ReactionDiv>
-			</Col>
+				</ReactionDiv> */}
+			</MainCol>
 		</Container>
 	);
 }
@@ -49,18 +54,21 @@ const Container = styled.div`
 	cursor: pointer;
 	overflow: hidden;
 	display: grid;
-	grid-template: 80px / 70px 1fr 50px;
+	grid-template: 140px / 100px 1fr 50px;
 `;
 
-const IconDiv = styled(Col)`
-	height: 66px;
-	width: 66px;
-	border-radius: 8px;
-	margin-left: 7px;
-	margin-top :7px;
-	background-image: url("https://picsum.photos/66");
-	background-color: #f1f1f1;
-	display flex;
+const IconCol = styled(Col)`
+	height: 140px;
+	margin: auto;
+	text-align: center;
+	display: flex;
+`;
+const CategoryImg = styled.img`
+	width: 70px;
+	object-fit: contain;
+`;
+const MainCol = styled(Col)`
+	height: 140px;
 `;
 const ReactionDiv = styled(Row)`
 	border-radius: 8px;
@@ -79,6 +87,7 @@ const CommentNumber = styled.span`
 const MainContent = styled(Row)`
 	padding-left: 14px;
 	display: flex;
+	height: 140px;
 	justify-content: left;
 	align-items: center;
 `;

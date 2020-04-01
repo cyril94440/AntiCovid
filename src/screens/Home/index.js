@@ -7,6 +7,7 @@ import BaseButton from "@components/Button";
 
 import PlansFilters from "./Filters";
 import PlansList from "./PlansList";
+import { Main } from "next/document";
 
 const Plans = () => {
 	const [filters, setFilters] = React.useState({
@@ -40,10 +41,21 @@ const Plans = () => {
 
 	return (
 		<Page title="Mes aides">
-			<PlansFilters filters={filters} setFilters={setFilters} />
-			<PlansList filters={filters} setFilters={setFilters} />
+			<MainContent>
+				<PlansFilters filters={filters} setFilters={setFilters} />
+				<PlansList filters={filters} setFilters={setFilters} />
+			</MainContent>
 		</Page>
 	);
 };
+
+const MainContent = styled.div`
+	width: 80%;
+	margin: auto;
+
+	@media only screen and (max-width: 1200px) {
+		width: 95%;
+	}
+`;
 
 export default Plans;
