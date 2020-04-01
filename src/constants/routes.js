@@ -12,7 +12,12 @@ export const NAVLINKS = {
 	],
 	mobile: [
 		{ href: HOME, label: "ACCUEIL", icon: "/homeWhiteIcon.png" },
-		{ href: CONTACT, label: "CONTACT", icon: "/contactWhiteIcon.png" }
+		{ href: CONTACT, label: "CONTACT", icon: "/contactWhiteIcon.png" },
+		{
+			href: JOIN_US,
+			label: "REJOIGNEZ-NOUS",
+			icon: "/communityWhiteIcon.png"
+		}
 	]
 };
 

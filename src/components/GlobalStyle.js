@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .backgroundMobileMenu {
-        background-image: url('/backgroundMobileMenu.png') !important;
+        // background-image: url('/backgroundMobileMenu.png') !important;
         background-repeat: no-repeat !important;
         background-position: left top !important;
         background-size: 100% 100% !important; 
@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
         color:${BODY_COLOR};
 
         @media only screen and (max-width: 768px) {
-            background-image: url('/backgroundWaveMobile.png') !important;
+            // background-image: url('/backgroundWaveMobile.png') !important;
             background-repeat: no-repeat !important;
             background-position: left top !important;
             background-size: 100% auto !important; 
@@ -141,7 +141,7 @@ const GlobalStyle = createGlobalStyle`
 
     .mobile-icon {
         font-size: 30px;
-        color: white;
+        color: ${DARK_BLUE};
     }
 
     /* NProgress */

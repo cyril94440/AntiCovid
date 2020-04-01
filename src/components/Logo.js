@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 	.mobile {
 		font-weight: 900;
 		font-size: 30px;
-		color: white;
+		color: ${DARK_BLUE};
 	}
 
 	.desktop {

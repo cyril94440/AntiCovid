@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 import { NAVLINKS } from "@constants/routes";
+import { DARK_BLUE } from "../../constants/style";
 
 const MenuMobile = ({ toggleMobileHeader }) => {
 	const router = useRouter();
@@ -36,12 +37,14 @@ const MenuItem = styled(Row)`
 `;
 const Img = styled.img`
 	height: 30px;
+	filter: invert(32%) sepia(7%) saturate(5465%) hue-rotate(191deg)
+		brightness(99%) contrast(89%);
 `;
 
 const Label = styled.div`
 	font-size: 23px !important;
 	font-weight: bold;
-	color: white !important;
+	color: ${DARK_BLUE} !important;
 `;
 
 export default MenuMobile;

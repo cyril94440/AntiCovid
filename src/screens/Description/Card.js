@@ -227,9 +227,9 @@ const CloseIcon = styled(CloseOutlined)`
 `;
 
 const Container = styled.div`
-	// @media screen and (max-width: 576px) {
-	// 	padding: 20px 30px;
-	// }
+	@media screen and (max-width: 576px) {
+		padding: 20px 20px;
+	}
 	padding: 20px 100px 20px 50px;
 	font-size: 15px;
 
