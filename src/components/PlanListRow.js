@@ -19,8 +19,7 @@ export default function PlanListRow({ name, description, planId }) {
 						<TitleH4>{name}</TitleH4>
 						<DesktopOnly
 							style={{
-								maxHeight: "50px",
-								fontfamily: "Montserrat Regular, arial"
+								maxHeight: "50px"
 							}}
 						>
 							{description}
@@ -29,15 +28,6 @@ export default function PlanListRow({ name, description, planId }) {
 				</MainContent>
 
 				<ReactionDiv>
-					{" "}
-					{/* Has to be improve to render dynamically the number of stares */}
-					<span className="stars" style={{ color: `${YELLOW}` }}>
-						<StarOutlined />
-						<StarOutlined />
-						<StarOutlined />
-						<StarOutlined />
-						<StarNumber>4</StarNumber>
-					</span>
 					<span
 						className="comments"
 						style={{ color: `${RED}`, margin: "0 70px 0 10px" }}
@@ -55,9 +45,6 @@ const Container = styled.div`
 	background-color: white;
 	border-radius: 20px;
 	height: 140px;
-	-webkit-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-	box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
 	margin-bottom: 0px;
 	cursor: pointer;
 	overflow: hidden;
@@ -88,10 +75,7 @@ const CommentNumber = styled.span`
 	margin-left: 5px;
 	font-weight: 700;
 `;
-const StarNumber = styled.span`
-	margin-left: 5px;
-	font-weight: 700;
-`;
+
 const MainContent = styled(Row)`
 	padding-left: 14px;
 	display: flex;
@@ -101,8 +85,7 @@ const MainContent = styled(Row)`
 const TextContent = styled.div``;
 
 const TitleH4 = styled.h4`
-	margin-top : 7px;
-	font-family: "Montserrat Bold, arial"
+	margin-top: 7px;
 	display: inline;
 	font-weight: 700;
 	font-size: 1.1em;

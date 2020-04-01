@@ -1,4 +1,3 @@
-import { Row, Col } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 

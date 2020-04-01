@@ -1,88 +1,98 @@
-import { Row, Col, Radio } from "antd";
+import { Tabs } from "antd";
 import styled from "styled-components";
 import { Observer } from "mobx-react-lite";
 
 import aidStore from "../../stores/aids/aidStore";
 
-import { BLUE } from "@constants/style";
-
-import PlanCard from "@components/PlanCard";
-import { ORANGE } from "../../constants/style";
+import { GREEN, BODY_COLOR, RED, BLUE } from "../../constants/style";
 import PlanListRow from "../../components/PlanListRow";
-import { DesktopOnly } from "../../components/ResponsiveCompo";
-
-const Badge = styled.span`
-	color: ${ORANGE};
-	margin: auto;
-	float: center;
-`;
 
 const PlansList = ({ filters, setFilters }) => {
-	const radioOnChange = event => {
-		setFilters({ ...filters, "Nature de l'aide": event.target.value });
+	const radioOnChange = key => {
+		setFilters({ ...filters, "Nature de l'aide": key });
 	};
 
 	return (
 		<div>
-			<DesktopOnly>
-				<Title>
-					{" "}
-					<Observer>
-						{() => {
-							return aidStore.filteredAids(filters).length;
-						}}
-					</Observer>{" "}
-					aides disponibles
-				</Title>
-			</DesktopOnly>
+			<Observer>
+				{() => {
+					const data = aidStore.filteredAids(filters);
 
-			<RadioContainer>
-				<Radio.Group
-					defaultValue="aide professionnelle"
-					buttonStyle="solid"
-					size="large"
-					onChange={radioOnChange}
-				>
-					<Radio.Button value="aide professionnelle">
-						{" "}
-						Professionnel{" "}
-					</Radio.Button>
-					<Radio.Button value="aide personnelle">
-						{" "}
-						Particulier{" "}
-					</Radio.Button>
-				</Radio.Group>
-			</RadioContainer>
-
-			<Container>
-				<CardsContainer>
-					<Observer>
-						{() =>
-							aidStore
-								.filteredAids(filters)
-								.map(plan => (
-									<PlanListRow
-										key={plan.ID}
-										name={plan["Nom de l'aide"]}
-										description={plan["Résumé de l'aide"]}
-										planId={plan.ID}
-									/>
-								))
-						}
-					</Observer>
-				</CardsContainer>
-			</Container>
+					return (
+						<StyledTabs
+							defaultActiveKey="aide professionnelle"
+							onChange={radioOnChange}
+						>
+							<Container
+								tab="Professionnel"
+								key="aide professionnelle"
+							>
+								<InfosContainer>
+									<h3>{data.length} aides disponibles</h3>
+									<HelpLink
+										href="https://airtable.com/shroZVJ5EV8tpsaNd"
+										target="_blank"
+									>
+										Soumettre une aide
+									</HelpLink>
+								</InfosContainer>
+								<CardsContainer>
+									{data.map(plan => (
+										<PlanListRow
+											key={plan.ID}
+											name={plan["Nom de l'aide"]}
+											description={
+												plan["Résumé de l'aide"]
+											}
+											planId={plan.ID}
+										/>
+									))}
+								</CardsContainer>
+							</Container>
+							<Container tab="Particulier" key="aide personnelle">
+								<InfosContainer></InfosContainer>
+								<CardsContainer>
+									{data.map(plan => (
+										<PlanListRow
+											key={plan.ID}
+											name={plan["Nom de l'aide"]}
+											description={
+												plan["Résumé de l'aide"]
+											}
+											planId={plan.ID}
+										/>
+									))}
+								</CardsContainer>
+							</Container>
+						</StyledTabs>
+					);
+				}}
+			</Observer>
 		</div>
 	);
 };
 
-const Title = styled.h3`
-	margin-left: 30px;
-	color: black;
-	font-family: "Montserrat Bold, arial";
+const StyledTabs = styled(Tabs)`
+	.ant-tabs-tab {
+		color: ${BODY_COLOR};
+		font-size: 18px;
+
+		&:hover {
+			color: ${BODY_COLOR};
+		}
+	}
+
+	.ant-tabs-tab-active {
+		color: ${BODY_COLOR};
+		font-weight: bold;
+	}
+
+	.ant-tabs-ink-bar {
+		background-color: ${RED} !important;
+	}
 `;
 
-const Container = styled.div`
+const Container = styled(Tabs.TabPane)`
 	padding: 0 5px;
 	padding-bottom: 20px;
 	height: auto;
@@ -97,8 +107,8 @@ const Container = styled.div`
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: ${BLUE};
-		outline: 1px solid ${BLUE};
+		background-color: ${GREEN};
+		outline: 1px solid ${GREEN};
 	}
 
 	@media screen and (max-width: 1200px) {
@@ -112,41 +122,24 @@ const Container = styled.div`
 	}
 `;
 
-const RadioContainer = styled.div`
-	width: 100%;
-	text-align: center;
-	position: relative;
-	top: -40px;
+const InfosContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 15px 0;
+	margin: 15px 0;
+`;
 
-	@media screen and (max-width: 768px) {
-		top: 0px;
-		margin-bottom: 20px;
-	}
+const HelpLink = styled.a`
+	cursor: pointer;
+	color: white;
+	background-color: ${BLUE};
+	padding: 10px 30px;
+	font-size: 20px;
+	border-radius: 25px;
 
-	.ant-radio-group {
-		border-radius: 10px;
-		overflow: hidden;
-		-webkit-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-		-moz-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-		box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-		font-weight: 700;
-		border: none !important;
-	}
-	.ant-radio-button-wrapper {
-		border: none !important;
-		height: 50px;
-		line-height: 50px;
-		width: 200px;
-		@media screen and (max-width: 768px) {
-			width: auto;
-		}
-	}
-	.ant-radio-button-wrapper-checked {
-		border: none !important;
-		background-color: ${ORANGE} !important;
-	}
-	.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
-		background: none;
+	&:hover {
+		color: white;
 	}
 `;
 

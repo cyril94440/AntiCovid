@@ -42,39 +42,8 @@ const Plans = () => {
 		<Page title="Mes aides">
 			<PlansFilters filters={filters} setFilters={setFilters} />
 			<PlansList filters={filters} setFilters={setFilters} />
-
-			<HelpButtonContainer>
-				<HelpButton>
-					<HelpLink
-						className="text-white"
-						href="https://airtable.com/shroZVJ5EV8tpsaNd"
-						target="_blank"
-					>
-						SOUMETTRE UNE AIDE
-					</HelpLink>
-				</HelpButton>
-			</HelpButtonContainer>
 		</Page>
 	);
 };
-
-const HelpButtonContainer = styled.div`
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 40px;
-`;
-
-const HelpButton = styled(BaseButton)`
-	padding: 0 30px;
-	transition: all 0.5s;
-	background-color: ${BLUE};
-`;
-const HelpLink = styled.a`
-	color: white;
-
-	&:hover {
-		color: white;
-	}
-`;
 
 export default Plans;

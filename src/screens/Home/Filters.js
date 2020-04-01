@@ -5,6 +5,7 @@ import { Observer } from "mobx-react";
 
 import { BLUE, BLUE_BACKGROUND, YELLOW, RED } from "@constants/style";
 import aidStore from "@stores/aids/aidStore";
+import { DARK_BLUE } from "../../constants/style";
 const { Option } = Select;
 
 const PlansFilters = ({ filters, setFilters }) => {
@@ -52,7 +53,6 @@ const PlansFilters = ({ filters, setFilters }) => {
 			</AntiCovidDiv>
 			<h3
 				style={{
-					fontfamily: "Montserrat Bold, arial",
 					marginLeft: 30
 				}}
 			>
@@ -61,7 +61,11 @@ const PlansFilters = ({ filters, setFilters }) => {
 
 			<Observer>
 				{() => (
-					<StyledForm form={form} onValuesChange={onFormValuesChange}>
+					<StyledForm
+						form={form}
+						onValuesChange={onFormValuesChange}
+						size="large"
+					>
 						<Form.Item name={aidStore.filterType.key}>
 							<Select
 								placeholder={
@@ -69,7 +73,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 										<UserOutlined
 											style={{
 												color: `${RED}`,
-												margin: "0 6px 0 0"
+												marginRight: 15
 											}}
 										/>
 										{aidStore.filterType.title}
@@ -78,7 +82,9 @@ const PlansFilters = ({ filters, setFilters }) => {
 								onChange={onTypeChange}
 							>
 								{[...aidStore.filterType.data].map(value => (
-									<Option value={value}>{value}</Option>
+									<Option key={value} value={value}>
+										{value}
+									</Option>
 								))}
 							</Select>
 						</Form.Item>
@@ -89,7 +95,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 										<ToolOutlined
 											style={{
 												color: `${YELLOW}`,
-												margin: "0 6px 0 0"
+												marginRight: 15
 											}}
 										/>
 										{aidStore.filterActivity.title}
@@ -100,7 +106,9 @@ const PlansFilters = ({ filters, setFilters }) => {
 								{[
 									...aidStore.filterActivity.data[activeType]
 								].map(value => (
-									<Option value={value}>{value}</Option>
+									<Option key={value} value={value}>
+										{value}
+									</Option>
 								))}
 							</Select>
 						</Form.Item>
@@ -111,7 +119,7 @@ const PlansFilters = ({ filters, setFilters }) => {
 										<CompassOutlined
 											style={{
 												color: `${BLUE}`,
-												margin: "0 6px 0 0"
+												marginRight: 15
 											}}
 										/>
 										{aidStore.filterLocalisation.title}
@@ -120,7 +128,9 @@ const PlansFilters = ({ filters, setFilters }) => {
 							>
 								{[...aidStore.filterLocalisation.data].map(
 									value => (
-										<Option value={value}>{value}</Option>
+										<Option key={value} value={value}>
+											{value}
+										</Option>
 									)
 								)}
 							</Select>
@@ -134,46 +144,25 @@ const PlansFilters = ({ filters, setFilters }) => {
 
 const Container = styled.div``;
 const StyledForm = styled(Form)`
-	color: black;
 	margin-left: 10px;
 	background-color: white;
 	// max-width: 600px;
-	-webkit-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-	box-shadow: 8px 7px 29px -4px rgba(0, 0, 0, 0.4);
-	border-radius: 20px;
+
 	overflow: hidden;
 	padding: 20px;
 	margin-bottom: 20px;
+	display: grid;
+	grid-gap: 15px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
 	.ant-select-selector {
 		background-color: ${BLUE_BACKGROUND} !important;
 		border: none !important;
 		border-radius: 20px !important;
-		height: 40px !important;
-		font-size: medium;
-	}
-
-	.ant-select-single {
-		height: 40px !important;
-		line-height: 40px !important;
-		font-weight: 700;
-	}
-
-	.ant-select-selection-item {
-		position: relative !important;
-		left: 20px !important;
-		top: 5px;
-		font-size: medium;
 	}
 
 	.ant-select-selection-placeholder {
-		line-height: 40px !important;
-		color: black;
-		font-weight: 500;
-		opacity: 1;
-		position: relative;
-		left: 20px;
+		color: black !important;
 	}
 `;
 
