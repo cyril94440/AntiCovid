@@ -4,6 +4,7 @@ import { BLUE, ORANGE } from "@constants/style";
 
 import BaseCard from "@components/Card";
 import BaseButton from "@components/Button";
+import { DARK_BLUE } from "../../constants/style";
 
 const data = [
 	{
@@ -13,7 +14,9 @@ const data = [
 			"Front-End (React)",
 			"Back-End (Node.js)",
 			"Design (Figma, Photoshop)"
-		]
+		],
+		filter:
+			"invert(68%) sepia(11%) saturate(2825%) hue-rotate(173deg) brightness(86%) contrast(78%);"
 	},
 	{
 		title: "Marketing digital / produit",
@@ -26,7 +29,9 @@ const data = [
 			"Partenariats",
 			"Gestion de projets",
 			"Evolution du site web"
-		]
+		],
+		filter:
+			"invert(29%) sepia(95%) saturate(1479%) hue-rotate(341deg) brightness(89%) contrast(90%);"
 	},
 	{
 		title: "Finance Comptabilité",
@@ -35,16 +40,18 @@ const data = [
 			"Compléter, simplifier et amélioler le contenur sur les aides",
 			"Répondes aux questions",
 			"Réaliser des webinars"
-		]
+		],
+		filter:
+			"invert(83%) sepia(99%) saturate(825%) hue-rotate(315deg) brightness(92%) contrast(93%);"
 	}
 ];
 
 const JoinUsDescription = () => (
 	<Container className="text-center mx-auto" style={{ padding: 15 }}>
 		<Grid>
-			{data.map(({ title, icon, items }) => (
+			{data.map(({ title, icon, items, filter }) => (
 				<StyledCard key={title}>
-					<Img src={icon} />
+					<Img src={icon} style={{ filter: filter }} />
 					<TextCard>{title}</TextCard>
 					<ul
 						className="text-center"
@@ -107,6 +114,8 @@ const JoinUsButton = styled(BaseButton)`
 	background-color: ${BLUE};
 	font-weight: 500;
 	width: 400px;
+	height: 50px;
+	border-radius: 25px;
 
 	@media screen and (max-width: 992px) {
 		margin-bottom: 90px;
@@ -116,7 +125,7 @@ const JoinUsButton = styled(BaseButton)`
 		color: white;
 	}
 	a:hover {
-		color: ${ORANGE};
+		color: ${DARK_BLUE};
 	}
 `;
 
