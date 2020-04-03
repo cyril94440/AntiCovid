@@ -8,7 +8,7 @@ import { GREEN, BODY_COLOR, RED, BLUE, GRAY } from "../../constants/style";
 import PlanListRow from "../../components/PlanListRow";
 
 const PlansList = ({ filters, setFilters }) => {
-	const radioOnChange = key => {
+	const radioOnChange = (key) => {
 		setFilters({ ...filters, "Nature de l'aide": key });
 	};
 
@@ -29,15 +29,9 @@ const PlansList = ({ filters, setFilters }) => {
 							>
 								<InfosContainer>
 									<h3>{data.length} aides disponibles</h3>
-									<HelpLink
-										href="https://airtable.com/shr82bZn3LPiNiyQq"
-										target="_blank"
-									>
-										Soumettre une aide
-									</HelpLink>
 								</InfosContainer>
 								<CardsContainer>
-									{data.map(plan => (
+									{data.map((plan) => (
 										<PlanListRow
 											key={plan.ID}
 											name={plan["Nom de l'aide"]}
@@ -53,7 +47,7 @@ const PlansList = ({ filters, setFilters }) => {
 							<Container tab="Particulier" key="aide personnelle">
 								<InfosContainer></InfosContainer>
 								<CardsContainer>
-									{data.map(plan => (
+									{data.map((plan) => (
 										<PlanListRow
 											key={plan.ID}
 											name={plan["Nom de l'aide"]}
@@ -70,6 +64,14 @@ const PlansList = ({ filters, setFilters }) => {
 					);
 				}}
 			</Observer>
+			<HelpLinkContainer>
+				<HelpLink
+					href="https://airtable.com/shr82bZn3LPiNiyQq"
+					target="_blank"
+				>
+					Soumettre une aide
+				</HelpLink>
+			</HelpLinkContainer>
 		</div>
 	);
 };
@@ -132,6 +134,13 @@ const InfosContainer = styled.div`
 	margin: 15px 0;
 `;
 
+const HelpLinkContainer = styled.div`
+	text-align: center;
+	padding-bottom: 40px;
+	@media only screen and (max-width: 1200px) {
+		padding-top: 40px;
+	}
+`;
 const HelpLink = styled.a`
 	cursor: pointer;
 	color: white;
@@ -139,6 +148,7 @@ const HelpLink = styled.a`
 	padding: 10px 30px;
 	font-size: 20px;
 	border-radius: 25px;
+	text-align: center;
 
 	&:hover {
 		color: white;
