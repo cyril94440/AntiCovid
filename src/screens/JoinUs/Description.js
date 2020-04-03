@@ -15,8 +15,7 @@ const data = [
 			"Back-End (Node.js)",
 			"Design (Figma, Photoshop)"
 		],
-		filter:
-			"invert(68%) sepia(11%) saturate(2825%) hue-rotate(173deg) brightness(86%) contrast(78%);"
+		filter: "one"
 	},
 	{
 		title: "Marketing digital / produit",
@@ -30,8 +29,7 @@ const data = [
 			"Gestion de projets",
 			"Evolution du site web"
 		],
-		filter:
-			"invert(29%) sepia(95%) saturate(1479%) hue-rotate(341deg) brightness(89%) contrast(90%);"
+		filter: "two"
 	},
 	{
 		title: "Finance Comptabilité",
@@ -41,8 +39,7 @@ const data = [
 			"Répondes aux questions",
 			"Réaliser des webinars"
 		],
-		filter:
-			"invert(83%) sepia(99%) saturate(825%) hue-rotate(315deg) brightness(92%) contrast(93%);"
+		filter: "three"
 	}
 ];
 
@@ -51,7 +48,7 @@ const JoinUsDescription = () => (
 		<Grid>
 			{data.map(({ title, icon, items, filter }) => (
 				<StyledCard key={title}>
-					<Img src={icon} style={{ filter: filter }} />
+					<Img src={icon} className={filter} />
 					<TextCard>{title}</TextCard>
 					<ul
 						className="text-center"
@@ -78,6 +75,19 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	.one {
+		filter: invert(68%) sepia(11%) saturate(2825%) hue-rotate(173deg)
+			brightness(86%) contrast(78%);
+	}
+	.two {
+		filter: invert(29%) sepia(95%) saturate(1479%) hue-rotate(341deg)
+			brightness(89%) contrast(90%);
+	}
+	.three {
+		filter: invert(83%) sepia(99%) saturate(825%) hue-rotate(315deg)
+			brightness(92%) contrast(93%);
+	}
 `;
 
 const Grid = styled.div`
