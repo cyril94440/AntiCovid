@@ -4,7 +4,14 @@ import { Observer } from "mobx-react-lite";
 
 import aidStore from "../../stores/aids/aidStore";
 
-import { GREEN, BODY_COLOR, RED, BLUE, GRAY } from "../../constants/style";
+import {
+	GREEN,
+	BODY_COLOR,
+	RED,
+	BLUE,
+	GRAY,
+	DARKGRAY,
+} from "../../constants/style";
 import PlanListRow from "../../components/PlanListRow";
 
 const PlansList = ({ filters, setFilters }) => {
@@ -12,58 +19,77 @@ const PlansList = ({ filters, setFilters }) => {
 		setFilters({ ...filters, "Nature de l'aide": key });
 	};
 
+	const isFilterEmpty = (filters) => {
+		return Object.keys(filters).length === 1;
+	};
+
 	return (
 		<div>
-			<Observer>
-				{() => {
-					const data = aidStore.filteredAids(filters);
-
-					return (
-						<StyledTabs
-							defaultActiveKey="aide professionnelle"
-							onChange={radioOnChange}
-						>
-							<Container
-								tab="Professionnel"
-								key="aide professionnelle"
+			{isFilterEmpty(filters) ? (
+				<ImgContainer>
+					<p>
+						Renseignez les informations de votre société pour
+						afficher les dispositifs qui vous concernent
+					</p>
+					<img
+						src="/illus_placeholder.png"
+						alt="Illustration filtres"
+					/>
+				</ImgContainer>
+			) : (
+				<Observer>
+					{() => {
+						const data = aidStore.filteredAids(filters);
+						return (
+							<StyledTabs
+								defaultActiveKey="aide professionnelle"
+								onChange={radioOnChange}
 							>
-								<InfosContainer>
-									<h3>{data.length} aides disponibles</h3>
-								</InfosContainer>
-								<CardsContainer>
-									{data.map((plan) => (
-										<PlanListRow
-											key={plan.ID}
-											name={plan["Nom de l'aide"]}
-											description={
-												plan["Résumé de l'aide"]
-											}
-											planId={plan.ID}
-											category={plan["categorie"]}
-										/>
-									))}
-								</CardsContainer>
-							</Container>
-							<Container tab="Particulier" key="aide personnelle">
-								<InfosContainer></InfosContainer>
-								<CardsContainer>
-									{data.map((plan) => (
-										<PlanListRow
-											key={plan.ID}
-											name={plan["Nom de l'aide"]}
-											description={
-												plan["Résumé de l'aide"]
-											}
-											planId={plan.ID}
-											category={plan["categorie"]}
-										/>
-									))}
-								</CardsContainer>
-							</Container>
-						</StyledTabs>
-					);
-				}}
-			</Observer>
+								<Container
+									tab="Professionnel"
+									key="aide professionnelle"
+								>
+									<InfosContainer>
+										<h3>{data.length} aides disponibles</h3>
+									</InfosContainer>
+									<CardsContainer>
+										{data.map((plan) => (
+											<PlanListRow
+												key={plan.ID}
+												name={plan["Nom de l'aide"]}
+												description={
+													plan["Résumé de l'aide"]
+												}
+												planId={plan.ID}
+												category={plan["categorie"]}
+											/>
+										))}
+									</CardsContainer>
+								</Container>
+								<Container
+									tab="Particulier"
+									key="aide personnelle"
+								>
+									<InfosContainer></InfosContainer>
+									<CardsContainer>
+										{data.map((plan) => (
+											<PlanListRow
+												key={plan.ID}
+												name={plan["Nom de l'aide"]}
+												description={
+													plan["Résumé de l'aide"]
+												}
+												planId={plan.ID}
+												category={plan["categorie"]}
+											/>
+										))}
+									</CardsContainer>
+								</Container>
+							</StyledTabs>
+						);
+					}}
+				</Observer>
+			)}
 			<HelpLinkContainer>
 				<HelpLink
 					href="https://airtable.com/shr82bZn3LPiNiyQq"
@@ -161,6 +187,23 @@ const CardsContainer = styled.div`
 	grid-gap: 14px;
 	background-color: ${GRAY};
 	padding: 20px;
+`;
+
+const ImgContainer = styled.div`
+	margin: auto;
+	text-align: center;
+	padding-bottom: 40px;
+
+	img {
+		max-width: 80%;
+		height: auto;
+	}
+
+	p {
+		font-style: italic;
+		margin-bottom: 40px;
+		color: ${DARKGRAY};
+	}
 `;
 
 export default PlansList;
